@@ -3167,15 +3167,16 @@ const renderRecentSearches = () => {
   const suggestions = ["Pricing", "Privacy", "Accessibility", "FAQ"];
   const values = recentSearches.length ? recentSearches : suggestions;
 
-  recentContainer.innerHTML = values
-    .map(
-      (value) => `
-        <button type="button" data-search-recent-query="${value}">
-          <span>${value}</span>
-        </button>
-      `,
-    )
-    .join("");
+  recentContainer.innerHTML = "";
+  values.forEach((value) => {
+    const button = document.createElement("button");
+    const label = document.createElement("span");
+    button.type = "button";
+    button.dataset.searchRecentQuery = String(value);
+    label.textContent = String(value);
+    button.appendChild(label);
+    recentContainer.appendChild(button);
+  });
 };
 
 const showSiteSearchDialog = () => {
