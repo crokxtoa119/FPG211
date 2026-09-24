@@ -377,3 +377,148 @@ html[data-theme] body .home-section-kicker::before {
     display: none;
   }
 }
+
+/* ---------------------------------------------------------------------------
+   Light appearance (macOS light)
+--------------------------------------------------------------------------- */
+html[data-theme="light"],
+html[data-theme="light"] body[class] {
+  color-scheme: light;
+  --bg: #f5f5f7;
+  --modern-page-bg: #f5f5f7;
+  --page-bg: #f5f5f7;
+  --sidebar-bg: #e9e9ee;
+  --ink: #1d1d1f;
+  --muted: #6e6e73;
+  --line: rgba(0, 0, 0, 0.1);
+  --panel: rgba(0, 0, 0, 0.03);
+  --panel-solid: #ffffff;
+  --panel-border: rgba(0, 0, 0, 0.1);
+  --card-bg: #ffffff;
+  --card-bg-strong: #ffffff;
+  --pill-bg: rgba(0, 0, 0, 0.05);
+  --segment-bg: rgba(0, 0, 0, 0.05);
+  --soft: #ececf0;
+  --nav-bg: rgba(245, 245, 247, 0.82);
+  --brand: #007aff;
+  --accent: #007aff;
+  --action-bg: #007aff;
+  --action-ink: #ffffff;
+  --shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Captions sit on photos, so they stay dark in both appearances */
+html[data-theme="light"] body :is(.bento-media, figure) figcaption {
+  border-color: rgba(255, 255, 255, 0.14);
+  background: rgba(20, 20, 22, 0.62);
+  color: #f5f5f7;
+}
+
+html[data-theme="light"] body :is(.bento-media, figure) figcaption :is(span, strong, small) {
+  color: inherit;
+}
+
+html[data-theme="light"] body :is(.button.ghost, .bento-actions .button.ghost) {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+html[data-theme="light"] body .bento-card {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+html[data-theme="light"] body .home-section-kicker {
+  background: rgba(0, 122, 255, 0.1);
+  color: #0062cc;
+}
+
+@media (min-width: 1024px) {
+  html[data-nav-layout="sidebar"][data-theme="light"] body .topbar {
+    border-right-color: rgba(0, 0, 0, 0.12);
+    box-shadow: none;
+  }
+
+  html[data-nav-layout="sidebar"][data-theme="light"] body .topbar > .sidebar-search {
+    background: rgba(0, 0, 0, 0.06);
+  }
+
+  html[data-nav-layout="sidebar"][data-theme="light"] body .topbar > .sidebar-search:hover {
+    background: rgba(0, 0, 0, 0.09);
+  }
+
+  html[data-nav-layout="sidebar"][data-theme="light"] body .topbar > .sidebar-search kbd {
+    background: rgba(0, 0, 0, 0.06);
+  }
+
+  html[data-nav-layout="sidebar"][data-theme="light"] body .topbar :is(.nav-links a:hover, .sidebar-account-trigger:hover, .sidebar-account-trigger[aria-expanded="true"]) {
+    background: rgba(0, 0, 0, 0.06);
+  }
+
+  html[data-nav-layout="sidebar"][data-theme="light"] body .topbar .nav-links a.is-active {
+    color: #ffffff;
+  }
+
+  html[data-nav-layout="sidebar"][data-theme="light"] body .topbar .sidebar-account-panel {
+    background: #ffffff;
+  }
+
+  html[data-nav-layout="sidebar"][data-theme="light"] body .content-toolbar-button:hover:not(:disabled) {
+    background: rgba(0, 0, 0, 0.06);
+  }
+}
+
+/* Light appearance: spots whose colours come from local variables */
+html[data-theme="light"] body :is(.status-overall-card, .status-list article) {
+  --status-tone: #6e6e73;
+}
+
+html[data-theme="light"] body :is(.status-overall-card, .status-list article)[data-status-state="operational"] {
+  --status-tone: #248a3d;
+}
+
+html[data-theme="light"] body :is(.status-overall-card, .status-list article)[data-status-state="degraded"] {
+  --status-tone: #b25000;
+}
+
+html[data-theme="light"] body :is(.status-overall-card, .status-list article)[data-status-state="unavailable"] {
+  --status-tone: #d70015;
+}
+
+html[data-theme="light"] body :is(main .activity-action-link[data-activity-clear]) {
+  color: #c4291f;
+}
+
+html[data-theme="light"] body .faq-feedback-link {
+  border-color: transparent;
+  background: var(--brand);
+  color: #ffffff;
+}
+
+/* The white wordmark image needs to turn dark on light backgrounds */
+html[data-theme="light"] body .brand-logo:not(.workspace-brand)::before {
+  filter: invert(1);
+}
+
+/* Legal pages carried their own tinted palette; in light they follow the site palette */
+html[data-theme="light"] body[class] {
+  --legal-bg: var(--bg);
+  --legal-ink: var(--ink);
+  --legal-muted: var(--muted);
+  --legal-soft: rgba(0, 0, 0, 0.035);
+  --legal-line: var(--line);
+  --legal-line-strong: rgba(0, 0, 0, 0.16);
+  --legal-accent: var(--brand);
+}
+
+/* Settings window in light: white content pane beside a soft grey sidebar */
+html[data-theme="light"] body .settings-dialog {
+  --settings-modal-shell: #ffffff;
+  --settings-modal-nav: #f0f0f3;
+  --settings-modal-content: #ffffff;
+  --settings-modal-control: #ffffff;
+  --settings-modal-control-hover: #f2f2f5;
+  --settings-modal-active: rgba(0, 0, 0, 0.07);
+  --settings-modal-line: rgba(0, 0, 0, 0.1);
+  --settings-modal-line-strong: rgba(0, 0, 0, 0.14);
+  --settings-modal-ink: #1d1d1f;
+  --settings-modal-muted: #6e6e73;
+}

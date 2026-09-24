@@ -1,4 +1,4 @@
-const CACHE_NAME = "profile-offline-20260924-mac1";
+const CACHE_NAME = "profile-offline-20260924-light1";
 const OFFLINE_URL = "/offline";
 const PRECACHE_URLS = [
   OFFLINE_URL,
@@ -38,8 +38,10 @@ const PRECACHE_URLS = [
   "/assets/css/sections/30-dialogs-usage.css",
   "/assets/css/sections/35-settings-modal.css",
   "/assets/css/sections/40-responsive-polish.css",
+  "/assets/css/sections/45-light-legacy.css",
   "/assets/css/sections/50-modern.css",
   "/assets/css/sections/55-sidebar.css",
+  "/assets/css/sections/58-light-modern.css",
   "/assets/css/sections/60-macos.css",
   "/assets/js/translations.js",
   "/assets/js/navigation.js",

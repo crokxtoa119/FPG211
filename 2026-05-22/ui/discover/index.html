@@ -55,8 +55,7 @@
     <script>
       (() => {
         const normalizeTheme = (theme) => {
-          if (["dark", "lights-off"].includes(theme)) return theme;
-          if (theme === "light") return "dark";
+          if (["dark", "light", "lights-off", "system"].includes(theme)) return theme;
           if (["dim", "dark-mode", "true"].includes(theme)) return "dark";
           if (["lightsout", "lights-out", "black", "off"].includes(theme)) return "lights-off";
           return "";
@@ -66,8 +65,11 @@
           if ([false, "false", "0", "off"].includes(value)) return false;
           return fallback;
         };
-        const savedTheme = normalizeTheme(localStorage.getItem("profile-theme"));
-        document.documentElement.dataset.theme = savedTheme || "dark";
+        const savedTheme = normalizeTheme(localStorage.getItem("profile-theme")) || "dark";
+        document.documentElement.dataset.themePreference = savedTheme;
+        document.documentElement.dataset.theme = savedTheme === "system"
+          ? (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark")
+          : savedTheme;
         const savedLanguagePreference = ["auto", "ko", "en"].includes(localStorage.getItem("profile-language"))
           ? localStorage.getItem("profile-language")
           : "auto";
@@ -87,7 +89,7 @@
           : "false";
       })();
     </script>
-    <link rel="stylesheet" href="../assets/css/styles.css?v=20260924-mac1" />
+    <link rel="stylesheet" href="../assets/css/styles.css?v=20260924-light1" />
   </head>
   <body class="discover-body">
     <div class="loading-bar" aria-hidden="true"></div>
@@ -212,9 +214,9 @@
       </section>
     </main>
 
-    <script src="../assets/js/translations.js?v=20260924-mac1" defer></script>
+    <script src="../assets/js/translations.js?v=20260924-light1" defer></script>
     <script src="../assets/js/navigation.js?v=20260721-member-news1" defer></script>
-    <script src="../assets/js/script.js?v=20260924-mac1" defer></script>
+    <script src="../assets/js/script.js?v=20260924-light1" defer></script>
     <script src="../assets/js/page-features.js?v=20260721-member-news1" defer></script>
   </body>
 </html>

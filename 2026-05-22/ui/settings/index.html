@@ -55,8 +55,7 @@
     <script>
       (() => {
         const normalizeTheme = (theme) => {
-          if (["dark", "lights-off"].includes(theme)) return theme;
-          if (theme === "light") return "dark";
+          if (["dark", "light", "lights-off", "system"].includes(theme)) return theme;
           if (["dim", "dark-mode", "true"].includes(theme)) return "dark";
           if (["lightsout", "lights-out", "black", "off"].includes(theme)) return "lights-off";
           return "";
@@ -66,14 +65,17 @@
           if ([false, "false", "0", "off"].includes(value)) return false;
           return fallback;
         };
-        const savedTheme = normalizeTheme(localStorage.getItem("profile-theme"));
+        const savedTheme = normalizeTheme(localStorage.getItem("profile-theme")) || "dark";
         const savedLanguagePreference = ["auto", "ko", "en"].includes(localStorage.getItem("profile-language")) ? localStorage.getItem("profile-language") : "auto";
         const browserLanguage = (((navigator.languages || [navigator.language]) || [])
           .map((language) => String(language || "").toLowerCase())
           .find((language) => language.startsWith("ko") || language.startsWith("en")) || "ko").startsWith("en")
           ? "en"
           : "ko";
-        document.documentElement.dataset.theme = savedTheme || "dark";
+        document.documentElement.dataset.themePreference = savedTheme;
+        document.documentElement.dataset.theme = savedTheme === "system"
+          ? (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark")
+          : savedTheme;
         document.documentElement.lang = savedLanguagePreference === "auto" ? browserLanguage : savedLanguagePreference;
         document.documentElement.dataset.initialLanguage = document.documentElement.lang;
         document.documentElement.dataset.kidMode = ["strong", "true"].includes(localStorage.getItem("profile-setting-kid-mode")) ? "strong" : "off";
@@ -87,7 +89,7 @@
           : "false";
       })();
     </script>
-    <link rel="stylesheet" href="../assets/css/styles.css?v=20260924-mac1" />
+    <link rel="stylesheet" href="../assets/css/styles.css?v=20260924-light1" />
   </head>
   <body class="settings-body settings-modal-body">
     <div class="loading-bar" aria-hidden="true"></div>
@@ -141,7 +143,9 @@
                 </button>
                 <div class="setting-select-menu" role="listbox" data-theme-menu hidden>
                   <button class="is-active" type="button" role="option" aria-selected="true" data-theme-choice="dark" data-i18n="settings.themeDark">다크</button>
+                  <button type="button" role="option" aria-selected="false" data-theme-choice="light" data-i18n="settings.themeLight">라이트</button>
                   <button type="button" role="option" aria-selected="false" data-theme-choice="lights-off" data-i18n="settings.lightsOff">Lights Off</button>
+                  <button type="button" role="option" aria-selected="false" data-theme-choice="system" data-i18n="settings.themeSystem">시스템 설정</button>
                 </div>
               </div>
             </div>
@@ -371,11 +375,11 @@
       </div>
     </main>
 
-    <script src="../assets/js/translations.js?v=20260924-mac1" defer></script>
+    <script src="../assets/js/translations.js?v=20260924-light1" defer></script>
 
 
     <script src="../assets/js/navigation.js?v=20260721-member-news1" defer></script>
-    <script src="../assets/js/script.js?v=20260924-mac1" defer></script>
+    <script src="../assets/js/script.js?v=20260924-light1" defer></script>
     <script src="../assets/js/page-features.js?v=20260721-member-news1" defer></script>
   </body>
 </html>
