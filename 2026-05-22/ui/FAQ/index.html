@@ -85,7 +85,7 @@
           : "false";
       })();
     </script>
-    <link rel="stylesheet" href="../assets/css/styles.css?v=20260721-member-news1" />
+    <link rel="stylesheet" href="../assets/css/styles.css?v=20260924-doc1" />
   </head>
   <body class="faq-body">
     <div class="loading-bar" aria-hidden="true"></div>
@@ -162,30 +162,36 @@
         </div>
       </section>
 
-      <nav class="faq-topic-rail" aria-label="FAQ 주제 이동" data-i18n-aria-label="aria.faqTopics">
-        <p data-i18n="faq.topicRailKicker">Browse by topic</p>
-        <a href="#emt-faq">
-          <span>01</span>
-          <strong data-i18n="faqTopics.emt">EMT</strong>
-          <small data-i18n="faq.topicEmtBody">EMT 시작 과정</small>
-        </a>
-        <a href="#game-dev-faq">
-          <span>02</span>
-          <strong data-i18n="faqTopics.game">Game Developer</strong>
-          <small data-i18n="faq.topicGameBody">게임 개발 첫 단계</small>
-        </a>
-        <a href="#meet-faq">
-          <span>03</span>
-          <strong data-i18n="faqTopics.meet">Meet</strong>
-          <small data-i18n="faq.topicMeetBody">연락 방법</small>
-        </a>
-        <a href="#site-faq">
-          <span>04</span>
-          <strong data-i18n="faqTopics.site">Site</strong>
-          <small data-i18n="faq.topicSiteBody">배포와 개인정보</small>
-        </a>
-      </nav>
-
+      <div class="doc-layout">
+        <nav class="doc-toc faq-toc" data-doc-toc aria-label="FAQ 주제 이동" data-i18n-aria-label="aria.faqTopics">
+          <p class="doc-toc-title" data-i18n="faq.topicRailKicker">Browse by topic</p>
+          <a href="#emt-faq">
+            <span>01</span>
+            <strong data-i18n="faqTopics.emt">EMT</strong>
+            <small data-i18n="faq.topicEmtBody">EMT 시작 과정</small>
+          </a>
+          <a href="#game-dev-faq">
+            <span>02</span>
+            <strong data-i18n="faqTopics.game">Game Developer</strong>
+            <small data-i18n="faq.topicGameBody">게임 개발 첫 단계</small>
+          </a>
+          <a href="#meet-faq">
+            <span>03</span>
+            <strong data-i18n="faqTopics.meet">Meet</strong>
+            <small data-i18n="faq.topicMeetBody">연락 방법</small>
+          </a>
+          <a href="#site-faq">
+            <span>04</span>
+            <strong data-i18n="faqTopics.site">Site</strong>
+            <small data-i18n="faq.topicSiteBody">배포와 개인정보</small>
+          </a>
+          <a href="#faq-feedback">
+            <span>05</span>
+            <strong data-i18n="nav.feedback">Feedback</strong>
+            <small data-i18n="faq.topicFeedbackBody">답변이 없을 때</small>
+          </a>
+        </nav>
+        <div class="doc-body">
       <section class="faq-section" id="emt-faq" aria-label="미국 응급구조사 FAQ" data-i18n-aria-label="aria.emtFaq">
         <div class="section-heading">
           <p class="eyebrow" data-i18n="careerFaq.eyebrow">FAQ</p>
@@ -327,7 +333,7 @@
         </div>
       </section>
 
-      <section class="faq-feedback-strip" aria-label="FAQ 피드백" data-i18n-aria-label="aria.faqFeedback">
+      <section class="faq-feedback-strip" id="faq-feedback" aria-label="FAQ 피드백" data-i18n-aria-label="aria.faqFeedback">
         <div>
           <p class="faq-section-kicker" data-i18n="faq.feedbackKicker">Still unclear?</p>
           <h2 data-i18n="faq.feedbackTitle">질문이 남아 있으면 기록에 추가하겠습니다.</h2>
@@ -341,6 +347,8 @@
           </svg>
         </a>
       </section>
+        </div>
+      </div>
     </main>
     <div class="scroll-actions" data-scroll-actions aria-label="Page scroll controls" data-i18n-aria-label="aria.scrollControls">
       <button type="button" data-scroll-to="top" aria-label="맨 위로 이동" data-i18n-aria-label="aria.scrollTop">
@@ -445,10 +453,10 @@
         <span data-i18n="context.settings">설정 열기</span>
       </button>
     </div>
-    <script src="../assets/js/translations.js?v=20260721-member-news1" defer></script>
+    <script src="../assets/js/translations.js?v=20260924-doc1" defer></script>
 
     <script src="../assets/js/navigation.js?v=20260721-member-news1" defer></script>
-    <script src="../assets/js/script.js?v=20260721-member-news1" defer></script>
+    <script src="../assets/js/script.js?v=20260924-doc1" defer></script>
     <script src="../assets/js/page-features.js?v=20260721-member-news1" defer></script>
   </body>
 </html>
