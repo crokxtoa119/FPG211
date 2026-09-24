@@ -46,7 +46,11 @@
     <script>
       (() => {
         const b = (value, fallback = false) => [true, "true", "1", "on"].includes(value) ? true : [false, "false", "0", "off"].includes(value) ? false : fallback;
-        document.documentElement.dataset.theme = ["dark", "lights-off"].includes(localStorage.getItem("profile-theme")) ? localStorage.getItem("profile-theme") : "dark";
+        const savedTheme = ["dark", "light", "lights-off", "system"].includes(localStorage.getItem("profile-theme")) ? localStorage.getItem("profile-theme") : "dark";
+        document.documentElement.dataset.themePreference = savedTheme;
+        document.documentElement.dataset.theme = savedTheme === "system"
+          ? (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark")
+          : savedTheme;
         const savedLanguagePreference = ["auto", "ko", "en"].includes(localStorage.getItem("profile-language")) ? localStorage.getItem("profile-language") : "auto";
         const browserLanguage = (((navigator.languages || [navigator.language]) || [])
           .map((language) => String(language || "").toLowerCase())
@@ -58,7 +62,7 @@
         document.documentElement.dataset.sidebarCollapsed = b(localStorage.getItem("profile-sidebar-collapsed"), false) ? "true" : "false";
       })();
     </script>
-    <link rel="stylesheet" href="../assets/css/styles.css?v=20260924-mac1" />
+    <link rel="stylesheet" href="../assets/css/styles.css?v=20260924-light1" />
   </head>
   <body class="security-body">
     <div class="loading-bar" aria-hidden="true"></div>
@@ -95,10 +99,10 @@
         <article><h2 data-i18n="security.reportTitle">문제 신고</h2><p data-i18n="security.reportBody">보안이나 개인정보 관련 문제를 발견하시면 피드백으로 알려 주세요.</p></article>
       </section>
     </main>
-    <script src="../assets/js/translations.js?v=20260924-mac1" defer></script>
+    <script src="../assets/js/translations.js?v=20260924-light1" defer></script>
 
     <script src="../assets/js/navigation.js?v=20260721-member-news1" defer></script>
-    <script src="../assets/js/script.js?v=20260924-mac1" defer></script>
+    <script src="../assets/js/script.js?v=20260924-light1" defer></script>
     <script src="../assets/js/page-features.js?v=20260721-member-news1" defer></script>
   </body>
 </html>

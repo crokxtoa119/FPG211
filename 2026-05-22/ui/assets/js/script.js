@@ -383,7 +383,9 @@ const createSettingsDialog = () => {
               </button>
               <div class="setting-select-menu" role="listbox" data-theme-menu hidden>
                 <button class="is-active" type="button" role="option" aria-selected="true" data-theme-choice="dark" data-i18n="settings.themeDark">다크</button>
+                <button type="button" role="option" aria-selected="false" data-theme-choice="light" data-i18n="settings.themeLight">라이트</button>
                 <button type="button" role="option" aria-selected="false" data-theme-choice="lights-off" data-i18n="settings.lightsOff">Lights Off</button>
+                <button type="button" role="option" aria-selected="false" data-theme-choice="system" data-i18n="settings.themeSystem">시스템 설정</button>
               </div>
             </div>
           </div>
@@ -1548,8 +1550,7 @@ const sections = navLinks
 
 const translations = window.profileTranslations || { ko: {}, en: {} };
 const normalizeTheme = (theme) => {
-  if (theme === "dark" || theme === "lights-off") return theme;
-  if (theme === "light") return "dark";
+  if (["dark", "light", "lights-off", "system"].includes(theme)) return theme;
   if (theme === "dim" || theme === "dark-mode" || theme === "true") return "dark";
   if (theme === "lightsout" || theme === "lights-out" || theme === "black" || theme === "off") {
     return "lights-off";
@@ -2251,25 +2252,32 @@ const siteSearchIndex = [
 
 const syncQuickSettingsControls = () => {};
 
+const systemLightQuery = window.matchMedia("(prefers-color-scheme: light)");
+
 const setTheme = (theme) => {
   const themeLabelKeys = {
     dark: "settings.themeDark",
+    light: "settings.themeLight",
     "lights-off": "settings.lightsOff",
+    system: "settings.themeSystem",
   };
-  const resolvedTheme = normalizeTheme(theme) || "dark";
+  // "system" is stored as the preference; the page itself always gets a concrete theme.
+  const preference = normalizeTheme(theme) || "dark";
+  const resolvedTheme = preference === "system" ? (systemLightQuery.matches ? "light" : "dark") : preference;
 
   document.documentElement.dataset.theme = resolvedTheme;
-  localStorage.setItem("profile-theme", resolvedTheme);
+  document.documentElement.dataset.themePreference = preference;
+  localStorage.setItem("profile-theme", preference);
 
   themeChoices.forEach((button) => {
-    const isActive = button.dataset.themeChoice === resolvedTheme;
+    const isActive = button.dataset.themeChoice === preference;
     button.classList.toggle("is-active", isActive);
     button.setAttribute("aria-selected", String(isActive));
   });
 
-  if (themeLabel) themeLabel.textContent = translate(themeLabelKeys[resolvedTheme] || "settings.themeDark");
+  if (themeLabel) themeLabel.textContent = translate(themeLabelKeys[preference] || "settings.themeDark");
   themeStatuses.forEach((status) => {
-    status.textContent = translate(themeLabelKeys[resolvedTheme] || "settings.themeDark");
+    status.textContent = translate(themeLabelKeys[preference] || "settings.themeDark");
     status.dataset.themeState = resolvedTheme;
   });
   syncQuickSettingsControls();
@@ -2325,7 +2333,7 @@ const setLanguage = (language) => {
   document.documentElement.dataset.i18nReady = "true";
   syncNavigationToggleLabel();
 
-  setTheme(document.documentElement.dataset.theme || getInitialTheme());
+  setTheme(document.documentElement.dataset.themePreference || getInitialTheme());
   setKidMode(document.documentElement.dataset.kidMode || "off");
   settingToggles.forEach((button) => {
     updateSettingToggle(button, button.classList.contains("is-on"));
@@ -4650,6 +4658,9 @@ setupSiteSearch();
 setupMobileQuickActions();
 setupSearchPage();
 setTheme(getInitialTheme());
+systemLightQuery.addEventListener?.("change", () => {
+  if (document.documentElement.dataset.themePreference === "system") setTheme("system");
+});
 setupSettingToggles();
 setupContextMenuModeDialog();
 setupCookieSettingsDialog();

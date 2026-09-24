@@ -46,7 +46,11 @@
     <script>
       (() => {
         const b = (value, fallback = false) => [true, "true", "1", "on"].includes(value) ? true : [false, "false", "0", "off"].includes(value) ? false : fallback;
-        document.documentElement.dataset.theme = ["dark", "lights-off"].includes(localStorage.getItem("profile-theme")) ? localStorage.getItem("profile-theme") : "dark";
+        const savedTheme = ["dark", "light", "lights-off", "system"].includes(localStorage.getItem("profile-theme")) ? localStorage.getItem("profile-theme") : "dark";
+        document.documentElement.dataset.themePreference = savedTheme;
+        document.documentElement.dataset.theme = savedTheme === "system"
+          ? (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark")
+          : savedTheme;
         const savedLanguagePreference = ["auto", "ko", "en"].includes(localStorage.getItem("profile-language")) ? localStorage.getItem("profile-language") : "auto";
         const browserLanguage = (((navigator.languages || [navigator.language]) || [])
           .map((language) => String(language || "").toLowerCase())
@@ -58,7 +62,7 @@
         document.documentElement.dataset.sidebarCollapsed = b(localStorage.getItem("profile-sidebar-collapsed"), false) ? "true" : "false";
       })();
     </script>
-    <link rel="stylesheet" href="../assets/css/styles.css?v=20260924-mac1" />
+    <link rel="stylesheet" href="../assets/css/styles.css?v=20260924-light1" />
   </head>
   <body class="status-body">
     <div class="loading-bar" aria-hidden="true"></div>
@@ -139,10 +143,10 @@
       </section>
       <p class="status-monitor-note" data-i18n="status.monitorNote">이 점검은 현재 브라우저에서 실행됩니다. 24시간 장애 기록과 알림에는 별도의 외부 모니터링이 필요합니다.</p>
     </main>
-    <script src="../assets/js/translations.js?v=20260924-mac1" defer></script>
+    <script src="../assets/js/translations.js?v=20260924-light1" defer></script>
 
     <script src="../assets/js/navigation.js?v=20260721-member-news1" defer></script>
-    <script src="../assets/js/script.js?v=20260924-mac1" defer></script>
+    <script src="../assets/js/script.js?v=20260924-light1" defer></script>
     <script src="../assets/js/page-features.js?v=20260721-member-news1" defer></script>
     <script src="../assets/js/status.js?v=20260721-member-news1" defer></script>
   </body>
