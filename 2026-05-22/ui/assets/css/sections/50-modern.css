@@ -2,8 +2,10 @@
 
 @import url("../../fonts/pretendard/pretendard.css");
 
+/* Some pages redefined the palette on body; the body[class] selectors keep one palette everywhere. */
 html[data-theme],
-html[data-theme="dark"] {
+html[data-theme="dark"],
+html[data-theme] body[class] {
   --bg: #0a0a0b;
   --ink: #ededef;
   --muted: #8e8e96;
@@ -30,7 +32,8 @@ html[data-theme="dark"] {
   --modern-page-bg: #0a0a0b;
 }
 
-html[data-theme="lights-off"] {
+html[data-theme="lights-off"],
+html[data-theme="lights-off"] body[class] {
   --bg: #000;
   --panel-solid: #0b0b0c;
   --nav-bg: rgba(0, 0, 0, 0.78);
@@ -77,10 +80,10 @@ html[data-theme] body :focus-visible {
   outline-color: var(--brand);
 }
 
-/* Sidebar pages: clear the fixed search bar above the page title. */
+/* Sidebar pages: one top offset for every page (search now lives in the sidebar). */
 @media (min-width: 761px) {
   html[data-theme][data-nav-layout="sidebar"] body:not(.official-home-body) main.shell {
-    padding-top: 104px !important;
+    padding-top: 48px !important;
   }
 }
 
@@ -592,10 +595,10 @@ html[data-theme] body .doc-layout {
 
 html[data-theme] body .doc-toc {
   position: sticky;
-  top: 104px;
+  top: 32px;
   display: grid;
   gap: 2px;
-  max-height: calc(100vh - 128px);
+  max-height: calc(100vh - 64px);
   overflow-y: auto;
   margin: 0;
   padding: 0;
@@ -677,7 +680,11 @@ html[data-theme] body .doc-body {
   overflow-wrap: break-word;
 }
 
-html[data-theme] body .doc-body [id] { scroll-margin-top: 104px; }
+html[data-theme] body .doc-body [id] { scroll-margin-top: 32px; }
+
+@media (max-width: 1023px) {
+  html[data-theme] body .doc-body [id] { scroll-margin-top: 88px; }
+}
 
 /* Numbered policy sections read top to bottom in one column */
 html[data-theme] body .doc-body :is(.policy-dossier, .terms-dossier) {

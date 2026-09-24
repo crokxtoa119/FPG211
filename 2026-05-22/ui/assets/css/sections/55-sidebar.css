@@ -1,0 +1,276 @@
+/* ---------------------------------------------------------------------------
+   Sidebar redesign: flat panel, hairline border, quiet items
+   Loaded after 50-modern.css; desktop sidebar layout only (>= 1024px).
+--------------------------------------------------------------------------- */
+@media (min-width: 1024px) {
+  html[data-nav-layout="sidebar"][data-theme] body .topbar {
+    border: 0;
+    border-right: 1px solid var(--line);
+    border-radius: 0;
+    background: var(--bg);
+    box-shadow: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  html[data-nav-layout="sidebar"][data-theme] body .topbar::after {
+    background: var(--line);
+    opacity: 1;
+  }
+
+  /* Header: wordmark + collapse button */
+  html[data-nav-layout="sidebar"][data-theme] body .topbar .mobile-menu-button {
+    border: 0;
+    border-radius: 8px;
+    background: transparent;
+    box-shadow: none;
+    color: var(--muted);
+  }
+
+  html[data-nav-layout="sidebar"][data-theme] body .topbar .mobile-menu-button:hover,
+  html[data-nav-layout="sidebar"][data-theme] body .topbar .mobile-menu-button:focus-visible {
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--ink);
+  }
+
+  /* Group labels */
+  html[data-nav-layout="sidebar"][data-theme] body .topbar .nav-section-label {
+    margin: 18px 0 6px;
+    padding: 0 10px;
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0;
+    text-transform: none;
+    opacity: 0.8;
+  }
+
+  html[data-nav-layout="sidebar"][data-theme] body .topbar .nav-menu-group:first-child .nav-section-label {
+    margin-top: 6px;
+  }
+
+  /* Items */
+  html[data-nav-layout="sidebar"][data-theme] body .topbar .nav-links a {
+    gap: 10px;
+    min-height: 34px;
+    margin: 0;
+    padding: 0 10px;
+    border: 0;
+    border-radius: 8px;
+    background: transparent;
+    box-shadow: none;
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+
+  html[data-nav-layout="sidebar"][data-theme] body .topbar .nav-links a::before,
+  html[data-nav-layout="sidebar"][data-theme] body .topbar .nav-links a::after {
+    display: none;
+  }
+
+  html[data-nav-layout="sidebar"][data-theme] body .topbar .nav-links a .nav-icon {
+    width: 18px;
+    height: 18px;
+    color: currentColor;
+    opacity: 0.85;
+    stroke-width: 1.8;
+  }
+
+  html[data-nav-layout="sidebar"][data-theme] body .topbar .nav-links a:hover {
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--ink);
+  }
+
+  html[data-nav-layout="sidebar"][data-theme] body .topbar .nav-links a.is-active {
+    background: rgba(255, 255, 255, 0.07);
+    color: var(--ink);
+  }
+
+  html[data-nav-layout="sidebar"][data-theme] body .topbar .nav-links a.is-active .nav-icon {
+    color: var(--brand);
+    opacity: 1;
+  }
+
+  /* Search moves into the sidebar; the floating top search bar goes away */
+  html[data-nav-layout="sidebar"][data-theme] body .top-search-button {
+    display: none;
+  }
+
+  html[data-nav-layout="sidebar"][data-theme] body .topbar .nav-links .nav-search-button {
+    gap: 10px;
+    min-height: 34px;
+    margin: 4px 0 8px;
+    padding: 0 8px 0 10px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.03);
+    box-shadow: none;
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  html[data-nav-layout="sidebar"][data-theme] body .topbar .nav-links .nav-search-button:hover {
+    border-color: rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--ink);
+  }
+
+  html[data-nav-layout="sidebar"][data-theme] body .topbar .nav-links .nav-search-button .nav-icon {
+    width: 16px;
+    height: 16px;
+    color: currentColor;
+    stroke-width: 1.8;
+  }
+
+  html[data-nav-layout="sidebar"][data-theme] body .topbar .nav-links .nav-search-button kbd {
+    margin-left: auto;
+    padding: 3px 6px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: transparent;
+    color: var(--muted);
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 500;
+  }
+
+  /* Account row at the bottom */
+  html[data-nav-layout="sidebar"][data-theme] body .topbar .sidebar-account-trigger {
+    gap: 10px;
+    min-height: 48px;
+    padding: 8px 10px;
+    border: 0;
+    border-radius: 10px;
+    background: transparent;
+    box-shadow: none;
+    color: var(--ink);
+  }
+
+  html[data-nav-layout="sidebar"][data-theme] body .topbar .sidebar-account-trigger:hover,
+  html[data-nav-layout="sidebar"][data-theme] body .topbar .sidebar-account-trigger[aria-expanded="true"] {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  html[data-nav-layout="sidebar"][data-theme] body .topbar .sidebar-account-avatar {
+    width: 30px;
+    height: 30px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+  }
+
+  html[data-nav-layout="sidebar"][data-theme] body .topbar .sidebar-account-copy strong {
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  html[data-nav-layout="sidebar"][data-theme] body .topbar .sidebar-account-copy small {
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 400;
+  }
+
+  html[data-nav-layout="sidebar"][data-theme] body .topbar .sidebar-account::before {
+    content: "";
+    position: absolute;
+    top: -9px;
+    right: 0;
+    left: 0;
+    height: 1px;
+    background: var(--line);
+  }
+
+  /* Pop-over panels: account menu, help menu, flyouts */
+  html[data-nav-layout="sidebar"][data-theme] body .topbar :is(.sidebar-account-panel, .sidebar-help-panel, .nav-flyout-panel) {
+    padding: 6px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--panel-solid);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
+  }
+
+  html[data-nav-layout="sidebar"][data-theme] body .topbar :is(.sidebar-account-item, .sidebar-help-link) {
+    gap: 10px;
+    min-height: 34px;
+    padding: 0 10px;
+    border: 0;
+    border-radius: 8px;
+    background: transparent;
+    box-shadow: none;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  html[data-nav-layout="sidebar"][data-theme] body .topbar :is(.sidebar-account-item, .sidebar-help-link):hover,
+  html[data-nav-layout="sidebar"][data-theme] body .topbar :is(.sidebar-account-item, .sidebar-help-link).is-active,
+  html[data-nav-layout="sidebar"][data-theme] body .topbar .sidebar-help-menu.is-open > .sidebar-help-trigger {
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--ink);
+  }
+
+  html[data-nav-layout="sidebar"][data-theme] body .topbar :is(.sidebar-account-item, .sidebar-help-link) .nav-icon {
+    width: 16px;
+    height: 16px;
+    stroke-width: 1.8;
+  }
+
+  html[data-nav-layout="sidebar"][data-theme] body .topbar .sidebar-help-divider {
+    height: 1px;
+    margin: 4px 6px;
+    background: var(--line);
+  }
+
+  /* Collapsed rail */
+  html[data-nav-layout="sidebar"][data-sidebar-collapsed="true"][data-theme] body .topbar .nav-links a,
+  html[data-nav-layout="sidebar"][data-sidebar-collapsed="true"][data-theme] body .topbar .nav-links .nav-search-button {
+    justify-content: center;
+    padding: 0;
+  }
+
+  html[data-nav-layout="sidebar"][data-sidebar-collapsed="true"][data-theme] body .topbar .nav-links .nav-search-button {
+    gap: 0;
+    width: 40px;
+    margin-inline: auto;
+  }
+
+  html[data-nav-layout="sidebar"][data-sidebar-collapsed="true"][data-theme] body .topbar .nav-links .nav-search-button > :is(span, kbd) {
+    display: none;
+  }
+
+  html[data-nav-layout="sidebar"][data-sidebar-collapsed="true"][data-theme] body .topbar .nav-section-label {
+    height: 1px;
+    margin: 10px 8px;
+    padding: 0;
+    overflow: hidden;
+    background: var(--line);
+    color: transparent;
+  }
+
+  html[data-nav-layout="sidebar"][data-sidebar-collapsed="true"][data-theme] body .topbar .sidebar-account::before {
+    right: 4px;
+    left: 4px;
+  }
+}
+
+/* Tablet: the nav is a single pill row; let it scroll instead of squeezing labels */
+@media (min-width: 761px) and (max-width: 1023px) {
+  html[data-nav-layout="sidebar"][data-theme] body .topbar .nav-links {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  html[data-nav-layout="sidebar"][data-theme] body .topbar .nav-links::-webkit-scrollbar {
+    display: none;
+  }
+
+  html[data-nav-layout="sidebar"][data-theme] body .topbar .nav-links a {
+    flex: none;
+    white-space: nowrap;
+  }
+}
