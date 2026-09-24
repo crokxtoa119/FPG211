@@ -85,7 +85,7 @@
           : "false";
       })();
     </script>
-    <link rel="stylesheet" href="../assets/css/styles.css?v=20260721-member-news1" />
+    <link rel="stylesheet" href="../assets/css/styles.css?v=20260924-doc1" />
   </head>
   <body class="privacy-body legal-document-body">
     <div class="loading-bar" aria-hidden="true"></div>
@@ -158,6 +158,19 @@
         </div>
       </section>
 
+      <div class="doc-layout">
+        <nav class="doc-toc" aria-label="이 페이지 목차" data-i18n-aria-label="doc.tocLabel" data-doc-toc>
+          <p class="doc-toc-title" data-i18n="doc.tocTitle">이 페이지 목차</p>
+          <ol>
+            <li><a href="#cookies" data-i18n="privacy.tocStorage">브라우저 저장</a></li>
+            <li><a href="#privacy-signin" data-i18n="privacy.tocSignIn">Google 로그인</a></li>
+            <li><a href="#privacy-external" data-i18n="privacy.tocExternal">외부 서비스</a></li>
+            <li><a href="#privacy-clear" data-i18n="privacy.tocClear">데이터 삭제</a></li>
+            <li><a href="#privacy-notifications" data-i18n="privacy.tocNotifications">알림 권한</a></li>
+            <li><a href="#privacy-contact" data-i18n="privacy.tocContact">문의와 변경</a></li>
+          </ol>
+        </nav>
+        <div class="doc-body">
       <section class="policy-dossier" aria-label="개인정보 세부 정보" data-i18n-aria-label="aria.privacyDetails">
         <article id="cookies">
           <span>01</span>
@@ -180,14 +193,14 @@
             </li>
           </ul>
         </article>
-        <article>
+        <article id="privacy-signin">
           <span>02</span>
           <h2 data-i18n="privacy.noAccountTitle">Google 로그인은 선택 사항입니다.</h2>
           <p data-i18n="privacy.noAccountBody">
             로그인하지 않아도 공개 페이지를 이용할 수 있습니다. Google 로그인을 선택하면 Firebase Authentication이 사용자 식별자, 이름, 이메일 주소, 프로필 사진, 로그인 제공자와 인증 상태를 처리합니다. Google 비밀번호는 이 사이트가 보거나 저장하지 않습니다. 로그인하지 않은 상태의 로컬 프로필과 구독 설정은 현재 브라우저에만 저장됩니다.
           </p>
         </article>
-        <article>
+        <article id="privacy-external">
           <span>03</span>
           <h2 data-i18n="privacy.externalTitle">외부 서비스로 넘어가는 순간</h2>
           <p data-i18n="privacy.externalBody">
@@ -195,21 +208,21 @@
           </p>
           <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer" data-i18n="privacy.githubLink">GitHub Privacy Statement</a>
         </article>
-        <article>
+        <article id="privacy-clear">
           <span>04</span>
           <h2 data-i18n="privacy.clearTitle">언제든지 지울 수 있습니다.</h2>
           <p data-i18n="privacy.clearBody">
             Settings의 보안 항목에서 사이트 데이터를 삭제하면 localStorage, 안내 확인 쿠키와 오프라인 캐시가 지워집니다. Google 로그아웃은 현재 브라우저의 로그인 상태를 종료하지만 Firebase Authentication 계정 자체를 삭제하지는 않습니다. 계정 삭제 요청은 Feedback으로 보낼 수 있으며, 알림 권한과 Google Forms·GitHub Discussions 데이터는 각 서비스에서 별도로 관리해야 합니다.
           </p>
         </article>
-        <article>
+        <article id="privacy-notifications">
           <span>05</span>
           <h2 data-i18n="privacy.notificationTitle">알림 권한은 브라우저가 관리합니다.</h2>
           <p data-i18n="privacy.notificationBody">
             로그인 전용 새 소식 배지는 사이트를 열어 둔 동안에만 표시되는 인앱 안내이며 브라우저 알림 권한을 사용하지 않습니다. 현재 이 사이트는 Windows·모바일 푸시 구독 서버나 기기 토큰 데이터베이스를 운영하지 않습니다.
           </p>
         </article>
-        <article>
+        <article id="privacy-contact">
           <span>06</span>
           <h2 data-i18n="privacy.contactTitle">문의와 변경 사항을 공개합니다.</h2>
           <p>
@@ -218,6 +231,8 @@
           </p>
         </article>
       </section>
+        </div>
+      </div>
     </main>
     <div class="context-menu" data-context-menu hidden>
       <button type="button" data-context-action="close">
@@ -306,10 +321,10 @@
         <span data-i18n="context.settings">설정 열기</span>
       </button>
     </div>
-    <script src="../assets/js/translations.js?v=20260721-member-news1" defer></script>
+    <script src="../assets/js/translations.js?v=20260924-doc1" defer></script>
 
     <script src="../assets/js/navigation.js?v=20260721-member-news1" defer></script>
-    <script src="../assets/js/script.js?v=20260721-member-news1" defer></script>
+    <script src="../assets/js/script.js?v=20260924-doc1" defer></script>
     <script src="../assets/js/page-features.js?v=20260721-member-news1" defer></script>
   </body>
 </html>

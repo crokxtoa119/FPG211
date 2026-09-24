@@ -577,3 +577,363 @@ html[data-theme] body .portal-bento .bento-feedback { grid-column: span 5; }
   html[data-theme] body .bento > * { grid-column: 1 / -1 !important; }
   html[data-theme] body .bento-link { min-height: 0; gap: 20px; }
 }
+
+/* ---------------------------------------------------------------------------
+   Document layout: sticky table of contents + reading column
+   (privacy, terms, FAQ)
+--------------------------------------------------------------------------- */
+html[data-theme] body .doc-layout {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: clamp(32px, 5vw, 72px);
+  align-items: start;
+  margin-top: clamp(40px, 6vw, 72px);
+}
+
+html[data-theme] body .doc-toc {
+  position: sticky;
+  top: 104px;
+  display: grid;
+  gap: 2px;
+  max-height: calc(100vh - 128px);
+  overflow-y: auto;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+
+html[data-theme] body .doc-toc .doc-toc-title {
+  margin: 0 0 12px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+html[data-theme] body .doc-toc ol {
+  display: grid;
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+html[data-theme] body .doc-toc a {
+  display: block;
+  word-break: keep-all;
+  padding: 7px 0 7px 14px;
+  border: 0;
+  border-left: 2px solid var(--line);
+  border-radius: 0;
+  background: none;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.45;
+  text-decoration: none;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+html[data-theme] body .doc-toc a:hover { color: var(--ink); }
+
+html[data-theme] body .doc-toc a.is-current {
+  border-left-color: var(--brand);
+  color: var(--ink);
+}
+
+/* FAQ: topic entries keep their number and short description */
+html[data-theme] body .faq-toc a {
+  display: grid;
+  grid-template-columns: 26px minmax(0, 1fr);
+  column-gap: 4px;
+  min-height: 0;
+  padding: 9px 0 9px 14px;
+}
+
+html[data-theme] body .faq-toc a span {
+  grid-row: 1 / span 2;
+  color: var(--muted);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.7;
+}
+
+html[data-theme] body .faq-toc a strong {
+  color: inherit;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+html[data-theme] body .faq-toc a small {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+html[data-theme] body .doc-body {
+  min-width: 0;
+  max-width: 780px;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+html[data-theme] body .doc-body [id] { scroll-margin-top: 104px; }
+
+/* Numbered policy sections read top to bottom in one column */
+html[data-theme] body .doc-body :is(.policy-dossier, .terms-dossier) {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+html[data-theme] body .doc-body :is(.policy-dossier, .terms-dossier) article {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr);
+  column-gap: 16px;
+  row-gap: 14px;
+  align-items: start;
+  padding: 40px 0;
+  border: 0;
+  border-top: 1px solid var(--line);
+}
+
+html[data-theme] body .doc-body :is(.policy-dossier, .terms-dossier) article:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+html[data-theme] body .doc-body :is(.policy-dossier, .terms-dossier) article > * { grid-column: 2; }
+
+html[data-theme] body .doc-body :is(.policy-dossier, .terms-dossier) article > span:first-child {
+  grid-column: 1;
+  grid-row: 1;
+  padding-top: 7px;
+  color: var(--muted);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+html[data-theme] body .doc-body :is(.policy-dossier, .terms-dossier) h2 {
+  grid-row: 1;
+  margin: 0;
+  font-size: clamp(21px, 2.2vw, 26px);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+}
+
+html[data-theme] body .doc-body :is(.policy-dossier, .terms-dossier) p {
+  margin: 0;
+  max-width: none;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+html[data-theme] body .doc-body :is(.policy-dossier, .terms-dossier) article > a {
+  justify-self: start;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+html[data-theme] body .doc-body .privacy-cookie-list {
+  display: grid;
+  gap: 0;
+  margin: 6px 0 0;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  list-style: none;
+}
+
+html[data-theme] body .doc-body .privacy-cookie-list li {
+  display: grid;
+  gap: 4px;
+  padding: 16px 18px;
+  border: 0;
+  border-top: 1px solid var(--line);
+}
+
+html[data-theme] body .doc-body .privacy-cookie-list li:first-child { border-top: 0; }
+
+html[data-theme] body .doc-body .privacy-cookie-list strong {
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+html[data-theme] body .doc-body .privacy-cookie-list span {
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.65;
+}
+
+/* Terms: notice cards and related links under the numbered sections */
+html[data-theme] body .doc-body .terms-notice-board {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 16px 0 0;
+  padding: 40px 0 0;
+  border: 0;
+  border-top: 1px solid var(--line);
+  background: none;
+}
+
+html[data-theme] body .doc-body .terms-notice-board article {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+  min-height: 0;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--card-bg);
+}
+
+html[data-theme] body .doc-body .terms-notice-board article > span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+html[data-theme] body .doc-body .terms-notice-board strong {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+html[data-theme] body .doc-body .terms-notice-board p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+html[data-theme] body .doc-body .terms-standard-actions {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 20px;
+  margin: 40px 0 0;
+  padding: 40px 0 0;
+  border: 0;
+  border-top: 1px solid var(--line);
+  background: none;
+}
+
+html[data-theme] body .doc-body .terms-standard-actions h2 {
+  margin: 0 0 8px;
+  font-size: clamp(21px, 2.2vw, 26px);
+  font-weight: 600;
+}
+
+html[data-theme] body .doc-body .terms-related-links {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* FAQ: heading above its questions instead of beside them */
+html[data-theme] body .doc-body .faq-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+  padding: 0 0 56px;
+  margin: 0 0 56px;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+}
+
+html[data-theme] body .doc-body .faq-section .faq-list {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+html[data-theme] body .doc-body .faq-section > .section-heading {
+  position: static;
+  display: grid;
+  gap: 10px;
+  max-width: none;
+}
+
+html[data-theme] body .doc-body .faq-section > .section-heading h2 {
+  margin: 0;
+  font-size: clamp(24px, 2.6vw, 32px);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+}
+
+html[data-theme] body .doc-body .faq-section > .section-heading p:not(.eyebrow) {
+  margin: 0;
+  max-width: 640px;
+  color: var(--muted);
+}
+
+html[data-theme] body .doc-body .faq-feedback-strip {
+  margin: 0;
+  padding: 0 0 24px;
+  border: 0;
+}
+
+html[data-theme] body .doc-body .faq-feedback-strip h2 {
+  font-size: clamp(24px, 2.6vw, 32px);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+@media (max-width: 960px) {
+  html[data-theme] body .doc-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+
+  html[data-theme] body .doc-toc {
+    position: static;
+    max-height: none;
+    overflow: visible;
+  }
+
+  html[data-theme] body .doc-toc ol,
+  html[data-theme] body .faq-toc {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  html[data-theme] body .faq-toc { flex-wrap: nowrap; }
+  html[data-theme] body .faq-toc .doc-toc-title { display: none; }
+
+  html[data-theme] body .doc-toc a,
+  html[data-theme] body .faq-toc a {
+    display: block;
+    flex: none;
+    padding: 8px 14px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+
+  html[data-theme] body .faq-toc a span,
+  html[data-theme] body .faq-toc a small { display: none; }
+
+  html[data-theme] body .doc-toc a.is-current { border-color: var(--brand); }
+
+  html[data-theme] body .doc-body { max-width: none; }
+
+  html[data-theme] body .doc-body .terms-notice-board { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 560px) {
+  html[data-theme] body .doc-body :is(.policy-dossier, .terms-dossier) article {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  html[data-theme] body .doc-body :is(.policy-dossier, .terms-dossier) article > * { grid-column: 1; grid-row: auto; }
+  html[data-theme] body .doc-body :is(.policy-dossier, .terms-dossier) article > span:first-child { padding-top: 0; }
+}

@@ -5064,6 +5064,48 @@ const setupSettingsModalTabs = () => {
 setupSettingsModalTabs();
 setupSettingsControlRecovery();
 
+const setupDocToc = () => {
+  const toc = document.querySelector("[data-doc-toc]");
+  if (!toc || !("IntersectionObserver" in window)) return;
+
+  const links = [...toc.querySelectorAll('a[href^="#"]')];
+  const sections = links
+    .map((link) => document.getElementById(link.getAttribute("href").slice(1)))
+    .filter(Boolean);
+  if (!sections.length) return;
+
+  const visible = new Set();
+  const markCurrent = (id) => {
+    links.forEach((link) => {
+      const isCurrent = link.getAttribute("href") === `#${id}`;
+      link.classList.toggle("is-current", isCurrent);
+      if (isCurrent) link.setAttribute("aria-current", "location");
+      else link.removeAttribute("aria-current");
+    });
+  };
+
+  const update = () => {
+    // Short closing sections never reach the observer band, so pin the last link at the page end.
+    const atEnd = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
+    const current = atEnd ? sections[sections.length - 1] : sections.find((section) => visible.has(section));
+    if (current) markCurrent(current.id);
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) visible.add(entry.target);
+      else visible.delete(entry.target);
+    });
+    update();
+  }, { rootMargin: "-120px 0px -55% 0px" });
+
+  sections.forEach((section) => observer.observe(section));
+  markCurrent(sections[0].id);
+  window.addEventListener("scroll", update, { passive: true });
+};
+
+setupDocToc();
+
 highlightTargets.forEach((target) => {
   target.addEventListener("pointerdown", addRipple);
 });
