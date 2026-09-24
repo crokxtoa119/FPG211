@@ -21,6 +21,10 @@ const navIconMarkup = {
     '<svg class="nav-icon" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M12 16v-4" /><path d="M12 8h.01" /></svg>',
   faq:
     '<svg class="nav-icon" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M9.1 9a3 3 0 1 1 5.8 1c-.5.9-1.4 1.3-2.1 1.9-.6.5-.8.9-.8 2.1" /><path d="M12 17h.01" /></svg>',
+  community:
+    '<svg class="nav-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12Z" /><path d="M8.5 11h.01" /><path d="M12 11h.01" /><path d="M15.5 11h.01" /></svg>',
+  feedback:
+    '<svg class="nav-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4V5Z" /><path d="M8 9h8" /><path d="M8 12h5" /></svg>',
   share:
     '<svg class="nav-icon" aria-hidden="true" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3" /><circle cx="6" cy="12" r="3" /><circle cx="18" cy="19" r="3" /><path d="m8.6 10.8 6.8-4.1" /><path d="m8.6 13.2 6.8 4.1" /></svg>',
   settings:
@@ -344,20 +348,30 @@ const enhanceSidebarNavigation = () => {
       label: "MAIN",
       labelKey: "nav.groupMain",
       items: [
+        { type: "search" },
         { href: "/", icon: navIconMarkup.home, labelKey: "nav.home", fallback: "Home" },
         { href: "/portal", icon: navIconMarkup.analytics, labelKey: "nav.portal", fallback: "Portal" },
         { href: "/discover", icon: navIconMarkup.discover, labelKey: "nav.discover", fallback: "Discover" },
         { href: "/updates", icon: navIconMarkup.updates, labelKey: "nav.updates", fallback: "Latest updates" },
         { href: "/activity", icon: navIconMarkup.activity, labelKey: "nav.activity", fallback: "Activity" },
+      ],
+    },
+    {
+      label: "ABOUT",
+      labelKey: "nav.groupAbout",
+      items: [
         { href: "/Creator", icon: navIconMarkup.creator, labelKey: "nav.creator", fallback: "Creator" },
         { href: "/Bio", icon: navIconMarkup.bio, labelKey: "nav.bio", fallback: "Bio" },
         { href: "/about", icon: navIconMarkup.about, labelKey: "nav.aboutUs", fallback: "About us" },
       ],
     },
     {
-      label: "TRUST",
-      labelKey: "nav.groupTrust",
+      label: "RESOURCES",
+      labelKey: "nav.groupResources",
       items: [
+        { href: "/FAQ", icon: navIconMarkup.faq, labelKey: "nav.faq", fallback: "FAQ" },
+        { href: "/community", icon: navIconMarkup.community, labelKey: "nav.community", fallback: "Community" },
+        { href: "/feedback", icon: navIconMarkup.feedback, labelKey: "nav.feedback", fallback: "Feedback" },
         { href: "/accessibility", icon: navIconMarkup.accessibility, labelKey: "nav.accessibility", fallback: "Accessibility" },
       ],
     },

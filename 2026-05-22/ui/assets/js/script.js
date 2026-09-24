@@ -4859,7 +4859,6 @@ document.addEventListener("keydown", (event) => {
     closeClipboardWarningDialog();
     closeContextMenuModeDialog();
     closeCookieSettingsDialog();
-    closeQuickSettingsDialog();
     closeClearCacheWarning();
     closeFeedbackWarning();
     return;
