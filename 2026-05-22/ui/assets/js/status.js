@@ -12,7 +12,7 @@
     [...document.querySelectorAll("[data-status-item]")].map((element) => [element.dataset.statusItem, element]),
   );
 
-  const routePaths = ["/", "/Pricing", "/settings", "/privacy"];
+  const routePaths = ["/", "/about", "/settings", "/privacy"];
   const assetPaths = ["/assets/css/styles.css", "/assets/js/script.js"];
   const refreshIntervalMs = 30_000;
   const requestTimeoutMs = 8_000;

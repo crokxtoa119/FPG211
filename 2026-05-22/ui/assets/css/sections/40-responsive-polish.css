@@ -100,7 +100,6 @@
 .ultra-badge,
 .button.primary.ultra-button,
 .comparison-feature-bar,
-.pricing-card .button,
 .comparison-plan-card .button {
   border-color: color-mix(in srgb, var(--ink) 24%, var(--line));
   background: color-mix(in srgb, var(--ink) 92%, var(--panel-solid));
@@ -114,8 +113,6 @@
 .feedback-cta:focus-visible,
 .button.primary.ultra-button:hover,
 .button.primary.ultra-button:focus-visible,
-.pricing-card .button:hover,
-.pricing-card .button:focus-visible,
 .comparison-plan-card .button:hover,
 .comparison-plan-card .button:focus-visible {
   border-color: color-mix(in srgb, var(--ink) 42%, var(--line));
@@ -123,7 +120,6 @@
   color: var(--action-ink);
 }
 
-.ultra-card,
 .comparison-plan-card-featured {
   border-color: color-mix(in srgb, var(--ink) 24%, var(--line)) !important;
   background:
@@ -132,20 +128,11 @@
   box-shadow: none;
 }
 
-.ultra-card::before {
-  background: color-mix(in srgb, var(--ink) 56%, var(--line));
-}
 
-.plan-badge,
-.pricing-card.is-featured .plan-badge {
-  border: 1px solid color-mix(in srgb, var(--ink) 24%, var(--line));
-  background: color-mix(in srgb, var(--panel-solid) 84%, var(--ink) 4%);
-  color: var(--ink);
-}
 
-.pricing-card.is-featured .plan-badge {
-  background: color-mix(in srgb, var(--ink) 8%, var(--panel-solid));
-}
+
+
+
 
 .comparison-feature-bar,
 .comparison-guarantee .comparison-side::before {
@@ -167,8 +154,7 @@
 }
 
 .notification-status[data-notification-state="denied"],
-.notification-status[data-notification-state="unsupported"],
-.subscribe-warning[data-payment-blocked="true"] .cache-dialog-panel {
+.notification-status[data-notification-state="unsupported"] {
   border-color: color-mix(in srgb, var(--muted) 52%, var(--line));
   color: var(--ink);
 }
@@ -1866,8 +1852,6 @@ html[lang="ko"] .creator-page .creator-guide > article h2 {
 
 
 /* Corporate tone pass for remaining informational pages */
-.pricing-body,
-.pricing-page,
 .faq-body,
 .sitemap-body,
 .trust-body,
@@ -1902,7 +1886,6 @@ html[lang="ko"] .creator-page .creator-guide > article h2 {
   box-shadow: none;
 }
 
-.pricing-page .pricing-hero,
 .faq-archive-hero,
 .sitemap-hero,
 .trust-hero {
@@ -1922,11 +1905,8 @@ html[lang="ko"] .creator-page .creator-guide > article h2 {
   border-bottom: 1px solid var(--line);
 }
 
-.pricing-page .pricing-hero::after {
-  display: none;
-}
 
-.pricing-page .pricing-hero h1,
+
 .faq-archive-copy h1,
 .faq-page .faq-section > .section-heading h2,
 .faq-feedback-strip h2,
@@ -1986,16 +1966,12 @@ html[lang="ko"] .faq-archive-copy h1 {
 }
 
 .faq-archive-media figcaption,
-.pricing-hero-panel div,
 .trust-status-card,
 .sitemap-grid article,
 .sitemap-grid a,
 .trust-grid a,
 .security-checklist article,
 .status-list article,
-.pricing-team-strip,
-.pricing-compare-list article,
-.pricing-page .pricing-card,
 .faq-ledger div,
 .faq-topic-rail a {
   border-color: var(--line);
@@ -2009,7 +1985,6 @@ html[lang="ko"] .faq-archive-copy h1 {
 .faq-topic-rail a > span,
 .faq-section .eyebrow,
 .faq-section-kicker,
-.pricing-compare-list span,
 .trust-status-card span,
 .trust-grid span,
 .sitemap-copy .eyebrow,
@@ -2061,27 +2036,15 @@ html[lang="ko"] .faq-archive-copy h1 {
   outline-color: rgba(244, 244, 241, 0.68);
 }
 
-.pricing-page .pricing-card::before,
-.pricing-page .pricing-card.is-featured::before,
-.pricing-page .ultra-card::before {
-  background: rgba(255, 255, 255, 0.24);
-}
 
-.pricing-page .billing-pill,
-.pricing-page .plan-badge,
-.pricing-page .ultra-badge,
+
 .sitemap-xml-link {
   border-color: var(--line);
   background: rgba(255, 255, 255, 0.06);
   color: var(--ink);
 }
 
-.pricing-page .button.primary,
-.pricing-page .button.primary.ultra-button {
-  border-color: rgba(255, 255, 255, 0.24);
-  background: var(--ink);
-  color: var(--bg);
-}
+
 
 .status-list article > span {
   color: var(--ink);
@@ -2320,235 +2283,67 @@ html[lang="ko"] .faq-archive-copy h1 {
 }
 
 /* Pricing: compact plan board */
-.pricing-body {
-  background: var(--page-bg);
-}
 
-.pricing-page {
-  gap: clamp(18px, 3vw, 28px);
-}
 
-.pricing-page .pricing-hero {
-  display: block;
-  padding: clamp(26px, 5vw, 52px) 0 clamp(24px, 4vw, 40px);
-  border: 0;
-  border-bottom: 1px solid color-mix(in srgb, var(--line) 78%, transparent);
-  border-radius: 0;
-  background: transparent;
-}
 
-.pricing-page .pricing-hero::after {
-  display: none;
-}
 
-.pricing-page .pricing-hero h1 {
-  max-width: 760px;
-  font-size: clamp(34px, 4.6vw, 56px);
-  line-height: 1.08;
-}
 
-.pricing-page .pricing-hero p:last-child {
-  max-width: 760px;
-  font-size: clamp(15px, 1.5vw, 18px);
-  line-height: 1.65;
-}
 
-.pricing-note {
-  display: grid;
-  grid-template-columns: 20px minmax(0, 1fr);
-  gap: 12px;
-  align-items: center;
-  width: 100%;
-  min-height: 50px;
-  padding: 12px 0;
-  border: 0;
-  border-bottom: 1px solid color-mix(in srgb, var(--line) 72%, transparent);
-  border-radius: 0;
-  background: transparent;
-  color: var(--muted);
-  font-size: 13px;
-}
 
-.pricing-note::before {
-  display: none;
-}
 
-.pricing-note svg {
-  width: 20px;
-  height: 20px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.8;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
 
-.pricing-note p {
-  margin: 0;
-  line-height: 1.55;
-}
 
-.pricing-grid-simple {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
-  padding-top: 0;
-}
 
-.pricing-page .pricing-card {
-  display: grid;
-  grid-template-rows: auto auto auto auto 1fr auto;
-  align-content: start;
-  min-height: 100%;
-  gap: 13px;
-  padding: clamp(20px, 2.5vw, 26px);
-  border-color: color-mix(in srgb, var(--line) 90%, transparent);
-  border-radius: 8px;
-  background: color-mix(in srgb, var(--panel-solid) 84%, transparent);
-  box-shadow: none;
-  transform: none;
-}
 
-.pricing-page .pricing-card:hover {
-  border-color: color-mix(in srgb, var(--ink) 24%, var(--line));
-  box-shadow: none;
-  transform: none;
-}
 
-.pricing-page .pricing-card::before {
-  display: none;
-}
 
-.pricing-page .pricing-card.is-featured {
-  border-color: color-mix(in srgb, var(--ink) 30%, var(--line));
-  background: color-mix(in srgb, var(--ink) 5%, var(--panel-solid));
-  box-shadow: none;
-}
 
-.pricing-card h2 {
-  min-height: 0;
-  font-size: clamp(26px, 2.5vw, 34px);
-  line-height: 1.08;
-}
 
-.pricing-page .plan-price-line {
-  align-items: center;
-}
 
-.plan-price-detail {
-  display: block;
-  min-height: 20px;
-  color: var(--muted);
-  font-size: 12px;
-  font-weight: 760;
-  line-height: 1.45;
-}
 
-.pricing-page .billing-pill,
-.pricing-page .plan-badge {
-  min-height: 26px;
-  padding: 0 10px;
-  border: 1px solid color-mix(in srgb, var(--line) 92%, transparent);
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--ink) 5%, transparent);
-  color: var(--muted);
-  font-size: 11px;
-}
 
-.pricing-page .plan-badge {
-  border-color: color-mix(in srgb, var(--ink) 30%, transparent);
-  background: color-mix(in srgb, var(--ink) 12%, transparent);
-  color: var(--ink);
-}
 
-.pricing-page .pricing-card > p {
-  min-height: 70px;
-}
 
-.pricing-page .pricing-card ul {
-  align-content: start;
-  gap: 9px;
-  margin: 0;
-}
 
-.pricing-page .pricing-card li {
-  color: color-mix(in srgb, var(--ink) 84%, var(--muted));
-  font-size: 14px;
-  line-height: 1.48;
-}
 
-.pricing-page .pricing-card li::before {
-  top: 0.72em;
-  width: 5px;
-  height: 5px;
-  background: var(--ink);
-  box-shadow: none;
-}
 
-.pricing-card-footer {
-  display: grid;
-  gap: 10px;
-  align-self: end;
-  padding-top: 14px;
-  border-top: 1px solid color-mix(in srgb, var(--line) 74%, transparent);
-}
 
-.pricing-card-footer > span {
-  min-height: 18px;
-  color: var(--muted);
-  font-size: 12px;
-  font-weight: 760;
-  line-height: 1.45;
-}
 
-.pricing-card .button,
-.pricing-page .button.primary,
-.pricing-page .button.primary.ultra-button {
-  width: 100%;
-  min-height: 44px;
-  padding: 0 14px;
-  border-radius: 7px;
-  font-size: 13px;
-}
 
-.pricing-page .button.ghost {
-  border-color: color-mix(in srgb, var(--line) 96%, transparent);
-  background: color-mix(in srgb, var(--ink) 4%, transparent);
-  color: var(--ink);
-}
 
-.pricing-team-strip {
-  display: none;
-}
 
-@media (max-width: 1100px) {
-  .pricing-grid-simple {
-    grid-template-columns: 1fr;
-    width: min(100%, 720px);
-    margin-inline: auto;
-  }
 
-  .pricing-page .pricing-card > p {
-    min-height: 0;
-  }
-}
 
-@media (max-width: 640px) {
-  .pricing-page .pricing-hero {
-    padding-top: 20px;
-  }
 
-  .pricing-page .pricing-hero h1 {
-    font-size: clamp(30px, 10vw, 42px);
-  }
 
-  .pricing-page .pricing-card {
-    padding: 18px;
-  }
 
-  .pricing-note {
-    align-items: start;
-  }
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @media (max-width: 700px) {
   .user-profile-panel {
@@ -4026,7 +3821,6 @@ body {
   .portal-page,
   .creator-page,
   .about-page,
-  .pricing-page,
   .updates-page,
   .activity-page,
   .feedback-page,
@@ -4058,7 +3852,6 @@ body.accessibility-body .legal-document-page {
   .portal-page,
   .creator-page,
   .about-page,
-  .pricing-page,
   .updates-page,
   .activity-page,
   .feedback-page,
@@ -4075,7 +3868,6 @@ body.accessibility-body .legal-document-page {
   .creator-studio-hero,
   .bio-hero,
   .about-hero,
-  .pricing-hero,
   .updates-hero,
   .activity-hero,
   .faq-archive-hero,
@@ -4101,7 +3893,6 @@ body.accessibility-body .legal-document-page {
   .creator-studio-hero,
   .bio-hero,
   .about-hero,
-  .pricing-hero,
   .faq-archive-hero,
   .sitemap-hero,
   .policy-hero,
@@ -4149,8 +3940,7 @@ main.shell :is(
 main.shell :is(
   .button,
   .updates-action-link,
-  .logboard-action-button,
-  .pricing-button
+  .logboard-action-button
 ) {
   min-height: var(--site-control-height);
   border-radius: 6px;
@@ -4220,7 +4010,6 @@ main.shell .eyebrow {
     .portal-page,
     .creator-page,
     .about-page,
-    .pricing-page,
     .updates-page,
     .activity-page,
     .feedback-page,
@@ -4252,7 +4041,6 @@ main.shell .eyebrow {
     .portal-page,
     .creator-page,
     .about-page,
-    .pricing-page,
     .updates-page,
     .activity-page,
     .feedback-page,
@@ -4315,7 +4103,6 @@ main.shell .eyebrow {
     .creator-studio-hero,
     .bio-hero,
     .about-hero,
-    .pricing-hero,
     .updates-hero,
     .activity-hero,
     .faq-archive-hero,
@@ -4336,7 +4123,6 @@ main.shell .eyebrow {
     .creator-studio-hero,
     .bio-hero,
     .about-hero,
-    .pricing-hero,
     .faq-archive-hero,
     .sitemap-hero,
     .policy-hero,
@@ -4370,7 +4156,6 @@ main.shell .eyebrow {
     .creator-studio-hero,
     .bio-hero,
     .about-hero,
-    .pricing-hero,
     .faq-archive-hero,
     .sitemap-hero,
     .policy-hero,
@@ -4792,7 +4577,6 @@ main.shell .eyebrow {
 /* Unified route palette: every page follows the selected site theme. */
 [data-theme] body,
 [data-theme] body :is(
-  .pricing-page,
   .creator-page,
   .bio-page,
   .about-page,
@@ -4846,17 +4630,6 @@ main.shell .eyebrow {
   border-color: var(--line);
   background: color-mix(in srgb, var(--nav-bg) 90%, transparent);
   box-shadow: none;
-}
-
-[data-theme] body :is(
-  .pricing-card,
-  .pricing-card.is-featured,
-  .pricing-card.creator-card,
-  .pricing-card.pro-card,
-  .pricing-card.enterprise-card,
-  .ultra-card
-) {
-  --plan-accent: var(--accent);
 }
 
 [data-theme] .home-body :is(
@@ -4922,7 +4695,6 @@ main.shell .eyebrow {
   main .updates-action-link,
   main .activity-action-link,
   main .logboard-action-button,
-  main .pricing-button,
   main .feedback-cta,
   main .home-feedback-link,
   main .status-check-button,
@@ -4976,7 +4748,6 @@ main.shell .eyebrow {
   main .updates-action-link,
   main .activity-action-link,
   main .logboard-action-button,
-  main .pricing-button,
   main .feedback-cta,
   main .home-feedback-link,
   main .status-check-button,
@@ -5009,7 +4780,6 @@ main.shell .eyebrow {
   .cache-dialog .cache-confirm-button:not(.usage-reset-confirm-button):not(.site-data-confirm-button),
   .cache-dialog .share-copy-button,
   .feedback-confirm-button,
-  .subscribe-confirm-button,
   .settings-modal-button.is-primary,
   .user-profile-actions [data-profile-save]
 ) {
@@ -5024,7 +4794,6 @@ main.shell .eyebrow {
   .cache-dialog .cache-confirm-button:not(.usage-reset-confirm-button):not(.site-data-confirm-button),
   .cache-dialog .share-copy-button,
   .feedback-confirm-button,
-  .subscribe-confirm-button,
   .settings-modal-button.is-primary,
   .user-profile-actions [data-profile-save]
 ):is(:hover, :focus-visible) {
@@ -7153,7 +6922,6 @@ body .cookie-settings-dialog .cookie-settings-dialog-panel .cookie-settings-acti
   .hero-panel,
   .profile-card,
   .setting-card,
-  .pricing-card,
   .faq-card,
   .bio-card,
   .about-card {

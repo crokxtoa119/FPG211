@@ -247,8 +247,8 @@ const createUserProfileDialog = () => {
         <div class="user-profile-summary">
           <p class="eyebrow" data-i18n="profileDialog.eyebrow">Profile</p>
           <h2 id="user-profile-title" data-profile-name>My name</h2>
-          <p data-i18n="profileDialog.body">Name, photo, visibility, and plan.</p>
-          <span class="user-profile-plan-pill" data-profile-plan>Free</span>
+          <p data-i18n="profileDialog.body">Name, photo, and visibility.</p>
+          <span class="user-profile-plan-pill" data-profile-plan>Member</span>
         </div>
       </div>
       <div class="user-profile-section user-profile-auth-section">
@@ -461,7 +461,7 @@ const createSettingsDialog = () => {
           <div class="settings-modal-row">
             <div>
               <strong data-i18n="nav.security">Security</strong>
-              <span data-i18n="search.securityBody">브라우저 저장소, 쿠키, 외부 결제, 알림 권한의 보안 경계를 확인합니다.</span>
+              <span data-i18n="search.securityBody">브라우저 저장소, 쿠키, 알림 권한의 보안 경계를 확인합니다.</span>
             </div>
             <a class="settings-modal-link" href="/security" data-i18n="nav.security">Security</a>
           </div>
@@ -472,7 +472,7 @@ const createSettingsDialog = () => {
           <div class="settings-auth-view" data-settings-auth-signed-out>
             <div class="settings-auth-intro">
               <strong data-i18n="settings.loginTitle">Google 계정으로 계속하기</strong>
-              <span data-i18n="settings.loginBody">로그인하면 프로필, 요금제 관련 계정 기능을 사용할 수 있습니다.</span>
+              <span data-i18n="settings.loginBody">로그인하면 프로필 관련 계정 기능을 사용할 수 있습니다.</span>
             </div>
             <div class="settings-modal-row">
               <div>
@@ -487,7 +487,6 @@ const createSettingsDialog = () => {
               <img class="settings-modal-avatar" src="/assets/well-avatar.webp" alt="" width="192" height="192" loading="lazy" decoding="async" data-profile-avatar-preview />
               <div>
                 <strong data-profile-name>My name</strong>
-                <span><span data-i18n="profileDialog.plan">요금제</span>: <span data-profile-plan>Free</span></span>
               </div>
             </div>
             <div class="settings-modal-row">
@@ -1470,13 +1469,6 @@ let clipboardWarningContinue = document.querySelector("[data-clipboard-warning-c
 const adblockBait = document.querySelector(".adblock-bait");
 const adblockNotice = document.querySelector("[data-adblock-notice]");
 const adblockDismiss = document.querySelector("[data-adblock-dismiss]");
-const currencySwitch = document.querySelector("[data-currency-switch]");
-const currencyChoices = [...document.querySelectorAll("[data-currency-choice]")];
-const priceLabels = [...document.querySelectorAll("[data-price-plan]")];
-const subscribeButtons = [...document.querySelectorAll("[data-subscribe-url]")];
-const subscribeWarning = document.querySelector("[data-subscribe-warning]");
-const subscribeCancel = document.querySelector("[data-subscribe-cancel]");
-const subscribeConfirm = document.querySelector("[data-subscribe-confirm]");
 const settingToggles = [...document.querySelectorAll("[data-toggle-key]")];
 const contextModeOpen = document.querySelector("[data-context-menu-open]");
 const contextModeDialog = document.querySelector("[data-context-mode-dialog]");
@@ -1532,8 +1524,6 @@ const feedbackWarning = document.querySelector("[data-feedback-warning]");
 const feedbackCancel = document.querySelector("[data-feedback-cancel]");
 const feedbackConfirm = document.querySelector("[data-feedback-confirm]");
 const feedbackFormUrl = "https://forms.gle/4B7C5gK2NEvpzc1v7";
-let pendingSubscribeUrl = "";
-let pendingAuthenticatedSubscribeButton = null;
 let contextMenuCloseTimeoutId = 0;
 let copyToastTimeoutId = 0;
 let copyEventSuppressedUntil = 0;
@@ -1625,7 +1615,6 @@ const USER_PROFILE_AVATAR_KEY = "profile-user-avatar";
 const USER_PROFILE_VISIBILITY_KEY = "profile-setting-profile-public";
 const DEFAULT_USER_PROFILE_NAME = "My name";
 const DEFAULT_USER_PROFILE_AVATAR = "/assets/well-avatar.webp";
-const USER_PROFILE_PLAN = "Free";
 
 const getUserProfileName = () => {
   const value = localStorage.getItem(USER_PROFILE_NAME_KEY)?.trim();
@@ -1651,13 +1640,13 @@ const syncUserProfileUI = () => {
     element.textContent = name;
   });
   document.querySelectorAll("[data-profile-plan]").forEach((element) => {
-    element.textContent = USER_PROFILE_PLAN;
+    element.textContent = translate("profile.memberLabel");
   });
   document.querySelectorAll("[data-sidebar-account-name]").forEach((element) => {
     element.textContent = isSignedIn ? name : translate("auth.signIn");
   });
   document.querySelectorAll("[data-sidebar-account-plan]").forEach((element) => {
-    element.textContent = isSignedIn ? USER_PROFILE_PLAN : translate("auth.optional");
+    element.textContent = isSignedIn ? translate("profile.memberLabel") : translate("auth.optional");
   });
   document.querySelectorAll(".sidebar-account-avatar").forEach((image) => {
     image.src = isSignedIn ? avatar : DEFAULT_USER_PROFILE_AVATAR;
@@ -1744,37 +1733,8 @@ const syncUserProfileUI = () => {
   });
 };
 
-const syncAuthenticatedCheckoutUI = () => {
-  const authState = document.documentElement.dataset.authState || "loading";
-  const isSignedIn = authState === "signed-in" && Boolean(window.profileAuthUser);
-  const isUnavailable = authState === "unavailable";
-
-  subscribeButtons.forEach((button) => {
-    if (!button.hasAttribute("data-auth-required-checkout")) return;
-
-    const labelKey = isUnavailable
-      ? "pricing.signInUnavailable"
-      : isSignedIn
-        ? button.dataset.authenticatedI18n || "pricing.choosePro"
-        : button.dataset.unauthenticatedI18n || "pricing.signInToPay";
-    button.dataset.i18n = labelKey;
-    button.textContent = translate(labelKey);
-    button.disabled = authState === "loading";
-    button.setAttribute("aria-disabled", String(button.disabled));
-    button.title = isUnavailable ? translate("auth.unavailable") : "";
-  });
-};
-
 window.addEventListener("profile-auth-change", () => {
   syncUserProfileUI();
-  syncAuthenticatedCheckoutUI();
-
-  const pendingButton = pendingAuthenticatedSubscribeButton;
-  const isSignedIn = document.documentElement.dataset.authState === "signed-in" && Boolean(window.profileAuthUser);
-  if (!pendingButton || !isSignedIn) return;
-
-  pendingAuthenticatedSubscribeButton = null;
-  showSubscribeWarning(pendingButton);
 });
 
 const SUCCESS_TOAST_KEYS = new Set(["settings.saved", "auth.signedIn", "auth.signedOut"]);
@@ -1782,9 +1742,6 @@ const WARNING_TOAST_KEYS = new Set(["auth.popupClosed"]);
 const ERROR_TOAST_KEYS = new Set(["auth.popupBlocked", "auth.networkError", "auth.unavailable", "auth.error"]);
 
 window.addEventListener("profile-auth-toast", (event) => {
-  if (WARNING_TOAST_KEYS.has(event.detail) || ERROR_TOAST_KEYS.has(event.detail)) {
-    pendingAuthenticatedSubscribeButton = null;
-  }
   showCopyToast(event.detail || "auth.error");
 });
 
@@ -2054,21 +2011,6 @@ const playContextMenuClickSound = () => {
   }
 };
 
-const prices = {
-  krw: {
-    free: "₩0",
-    pro: "$20",
-    team: "예약 문의",
-    ultra: "Stripe에서 확인",
-  },
-  usd: {
-    free: "$0",
-    pro: "$20",
-    team: "Reservation",
-    ultra: "Confirm in Stripe",
-  },
-};
-
 const siteSearchIndex = [
   {
     titleKey: "search.homeTitle",
@@ -2161,15 +2103,6 @@ const siteSearchIndex = [
     },
   },
   {
-    titleKey: "search.pricingTitle",
-    bodyKey: "search.pricingBody",
-    url: "/Pricing",
-    keywords: {
-      ko: "pricing 가격 요금제 free pro team ultra stripe 결제 비교표",
-      en: "pricing plans free pro team ultra stripe checkout comparison",
-    },
-  },
-  {
     titleKey: "search.updatesTitle",
     bodyKey: "search.updatesBody",
     url: "/updates",
@@ -2246,8 +2179,8 @@ const siteSearchIndex = [
     bodyKey: "search.securityBody",
     url: "/security",
     keywords: {
-      ko: "security 보안 쿠키 로컬 저장소 결제 알림 권한 외부 서비스",
-      en: "security cookies local storage checkout notifications permissions external services",
+      ko: "security 보안 쿠키 로컬 저장소 알림 권한 외부 서비스",
+      en: "security cookies local storage notifications permissions external services",
     },
   },
   {
@@ -2273,8 +2206,8 @@ const siteSearchIndex = [
     bodyKey: "search.privacyBody",
     url: "/privacy",
     keywords: {
-      ko: "privacy 개인정보처리방침 로컬 저장소 localstorage 외부 링크 피드백 결제",
-      en: "privacy policy localstorage local preferences external links feedback payments",
+      ko: "privacy 개인정보처리방침 로컬 저장소 localstorage 외부 링크 피드백",
+      en: "privacy policy localstorage local preferences external links feedback",
     },
   },
   {
@@ -2291,8 +2224,8 @@ const siteSearchIndex = [
     bodyKey: "search.termsBody",
     url: "/terms",
     keywords: {
-      ko: "terms 이용약관 약관 사용 조건 외부 결제 피드백 로컬 설정",
-      en: "terms terms of use conditions external checkout feedback local settings",
+      ko: "terms 이용약관 약관 사용 조건 피드백 로컬 설정",
+      en: "terms terms of use conditions feedback local settings",
     },
   },
   {
@@ -2392,7 +2325,6 @@ const setLanguage = (language) => {
   syncNavigationToggleLabel();
 
   setTheme(document.documentElement.dataset.theme || getInitialTheme());
-  setCurrency(localStorage.getItem("profile-currency") || (resolvedLanguage === "ko" ? "krw" : "usd"));
   setKidMode(document.documentElement.dataset.kidMode || "off");
   settingToggles.forEach((button) => {
     updateSettingToggle(button, button.classList.contains("is-on"));
@@ -2401,7 +2333,6 @@ const setLanguage = (language) => {
   updateStorageEstimate();
   syncQuickSettingsControls();
   syncUserProfileUI();
-  syncAuthenticatedCheckoutUI();
   window.dispatchEvent(new CustomEvent("profile-language-change", { detail: { language: resolvedLanguage } }));
 };
 
@@ -2556,22 +2487,6 @@ const setKidMode = (mode) => {
   localStorage.setItem("profile-setting-kid-mode", resolvedMode);
 };
 
-const setCurrency = (currency) => {
-  const resolvedCurrency = currentLanguage === "ko" ? "krw" : "usd";
-  localStorage.setItem("profile-currency", resolvedCurrency);
-  currencySwitch?.setAttribute("data-currency", resolvedCurrency);
-
-  currencyChoices.forEach((button) => {
-    const isActive = button.dataset.currencyChoice === resolvedCurrency;
-    button.classList.toggle("is-active", isActive);
-    button.setAttribute("aria-selected", String(isActive));
-  });
-
-  priceLabels.forEach((label) => {
-    label.textContent = prices[resolvedCurrency]?.[label.dataset.pricePlan] || label.textContent;
-  });
-};
-
 const createShareDialog = () => {
   if (!document.querySelector("[data-share-dialog]")) {
     const dialog = document.createElement("div");
@@ -2630,7 +2545,7 @@ const createSiteSearchDialog = () => {
       <h2 id="search-dialog-title" data-i18n="search.title">사이트 검색</h2>
       <label class="search-field">
         <span data-i18n="search.label">검색어</span>
-        <input type="search" data-site-search-input data-i18n-placeholder="search.placeholder" placeholder="Unity, 요금제, FAQ처럼 입력하세요" autocomplete="off" />
+        <input type="search" data-site-search-input data-i18n-placeholder="search.placeholder" placeholder="페이지, 설정, 정책 검색" autocomplete="off" />
       </label>
       <div class="search-results" data-site-search-results></div>
     </div>
@@ -3163,7 +3078,7 @@ const renderRecentSearches = () => {
   if (!recentContainer) return;
 
   const recentSearches = getStoredRecentSearches();
-  const suggestions = ["Pricing", "Privacy", "Accessibility", "FAQ"];
+  const suggestions = ["Creator", "Privacy", "Accessibility", "FAQ"];
   const values = recentSearches.length ? recentSearches : suggestions;
 
   recentContainer.innerHTML = "";
@@ -3344,7 +3259,6 @@ const clearSiteCache = () => {
   document.documentElement.dataset.kidMode = "off";
   document.documentElement.dataset.navLayout = "sidebar";
   setLanguage("en");
-  setCurrency("usd");
   setContextMenuMode("custom");
   setKidMode("off");
 
@@ -3421,28 +3335,9 @@ const showFeedbackWarning = (event) => {
   feedbackWarning.hidden = false;
 };
 
-const showSubscribeWarning = (button) => {
-  pendingSubscribeUrl = button.dataset.subscribeUrl || "";
-  if (subscribeConfirm) subscribeConfirm.hidden = false;
-  if (subscribeCancel) subscribeCancel.textContent = translate("pricing.subscribeCancel");
-  if (!subscribeWarning) {
-    if (pendingSubscribeUrl) window.open(pendingSubscribeUrl, "_blank", "noopener,noreferrer");
-    return;
-  }
-
-  subscribeWarning.hidden = false;
-};
-
 const openFeedbackForm = () => {
   closeFeedbackWarning();
   window.open(feedbackFormUrl, "_blank", "noopener,noreferrer");
-};
-
-const openSubscriptionCheckout = () => {
-  const url = pendingSubscribeUrl;
-  closeSubscribeWarning();
-  pendingSubscribeUrl = "";
-  if (url) window.open(url, "_blank", "noopener,noreferrer");
 };
 
 const positionSelectMenu = (select, menu) => {
@@ -3486,22 +3381,6 @@ const closeFeedbackWarning = () => {
   window.setTimeout(() => {
     feedbackWarning.hidden = true;
     feedbackWarning.classList.remove("is-closing");
-  }, 170);
-};
-
-const closeSubscribeWarning = () => {
-  if (!subscribeWarning || subscribeWarning.hidden) return;
-
-  subscribeWarning.classList.add("is-closing");
-  window.setTimeout(() => {
-    subscribeWarning.hidden = true;
-    subscribeWarning.classList.remove("is-closing");
-    const title = subscribeWarning.querySelector("#subscribe-dialog-title");
-    const body = subscribeWarning.querySelector("[data-i18n='pricing.subscribeWarningBody']");
-    if (title) title.textContent = translate("pricing.subscribeWarningTitle");
-    if (body) body.textContent = translate("pricing.subscribeWarningBody");
-    if (subscribeConfirm) subscribeConfirm.hidden = false;
-    if (subscribeCancel) subscribeCancel.textContent = translate("pricing.subscribeCancel");
   }, 170);
 };
 
@@ -4313,16 +4192,6 @@ const PAGE_SUMMARY_GUIDES = {
       actionLabelKey: "summaryAction.openPortal",
     },
   ],
-  "/pricing": [
-    { titleKey: "summaryGuide.pricingOneTitle", bodyKey: "summaryGuide.pricingOneBody" },
-    { titleKey: "summaryGuide.pricingTwoTitle", bodyKey: "summaryGuide.pricingTwoBody" },
-    {
-      titleKey: "summaryGuide.pricingThreeTitle",
-      bodyKey: "summaryGuide.pricingThreeBody",
-      actionUrl: "/feedback",
-      actionLabelKey: "summaryAction.sendQuestion",
-    },
-  ],
   "/updates": [
     { titleKey: "summaryGuide.updatesOneTitle", bodyKey: "summaryGuide.updatesOneBody" },
     { titleKey: "summaryGuide.updatesTwoTitle", bodyKey: "summaryGuide.updatesTwoBody" },
@@ -4788,7 +4657,6 @@ setupToggleRightTrack();
 setupOfficialHomeMenus();
 setupBrandLogo();
 setKidMode(localStorage.getItem("profile-setting-kid-mode") || "off");
-setCurrency(localStorage.getItem("profile-currency") || (currentLanguage === "ko" ? "krw" : "usd"));
 updateStorageEstimate();
 
 themeChoices.forEach((button) => {
@@ -4820,10 +4688,6 @@ languageTrigger?.addEventListener("click", () => {
     languageMenu,
     !languageSelect?.classList.contains("is-open"),
   );
-});
-
-currencyChoices.forEach((button) => {
-  button.addEventListener("click", () => setCurrency(button.dataset.currencyChoice));
 });
 
 homeTabs.forEach((tab) => {
@@ -4882,31 +4746,6 @@ feedbackCancel?.addEventListener("click", closeFeedbackWarning);
 feedbackConfirm?.addEventListener("click", openFeedbackForm);
 feedbackWarning?.addEventListener("click", (event) => {
   if (event.button === 0 && event.target === feedbackWarning) closeFeedbackWarning();
-});
-subscribeButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    const requiresAuth = button.hasAttribute("data-auth-required-checkout");
-    const isSignedIn = document.documentElement.dataset.authState === "signed-in" && Boolean(window.profileAuthUser);
-    const isAuthUnavailable = document.documentElement.dataset.authState === "unavailable";
-
-    if (requiresAuth && !isSignedIn) {
-      if (isAuthUnavailable) {
-        showCopyToast("auth.unavailable");
-        return;
-      }
-      pendingAuthenticatedSubscribeButton = button;
-      showCopyToast(button.dataset.authRequiredMessage || "pricing.signInRequired");
-      window.dispatchEvent(new CustomEvent("profile-auth-request"));
-      return;
-    }
-
-    showSubscribeWarning(button);
-  });
-});
-subscribeCancel?.addEventListener("click", closeSubscribeWarning);
-subscribeConfirm?.addEventListener("click", openSubscriptionCheckout);
-subscribeWarning?.addEventListener("click", (event) => {
-  if (event.button === 0 && event.target === subscribeWarning) closeSubscribeWarning();
 });
 shareLinkButton?.addEventListener("click", showShareDialog);
 shareClose?.addEventListener("click", closeShareDialog);
@@ -5023,7 +4862,6 @@ document.addEventListener("keydown", (event) => {
     closeQuickSettingsDialog();
     closeClearCacheWarning();
     closeFeedbackWarning();
-    closeSubscribeWarning();
     return;
   }
 

@@ -11,6 +11,26 @@
       "source": "/usage/(.*)",
       "destination": "/",
       "permanent": false
+    },
+    {
+      "source": "/Pricing",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/Pricing/(.*)",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/pricing",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/pricing/(.*)",
+      "destination": "/",
+      "permanent": false
     }
   ],
   "rewrites": [
@@ -33,10 +53,6 @@
     {
       "source": "/Creator",
       "destination": "/Creator/index.html"
-    },
-    {
-      "source": "/Pricing",
-      "destination": "/Pricing/index.html"
     },
     {
       "source": "/Bio",

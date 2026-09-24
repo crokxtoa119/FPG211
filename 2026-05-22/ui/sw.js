@@ -13,7 +13,6 @@ const PRECACHE_URLS = [
   "/Creator/baldimods",
   "/Creator/newrobloxexperience",
   "/Creator/uiux",
-  "/Pricing",
   "/Bio",
   "/about",
   "/FAQ",

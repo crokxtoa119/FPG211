@@ -921,37 +921,6 @@
     padding: clamp(28px, 8vw, 46px);
   }
 
-  .pricing-hero {
-    gap: 22px;
-    min-height: auto;
-    padding: 24px;
-  }
-
-  .pricing-hero-panel div {
-    grid-template-columns: 1fr;
-    gap: 6px;
-    min-height: 0;
-  }
-
-  .pricing-hero-panel strong {
-    text-align: left;
-  }
-
-  .pricing-note {
-    display: block;
-    justify-content: flex-start;
-    padding: 18px;
-    text-align: left;
-    overflow-wrap: anywhere;
-  }
-
-  .pricing-note::before {
-    position: static;
-    display: inline-block;
-    margin-right: 10px;
-    vertical-align: -2px;
-  }
-
   .offline-page {
     min-height: auto;
     padding: clamp(22px, 6vw, 36px);
@@ -994,12 +963,10 @@
   .trust-hero,
   .trust-grid,
   .security-checklist,
-  .pricing-hero,
   .error-page,
   .offline-page,
   .offline-tips,
   .bio-content article,
-  .pricing-grid,
   .comparison-row,
   .legal-grid,
   .settings-band,
@@ -1377,11 +1344,6 @@
     justify-content: flex-start;
   }
 
-  .pricing-hero {
-    min-height: auto;
-    padding: 28px;
-  }
-
   .about-hero {
     min-height: auto;
     padding: 34px 0 26px;
@@ -1405,18 +1367,6 @@
     min-height: 0;
   }
 
-  .pricing-card {
-    min-height: 0;
-  }
-
-  .pricing-card:hover {
-    transform: none;
-  }
-
-  .ultra-card ul {
-    grid-template-columns: 1fr;
-  }
-
   .setting-select,
   .info-tabs {
     width: 100%;
@@ -1433,21 +1383,11 @@
 }
 
 @media (max-width: 480px) {
-  .plan-card-top {
-    justify-content: flex-start;
-  }
-
-  .plan-badge {
-    min-height: 28px;
-    padding: 0 10px;
-    font-size: 11px;
-  }
 
   .bio-hero h1,
   .creator-hero h1,
   .faq-hero h1,
   .legal-hero h1,
-  .pricing-hero h1,
   .settings-hero h1 {
     font-size: clamp(34px, 11vw, 48px);
     line-height: 1.12;
@@ -1766,9 +1706,6 @@
     width: 100%;
   }
 
-  .pricing-card .button {
-    width: 100%;
-  }
 }
 
 @media (max-width: 1180px) {
@@ -2032,32 +1969,7 @@
 }
 
 @media (max-width: 760px) {
-  .shell.pricing-page {
-    width: auto;
-    max-width: none;
-    margin-right: 10px;
-    margin-left: 10px;
-    overflow-x: clip;
-  }
 
-  .pricing-page,
-  .pricing-page * {
-    min-width: 0;
-  }
-
-  .pricing-hero p,
-  .pricing-note,
-  .pricing-card p,
-  .pricing-card li {
-    width: min(100%, 300px);
-    max-width: 300px;
-    overflow-wrap: anywhere;
-  }
-
-  .pricing-hero,
-  .pricing-note,
-  .pricing-grid,
-  .pricing-card,
   .comparison-section,
   .faq-section {
     width: 100%;
@@ -2715,10 +2627,8 @@
 .feedback-cta,
 .cache-confirm-button,
 .feedback-confirm-button,
-.subscribe-confirm-button,
 .share-copy-button,
 .cookie-notice-actions button,
-.pricing-card .button,
 .setting-popup-button,
 .cache-button,
 .share-socials button,
@@ -2737,8 +2647,6 @@
 .feedback-confirm-button,
 .share-copy-button,
 .cookie-notice-actions button,
-.pricing-card .button,
-.pricing-card.is-featured .button,
 .button.primary.ultra-button {
   border-color: var(--action-bg);
   background: var(--action-bg);
@@ -2750,10 +2658,8 @@
 .feedback-cta:hover,
 .cache-confirm-button:hover,
 .feedback-confirm-button:hover,
-.subscribe-confirm-button:hover,
 .share-copy-button:hover,
 .cookie-notice-actions button:hover,
-.pricing-card .button:hover,
 .setting-popup-button:hover,
 .cache-button:hover,
 .share-socials button:hover,
@@ -2931,7 +2837,6 @@
 .bio-body,
 .creator-body,
 .faq-body,
-.pricing-body,
 .privacy-body,
 .license-body,
 .terms-body,
@@ -2947,23 +2852,6 @@
   --settings-caution: #d8d5cc;
 }
 
-.pricing-card,
-.pricing-card.is-featured,
-.pricing-card.creator-card,
-.pricing-card.pro-card,
-.pricing-card.enterprise-card,
-.ultra-card {
-  --plan-accent: #c7c0b4;
-  border-color: color-mix(in srgb, var(--line) 88%, transparent);
-  background:
-    linear-gradient(180deg, color-mix(in srgb, var(--panel-solid) 92%, transparent), transparent),
-    var(--card-bg);
-  box-shadow: var(--shadow);
-}
-
-.plan-pill,
-.plan-price,
-.pricing-card strong,
 .home-latest-list span,
 .bio-kicker,
 .creator-studio-tag,

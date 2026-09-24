@@ -49,12 +49,10 @@
 }
 
 [data-kid-mode="soft"] .setting-card,
-[data-kid-mode="soft"] .pricing-card,
 [data-kid-mode="soft"] .faq-list details,
 [data-kid-mode="soft"] .work-item,
 [data-kid-mode="soft"] .bio-content article,
 [data-kid-mode="strong"] .setting-card,
-[data-kid-mode="strong"] .pricing-card,
 [data-kid-mode="strong"] .faq-list details,
 [data-kid-mode="strong"] .work-item,
 [data-kid-mode="strong"] .bio-content article {
@@ -1986,7 +1984,6 @@ summary {
   .contact-band,
   .home-tabs-section,
   .site-info,
-  .pricing-section,
   .compare-section,
   .faq-section,
   .bio-section,
