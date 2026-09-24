@@ -1,6 +1,38 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/usage",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/usage/(.*)",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/Pricing",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/Pricing/(.*)",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/pricing",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/pricing/(.*)",
+      "destination": "/",
+      "permanent": false
+    }
+  ],
   "rewrites": [
     {
       "source": "/settings",
@@ -9,10 +41,6 @@
     {
       "source": "/accessibility",
       "destination": "/accessibility/index.html"
-    },
-    {
-      "source": "/usage",
-      "destination": "/usage/index.html"
     },
     {
       "source": "/activity",
@@ -25,10 +53,6 @@
     {
       "source": "/Creator",
       "destination": "/Creator/index.html"
-    },
-    {
-      "source": "/Pricing",
-      "destination": "/Pricing/index.html"
     },
     {
       "source": "/Bio",
@@ -109,7 +133,7 @@
       "headers": [
         {
           "key": "Content-Security-Policy",
-          "value": "base-uri 'self'; object-src 'none'; frame-ancestors 'self'"
+          "value": "default-src 'self'; script-src 'self' 'sha256-rkqJqpPptw4LzSMukonArid33/2Ji3nbCLzufeDLZ6M=' 'sha256-63tCkTRDEaKaMybIh6AoIAMnfQ19mzfVdRyaeI5V2mQ=' 'sha256-VeXdAXRJ35cxUSk4uQfWW4jd3yVxfNc6LYxrij/xqCs=' 'sha256-5Y7sBhzx2vGyzEdMcr17E/oysyzWwbHichIquSuQuSE=' 'sha256-UCDh0V8eFmmnug34SP8ji6x90cZwhry8gkVJ1mtigYI=' https://www.gstatic.com https://apis.google.com https://giscus.app https://vercel.live; style-src 'self' 'unsafe-inline' https://giscus.app https://vercel.live; img-src 'self' data: blob: https:; font-src 'self' data: https://vercel.live https://assets.vercel.com; connect-src 'self' https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://www.googleapis.com https://www.gstatic.com https://vercel.live wss://ws-us3.pusher.com; frame-src https://fpg-s-project.firebaseapp.com https://accounts.google.com https://giscus.app https://vercel.live; worker-src 'self'; manifest-src 'self'; form-action 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'"
         },
         {
           "key": "X-Content-Type-Options",
@@ -143,7 +167,7 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
+          "value": "public, max-age=86400, stale-while-revalidate=604800"
         }
       ]
     },

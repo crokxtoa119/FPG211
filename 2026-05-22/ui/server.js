@@ -24,7 +24,7 @@ const resolveFile = (urlPath) => {
   const cleanPath = decodeURIComponent(urlPath.split("?")[0]);
   const requested = path.join(root, cleanPath === "/" ? "index.html" : cleanPath);
 
-  if (!requested.startsWith(root)) return null;
+  if (requested !== root && !requested.startsWith(root + path.sep)) return null;
   if (fs.existsSync(requested) && fs.statSync(requested).isFile()) {
     return { filePath: requested, statusCode: 200 };
   }

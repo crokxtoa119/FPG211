@@ -13,12 +13,10 @@ const PRECACHE_URLS = [
   "/Creator/baldimods",
   "/Creator/newrobloxexperience",
   "/Creator/uiux",
-  "/Pricing",
   "/Bio",
   "/about",
   "/FAQ",
   "/settings",
-  "/usage",
   "/privacy",
   "/license",
   "/trust",
@@ -44,7 +42,6 @@ const PRECACHE_URLS = [
   "/assets/js/navigation.js",
   "/assets/js/script.js",
   "/assets/js/page-features.js",
-  "/assets/js/usage.js",
   "/assets/js/firebase-auth.js",
   "/assets/js/site-notifications.js",
   "/assets/js/status.js",
@@ -120,13 +117,19 @@ self.addEventListener("fetch", (event) => {
 
   event.respondWith(
     caches.match(event.request, { ignoreSearch: true }).then((cached) => {
-      if (cached) return cached;
-
-      return fetch(event.request).then((response) => {
-        const responseCopy = response.clone();
-        caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseCopy));
+      const network = fetch(event.request).then((response) => {
+        if (response.ok) {
+          const responseCopy = response.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseCopy));
+        }
         return response;
       });
+
+      if (cached) {
+        event.waitUntil(network.catch(() => {}));
+        return cached;
+      }
+      return network;
     }),
   );
 });
