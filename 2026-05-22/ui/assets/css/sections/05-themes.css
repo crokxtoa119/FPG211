@@ -42,11 +42,9 @@
   --danger-action-border-hover: #dc2626;
   --danger-action-ink: #fff5f5;
   --shadow: 0 28px 80px rgba(0, 0, 0, 0.32);
-  --hero-tint: linear-gradient(90deg, rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.26) 64%);
-  --hero-tint-mobile: linear-gradient(180deg, rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.74));
-  --page-bg:
-    radial-gradient(circle at 12% 8%, rgba(86, 84, 78, 0.28), transparent 32rem),
-    linear-gradient(135deg, #111110 0%, var(--bg) 52%, #0f0f0e 100%);
+  --hero-tint: rgba(0, 0, 0, 0.5);
+  --hero-tint-mobile: rgba(0, 0, 0, 0.55);
+  --page-bg: var(--bg);
 }
 
 [data-theme="dark"] {
@@ -83,11 +81,9 @@
   --danger-action-border-hover: #dc2626;
   --danger-action-ink: #fff5f5;
   --shadow: 0 28px 80px rgba(0, 0, 0, 0.32);
-  --hero-tint: linear-gradient(90deg, rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.26) 64%);
-  --hero-tint-mobile: linear-gradient(180deg, rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.74));
-  --page-bg:
-    radial-gradient(circle at 12% 8%, rgba(86, 84, 78, 0.28), transparent 32rem),
-    linear-gradient(135deg, #111110 0%, var(--bg) 52%, #0f0f0e 100%);
+  --hero-tint: rgba(0, 0, 0, 0.5);
+  --hero-tint-mobile: rgba(0, 0, 0, 0.55);
+  --page-bg: var(--bg);
 }
 
 [data-theme="lights-off"] {
@@ -124,9 +120,7 @@
   --danger-action-border-hover: #c92a2a;
   --danger-action-ink: #fff5f5;
   --shadow: 0 28px 80px rgba(0, 0, 0, 0.58);
-  --hero-tint: linear-gradient(90deg, rgba(0, 0, 0, 0.84), rgba(0, 0, 0, 0.46) 64%);
-  --hero-tint-mobile: linear-gradient(180deg, rgba(0, 0, 0, 0.34), rgba(0, 0, 0, 0.86));
-  --page-bg:
-    radial-gradient(circle at 12% 8%, rgba(64, 61, 55, 0.14), transparent 30rem),
-    linear-gradient(135deg, #030303 0%, var(--bg) 58%, #11110f 100%);
+  --hero-tint: rgba(0, 0, 0, 0.5);
+  --hero-tint-mobile: rgba(0, 0, 0, 0.55);
+  --page-bg: var(--bg);
 }

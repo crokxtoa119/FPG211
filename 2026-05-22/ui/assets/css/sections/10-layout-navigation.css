@@ -54,7 +54,7 @@
   margin: 0;
   overflow: hidden;
   border: 1px solid rgba(237, 230, 202, 0.14);
-  border-radius: 8px;
+  border-radius: 12px;
   background: #090a09;
   box-shadow: var(--shadow);
 }
@@ -80,7 +80,7 @@
   min-height: 58px;
   padding: 14px 16px;
   border: 1px solid rgba(246, 241, 228, 0.18);
-  border-radius: 8px;
+  border-radius: 12px;
   background: rgba(6, 7, 6, 0.7);
   color: #fffaf0;
   backdrop-filter: blur(18px);
@@ -93,9 +93,9 @@
 .about-route-list a > span {
   color: #8fb36a;
   font-size: 12px;
-  font-weight: 900;
+  font-weight: 700;
   letter-spacing: 0;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 .about-visual-panel strong {
@@ -243,7 +243,7 @@
   width: 94px;
   height: 94px;
   border: 1px solid rgba(143, 179, 106, 0.52);
-  border-radius: 8px;
+  border-radius: 12px;
   color: #8fb36a;
 }
 
@@ -323,12 +323,12 @@
   min-height: 58px;
   padding: 0 20px;
   border: 1px solid #d19334;
-  border-radius: 8px;
+  border-radius: 12px;
   color: #f6f1e4;
   font-size: 12px;
-  font-weight: 900;
+  font-weight: 700;
   text-decoration: none;
-  text-transform: uppercase;
+  text-transform: none;
   transition: background 180ms ease, transform 180ms ease;
 }
 
@@ -462,10 +462,8 @@ html[lang="ko"] .about-next-direction h2 {
   margin-top: 16px;
   padding: clamp(34px, 7vw, 72px);
   border: 1px solid var(--line);
-  border-radius: 8px;
-  background:
-    linear-gradient(135deg, color-mix(in srgb, var(--accent) 12%, transparent), transparent 52%),
-    var(--card-bg-strong);
+  border-radius: 12px;
+  background: var(--card-bg-strong);
 }
 
 .legal-hero > div {
@@ -498,7 +496,7 @@ html[lang="ko"] .about-next-direction h2 {
   background: var(--pill-bg);
   color: var(--muted);
   font-size: 13px;
-  font-weight: 850;
+  font-weight: 700;
 }
 
 .legal-summary {
@@ -515,7 +513,7 @@ html[lang="ko"] .about-next-direction h2 {
   min-height: 74px;
   padding: 16px;
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 12px;
   background: var(--panel-solid);
 }
 
@@ -523,15 +521,15 @@ html[lang="ko"] .about-next-direction h2 {
 .legal-card > span {
   color: var(--muted);
   font-size: 12px;
-  font-weight: 900;
+  font-weight: 700;
   letter-spacing: 0;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 .legal-summary strong {
   color: var(--ink);
   font-size: 15px;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .legal-grid {
@@ -547,16 +545,14 @@ html[lang="ko"] .about-next-direction h2 {
   min-height: 230px;
   padding: calc(clamp(22px, 4vw, 34px) * var(--density-card));
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 12px;
   background: var(--card-bg);
 }
 
 .legal-card-wide {
   grid-column: 1 / -1;
   min-height: 190px;
-  background:
-    linear-gradient(135deg, color-mix(in srgb, var(--accent) 10%, transparent), transparent 64%),
-    var(--card-bg-strong);
+  background: var(--card-bg-strong);
 }
 
 .legal-card h2 {
@@ -585,11 +581,7 @@ html[lang="ko"] .about-next-direction h2 {
   --legal-line: rgba(125, 225, 255, 0.18);
   --legal-line-strong: rgba(179, 240, 255, 0.32);
   --legal-accent: #48d7ff;
-  background:
-    radial-gradient(circle at 16% 18%, rgba(72, 215, 255, 0.18), transparent 28vw),
-    radial-gradient(circle at 84% 8%, rgba(184, 219, 255, 0.12), transparent 26vw),
-    linear-gradient(90deg, var(--highlight-faint) 1px, transparent 1px) 0 0 / 68px 68px,
-    linear-gradient(180deg, #02070b 0%, #06131a 52%, #03080d 100%);
+  background: #06131a;
   color: var(--legal-ink);
 }
 
@@ -602,11 +594,7 @@ html[lang="ko"] .about-next-direction h2 {
   --legal-line: rgba(236, 181, 88, 0.2);
   --legal-line-strong: rgba(250, 220, 151, 0.36);
   --legal-accent: #d6a13d;
-  background:
-    radial-gradient(circle at 18% 14%, rgba(214, 161, 61, 0.16), transparent 28vw),
-    radial-gradient(circle at 82% 12%, rgba(180, 201, 211, 0.08), transparent 30vw),
-    linear-gradient(90deg, rgba(255, 230, 181, 0.045) 1px, transparent 1px) 0 0 / 88px 88px,
-    linear-gradient(180deg, #0c0906 0%, #15100b 54%, #090706 100%);
+  background: #15100b;
   color: var(--legal-ink);
 }
 
@@ -618,8 +606,7 @@ html[lang="ko"] .about-next-direction h2 {
   --legal-line: rgba(255, 255, 255, 0.105);
   --legal-line-strong: rgba(255, 255, 255, 0.22);
   --legal-accent: #f4f4f1;
-  background:
-    linear-gradient(180deg, #101010 0%, #151514 48%, #0f0f0e 100%);
+  background: #151514;
 }
 
 .privacy-body .shell,
@@ -748,7 +735,7 @@ html[lang="ko"] .about-next-direction h2 {
   border-top: 1px solid var(--legal-line-strong);
   color: var(--legal-muted);
   font-size: 13px;
-  font-weight: 850;
+  font-weight: 700;
 }
 
 .policy-hero-media,
@@ -760,7 +747,7 @@ html[lang="ko"] .about-next-direction h2 {
   margin: 0;
   overflow: hidden;
   border: 1px solid var(--legal-line);
-  border-radius: 8px;
+  border-radius: 12px;
   background: rgba(255, 255, 255, 0.04);
   box-shadow: 0 38px 90px rgba(0, 0, 0, 0.4);
 }
@@ -776,17 +763,13 @@ html[lang="ko"] .about-next-direction h2 {
 }
 
 .policy-hero-media::after {
-  background:
-    linear-gradient(180deg, transparent 42%, rgba(2, 7, 11, 0.82)),
-    linear-gradient(90deg, rgba(72, 215, 255, 0.18), transparent 45%);
+  background: rgba(0, 0, 0, 0.45);
 }
 
 .license-hero-media::after,
 .terms-hero-media::after,
 .accessibility-hero-media::after {
-  background:
-    linear-gradient(180deg, transparent 38%, rgba(12, 9, 6, 0.86)),
-    linear-gradient(90deg, rgba(214, 161, 61, 0.16), transparent 46%);
+  background: rgba(0, 0, 0, 0.45);
 }
 
 .policy-hero-media img,
@@ -826,9 +809,9 @@ html[lang="ko"] .about-next-direction h2 {
 .accessibility-dossier article > span {
   color: var(--legal-muted);
   font-size: 12px;
-  font-weight: 900;
+  font-weight: 700;
   letter-spacing: 0;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 .policy-hero-media strong,
@@ -837,7 +820,7 @@ html[lang="ko"] .about-next-direction h2 {
 .accessibility-hero-media strong {
   color: var(--legal-ink);
   font-size: clamp(19px, 2vw, 28px);
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .policy-ledger,
@@ -873,7 +856,7 @@ html[lang="ko"] .about-next-direction h2 {
 .accessibility-ledger strong {
   color: var(--legal-ink);
   font-size: clamp(22px, 2.8vw, 38px);
-  font-weight: 850;
+  font-weight: 700;
   line-height: 1;
 }
 
@@ -940,7 +923,7 @@ html[lang="ko"] .about-next-direction h2 {
   max-width: 13ch;
   font-family: inherit;
   font-size: clamp(42px, 6vw, 82px);
-  font-weight: 850;
+  font-weight: 700;
   line-height: 0.98;
 }
 
@@ -955,22 +938,22 @@ html[lang="ko"] .about-next-direction h2 {
   min-width: 0;
   padding: clamp(22px, 3vw, 32px);
   border: 1px solid var(--legal-line);
-  border-radius: 8px;
+  border-radius: 12px;
   background: var(--legal-soft);
 }
 
 .license-scope-panel span {
   color: var(--legal-muted);
   font-size: 12px;
-  font-weight: 900;
+  font-weight: 700;
   letter-spacing: 0;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 .license-scope-panel strong {
   color: var(--legal-ink);
   font-size: clamp(24px, 2.8vw, 34px);
-  font-weight: 900;
+  font-weight: 700;
   line-height: 1.05;
 }
 
@@ -993,7 +976,7 @@ html[lang="ko"] .about-next-direction h2 {
 .license-page .license-dossier h2 {
   font-family: inherit;
   font-size: clamp(24px, 3vw, 40px);
-  font-weight: 850;
+  font-weight: 700;
   line-height: 1.12;
 }
 
@@ -1009,7 +992,7 @@ html[lang="ko"] .about-next-direction h2 {
   max-width: 12ch;
   font-family: inherit;
   font-size: clamp(42px, 6vw, 82px);
-  font-weight: 850;
+  font-weight: 700;
   line-height: 0.98;
 }
 
@@ -1024,22 +1007,22 @@ html[lang="ko"] .about-next-direction h2 {
   min-width: 0;
   padding: clamp(22px, 3vw, 32px);
   border: 1px solid var(--legal-line);
-  border-radius: 8px;
+  border-radius: 12px;
   background: var(--legal-soft);
 }
 
 .privacy-scope-panel span {
   color: var(--legal-muted);
   font-size: 12px;
-  font-weight: 900;
+  font-weight: 700;
   letter-spacing: 0;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 .privacy-scope-panel strong {
   color: var(--legal-ink);
   font-size: clamp(24px, 2.8vw, 34px);
-  font-weight: 900;
+  font-weight: 700;
   line-height: 1.05;
 }
 
@@ -1062,7 +1045,7 @@ html[lang="ko"] .about-next-direction h2 {
 .privacy-body .policy-dossier h2 {
   font-family: inherit;
   font-size: clamp(24px, 3vw, 40px);
-  font-weight: 850;
+  font-weight: 700;
   line-height: 1.12;
 }
 
@@ -1078,7 +1061,7 @@ html[lang="ko"] .about-next-direction h2 {
   max-width: 11ch;
   font-family: inherit;
   font-size: clamp(42px, 6vw, 82px);
-  font-weight: 850;
+  font-weight: 700;
   line-height: 0.98;
 }
 
@@ -1093,22 +1076,22 @@ html[lang="ko"] .about-next-direction h2 {
   min-width: 0;
   padding: clamp(22px, 3vw, 32px);
   border: 1px solid var(--legal-line);
-  border-radius: 8px;
+  border-radius: 12px;
   background: var(--legal-soft);
 }
 
 .terms-scope-panel span {
   color: var(--legal-muted);
   font-size: 12px;
-  font-weight: 900;
+  font-weight: 700;
   letter-spacing: 0;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 .terms-scope-panel strong {
   color: var(--legal-ink);
   font-size: clamp(24px, 2.8vw, 34px);
-  font-weight: 900;
+  font-weight: 700;
   line-height: 1.05;
 }
 
@@ -1131,7 +1114,7 @@ html[lang="ko"] .about-next-direction h2 {
 .terms-body .terms-dossier h2 {
   font-family: inherit;
   font-size: clamp(24px, 3vw, 40px);
-  font-weight: 850;
+  font-weight: 700;
   line-height: 1.12;
 }
 
@@ -1147,7 +1130,7 @@ html[lang="ko"] .about-next-direction h2 {
   max-width: 10ch;
   font-family: inherit;
   font-size: clamp(42px, 6vw, 82px);
-  font-weight: 850;
+  font-weight: 700;
   line-height: 0.98;
 }
 
@@ -1162,22 +1145,22 @@ html[lang="ko"] .about-next-direction h2 {
   min-width: 0;
   padding: clamp(22px, 3vw, 32px);
   border: 1px solid var(--legal-line);
-  border-radius: 8px;
+  border-radius: 12px;
   background: color-mix(in srgb, #ffffff 4%, transparent);
 }
 
 .accessibility-scope-panel span {
   color: var(--legal-muted);
   font-size: 12px;
-  font-weight: 900;
+  font-weight: 700;
   letter-spacing: 0;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 .accessibility-scope-panel strong {
   color: var(--legal-ink);
   font-size: clamp(24px, 2.8vw, 34px);
-  font-weight: 900;
+  font-weight: 700;
   line-height: 1.05;
 }
 
@@ -1200,7 +1183,7 @@ html[lang="ko"] .about-next-direction h2 {
   overflow: hidden;
   margin-top: clamp(22px, 4vw, 42px);
   border: 1px solid var(--legal-line);
-  border-radius: 8px;
+  border-radius: 12px;
   background: rgba(255, 255, 255, 0.08);
 }
 
@@ -1216,14 +1199,14 @@ html[lang="ko"] .about-next-direction h2 {
 .accessibility-compliance-board span {
   color: var(--legal-muted);
   font-size: 12px;
-  font-weight: 900;
-  text-transform: uppercase;
+  font-weight: 700;
+  text-transform: none;
 }
 
 .accessibility-compliance-board strong {
   color: var(--legal-ink);
   font-size: clamp(18px, 2vw, 24px);
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .accessibility-compliance-board p {
@@ -1240,7 +1223,7 @@ html[lang="ko"] .about-next-direction h2 {
 .accessibility-body .accessibility-dossier h2 {
   font-family: inherit;
   font-size: clamp(24px, 3vw, 40px);
-  font-weight: 850;
+  font-weight: 700;
   line-height: 1.12;
 }
 
@@ -1252,7 +1235,7 @@ html[lang="ko"] .about-next-direction h2 {
   margin-top: clamp(28px, 5vw, 58px);
   padding: clamp(22px, 3.5vw, 34px);
   border: 1px solid var(--legal-line);
-  border-radius: 8px;
+  border-radius: 12px;
   background: #141414;
 }
 
@@ -1278,11 +1261,11 @@ html[lang="ko"] .about-next-direction h2 {
   min-height: 42px;
   padding: 0 14px;
   border: 1px solid var(--legal-line-strong);
-  border-radius: 7px;
+  border-radius: 10px;
   background: rgba(255, 255, 255, 0.06);
   color: var(--legal-ink);
   font-size: 13px;
-  font-weight: 900;
+  font-weight: 700;
   text-decoration: none;
   white-space: nowrap;
 }
@@ -1316,13 +1299,13 @@ html[lang="ko"] .about-next-direction h2 {
 .privacy-cookie-list strong {
   color: var(--legal-ink);
   font-size: 13px;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .privacy-cookie-list span {
   color: var(--legal-muted);
   font-size: 14px;
-  font-weight: 720;
+  font-weight: 600;
   line-height: 1.5;
 }
 
@@ -1334,7 +1317,7 @@ html[lang="ko"] .about-next-direction h2 {
   width: fit-content;
   margin-top: 14px;
   color: var(--legal-accent);
-  font-weight: 850;
+  font-weight: 700;
   text-decoration: none;
 }
 
@@ -1360,11 +1343,11 @@ html[lang="ko"] .about-next-direction h2 {
   min-height: 44px;
   padding: 0 16px;
   border: 1px solid var(--legal-line-strong);
-  border-radius: 8px;
+  border-radius: 12px;
   color: var(--legal-ink);
   background: var(--legal-soft);
   font-size: 13px;
-  font-weight: 850;
+  font-weight: 700;
   text-decoration: none;
 }
 
@@ -1393,7 +1376,7 @@ html[lang="ko"] .about-next-direction h2 {
   cursor: pointer;
   font: inherit;
   font-size: 16px;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .feedback-cta:hover {
@@ -1497,7 +1480,7 @@ html[lang="ko"] .about-next-direction h2 {
   cursor: pointer;
   font: inherit;
   font-size: 13px;
-  font-weight: 850;
+  font-weight: 700;
 }
 
 .currency-switch button.is-active {
@@ -1513,12 +1496,12 @@ html[lang="ko"] .about-next-direction h2 {
   max-width: min(420px, calc(100% - 32px));
   padding: 11px 15px;
   border: 1px solid color-mix(in srgb, var(--line) 88%, transparent);
-  border-radius: 8px;
+  border-radius: 12px;
   background: color-mix(in srgb, var(--panel-solid) 96%, var(--ink) 4%);
   color: var(--ink);
   box-shadow: 0 18px 44px rgba(0, 0, 0, 0.24);
   font-size: 13px;
-  font-weight: 760;
+  font-weight: 600;
   line-height: 1.25;
   text-align: center;
   opacity: 0;
@@ -1564,7 +1547,7 @@ html[lang="ko"] .about-next-direction h2 {
   overflow: hidden;
   padding: clamp(28px, 6vw, 56px);
   border: 1px solid color-mix(in srgb, var(--ink) 9%, transparent);
-  border-radius: 8px;
+  border-radius: 12px;
   background: var(--card-bg);
   box-shadow: 0 18px 52px rgba(0, 0, 0, 0.2);
 }
@@ -1595,9 +1578,9 @@ html[lang="ko"] .about-next-direction h2 {
   color: var(--muted);
   font-family: inherit;
   font-size: 12px;
-  font-weight: 900;
+  font-weight: 700;
   letter-spacing: 0;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 .error-copy > p:not(.eyebrow) {
@@ -1622,7 +1605,7 @@ html[lang="ko"] .about-next-direction h2 {
   padding: clamp(22px, 4vw, 32px);
   overflow: hidden;
   border: 1px solid color-mix(in srgb, var(--ink) 8%, transparent);
-  border-radius: 8px;
+  border-radius: 12px;
   background: var(--panel-solid);
   box-shadow: none;
   text-align: center;
@@ -1646,8 +1629,8 @@ html[lang="ko"] .about-next-direction h2 {
 .error-console-status span {
   color: var(--muted);
   font-size: 12px;
-  font-weight: 900;
-  text-transform: uppercase;
+  font-weight: 700;
+  text-transform: none;
 }
 
 .error-console-top strong {
@@ -1684,7 +1667,7 @@ html[lang="ko"] .about-next-direction h2 {
   width: 100%;
   height: 13px;
   border-radius: 999px;
-  background: linear-gradient(90deg, var(--accent), color-mix(in srgb, var(--accent) 18%, transparent));
+  background: color-mix(in srgb, var(--accent) 18%, transparent);
   transform-origin: left;
   animation: errorSignal 1800ms ease-in-out infinite;
 }
@@ -1727,7 +1710,7 @@ html[lang="ko"] .about-next-direction h2 {
   min-height: 0;
   padding: calc(clamp(16px, 3vw, 22px) * var(--density-card));
   border: 1px solid color-mix(in srgb, var(--ink) 7%, transparent);
-  border-radius: 8px;
+  border-radius: 12px;
   background: color-mix(in srgb, var(--card-bg) 70%, transparent);
   color: inherit;
   text-decoration: none;
@@ -1747,8 +1730,8 @@ html[lang="ko"] .about-next-direction h2 {
 .error-route-card span {
   color: var(--accent);
   font-size: 12px;
-  font-weight: 900;
-  text-transform: uppercase;
+  font-weight: 700;
+  text-transform: none;
 }
 
 .error-route-card strong {
@@ -1845,7 +1828,7 @@ html[lang="ko"] .about-next-direction h2 {
   background: color-mix(in srgb, var(--card-bg-strong) 84%, transparent);
   color: var(--muted);
   font-size: 12px;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .not-found-body .error-topbar::after {
@@ -1896,7 +1879,7 @@ html[lang="ko"] .about-next-direction h2 {
   background: color-mix(in srgb, var(--card-bg-strong) 84%, transparent);
   color: var(--muted);
   font-size: 12px;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .offline-page {
@@ -1906,7 +1889,7 @@ html[lang="ko"] .about-next-direction h2 {
   align-items: stretch;
   padding: clamp(28px, 6vw, 56px);
   border: 1px solid color-mix(in srgb, var(--ink) 9%, transparent);
-  border-radius: 8px;
+  border-radius: 12px;
   background: var(--card-bg);
   box-shadow: 0 18px 52px rgba(0, 0, 0, 0.2);
 }
@@ -1943,7 +1926,7 @@ html[lang="ko"] .about-next-direction h2 {
   min-height: 270px;
   padding: clamp(22px, 4vw, 32px);
   border: 1px solid color-mix(in srgb, var(--ink) 8%, transparent);
-  border-radius: 8px;
+  border-radius: 12px;
   background: var(--panel-solid);
   text-align: center;
 }
@@ -1973,8 +1956,8 @@ html[lang="ko"] .about-next-direction h2 {
   margin: 0;
   color: var(--muted);
   font-size: 12px;
-  font-weight: 900;
-  text-transform: uppercase;
+  font-weight: 700;
+  text-transform: none;
 }
 
 .offline-panel strong {
@@ -2005,14 +1988,14 @@ html[lang="ko"] .about-next-direction h2 {
   min-height: 0;
   padding: calc(clamp(16px, 3vw, 22px) * var(--density-card));
   border: 1px solid color-mix(in srgb, var(--ink) 7%, transparent);
-  border-radius: 8px;
+  border-radius: 12px;
   background: color-mix(in srgb, var(--card-bg) 70%, transparent);
 }
 
 .offline-tips span {
   color: var(--muted);
   font-size: 12px;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .offline-tips h2 {
@@ -2039,12 +2022,9 @@ html[lang="ko"] .about-next-direction h2 {
   overflow: hidden;
   padding: clamp(40px, 7vw, 88px);
   border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 8px;
+  border-radius: 12px;
   color: #f8f5ef;
-  background:
-    radial-gradient(circle at 88% 18%, rgba(255, 84, 22, 0.2), transparent 28rem),
-    linear-gradient(90deg, rgba(4, 4, 4, 0.98), rgba(8, 8, 7, 0.92) 48%, rgba(12, 10, 9, 0.88)),
-    #050505;
+  background: #050505;
   box-shadow: 0 28px 90px rgba(0, 0, 0, 0.34);
 }
 
@@ -2053,9 +2033,7 @@ html[lang="ko"] .about-next-direction h2 {
   position: absolute;
   inset: 0;
   z-index: -2;
-  background:
-    linear-gradient(var(--highlight-subtle) 1px, transparent 1px),
-    linear-gradient(90deg, var(--highlight-faint) 1px, transparent 1px);
+  background: transparent;
   background-size: 72px 72px;
   mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0.95), transparent 88%);
 }
@@ -2066,7 +2044,7 @@ html[lang="ko"] .about-next-direction h2 {
   inset: auto 0 0;
   z-index: -1;
   height: 42%;
-  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.56));
+  background: transparent;
 }
 
 .bio-hero-copy {
@@ -2084,7 +2062,7 @@ html[lang="ko"] .about-next-direction h2 {
   max-width: 620px;
   color: #ffffff;
   font-size: 96px;
-  font-weight: 900;
+  font-weight: 700;
   line-height: 0.96;
   text-wrap: balance;
 }
@@ -2133,8 +2111,8 @@ html[lang="ko"] .about-next-direction h2 {
   border-bottom: 1px solid rgba(255, 255, 255, 0.42);
   color: #ffffff;
   font-size: 13px;
-  font-weight: 900;
-  text-transform: uppercase;
+  font-weight: 700;
+  text-transform: none;
 }
 
 .bio-hero-actions a::after {
@@ -2153,7 +2131,7 @@ html[lang="ko"] .about-next-direction h2 {
   margin: 0;
   overflow: hidden;
   border: 1px solid var(--highlight-border);
-  border-radius: 8px;
+  border-radius: 12px;
   background: #11100f;
   box-shadow: 0 28px 74px rgba(0, 0, 0, 0.42);
 }
@@ -2170,9 +2148,7 @@ html[lang="ko"] .about-next-direction h2 {
   content: "";
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(180deg, transparent 48%, rgba(0, 0, 0, 0.52)),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.16), transparent 46%);
+  background: rgba(0, 0, 0, 0.45);
   pointer-events: none;
 }
 
@@ -2195,9 +2171,9 @@ html[lang="ko"] .about-next-direction h2 {
 .bio-note-list time {
   color: rgba(248, 245, 239, 0.58);
   font-size: 12px;
-  font-weight: 900;
+  font-weight: 700;
   letter-spacing: 0;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 .bio-media-panel figcaption strong {
@@ -2210,10 +2186,8 @@ html[lang="ko"] .about-next-direction h2 {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   margin-top: -1px;
   border: 1px solid var(--highlight-stronger);
-  border-radius: 8px;
-  background:
-    linear-gradient(180deg, var(--highlight-subtle), transparent),
-    #070706;
+  border-radius: 12px;
+  background: #070706;
   color: #f8f5ef;
 }
 
@@ -2258,7 +2232,7 @@ html[lang="ko"] .about-next-direction h2 {
   grid-template-columns: minmax(0, 0.95fr) minmax(340px, 0.75fr);
   margin-top: 18px;
   border: 1px solid var(--highlight-stronger);
-  border-radius: 8px;
+  border-radius: 12px;
   overflow: hidden;
   background: #070706;
   color: #f8f5ef;
@@ -2271,9 +2245,7 @@ html[lang="ko"] .about-next-direction h2 {
   padding: clamp(26px, 5vw, 48px);
   border-right: 1px solid var(--highlight-strong);
   border-bottom: 1px solid var(--highlight-strong);
-  background:
-    linear-gradient(135deg, var(--highlight-faint), transparent 54%),
-    transparent;
+  background: transparent;
 }
 
 .bio-editorial-grid article:nth-child(2n) {
@@ -2335,7 +2307,7 @@ html[lang="ko"] .about-next-direction h2 {
   background: #070706;
   color: rgba(248, 245, 239, 0.7);
   font-size: 12px;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .bio-principles li::after {
@@ -2382,7 +2354,7 @@ html[lang="ko"] .about-next-direction h2 {
   margin: 4px 0 0;
   color: #ffffff;
   font-size: clamp(25px, 3.4vw, 46px);
-  font-weight: 850;
+  font-weight: 700;
   line-height: 1.16;
 }
 
@@ -2428,7 +2400,7 @@ html[lang="ko"] .about-next-direction h2 {
   gap: 14px;
   padding: calc(clamp(22px, 4vw, 34px) * var(--density-card));
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 12px;
   background: var(--card-bg);
 }
 
@@ -2491,7 +2463,7 @@ html[lang="ko"] .about-next-direction h2 {
   min-height: 144px;
   padding: 16px;
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 12px;
   background: var(--panel-solid);
 }
 
@@ -2509,7 +2481,7 @@ html[lang="ko"] .about-next-direction h2 {
 .creator-note {
   padding: 14px 16px;
   border: 1px solid color-mix(in srgb, var(--accent) 34%, var(--line));
-  border-radius: 8px;
+  border-radius: 12px;
   background: color-mix(in srgb, var(--accent) 7%, transparent);
 }
 
@@ -2523,7 +2495,7 @@ html[lang="ko"] .about-next-direction h2 {
   background: var(--pill-bg);
   color: var(--ink);
   font-size: 14px;
-  font-weight: 850;
+  font-weight: 700;
 }
 
 .creator-body {
@@ -2544,12 +2516,7 @@ html[lang="ko"] .about-next-direction h2 {
   --shadow: 0 34px 96px rgba(0, 0, 0, 0.5);
   --creator-lime: #c6f45f;
   --creator-amber: #f5a947;
-  --page-bg:
-    linear-gradient(90deg, rgba(84, 213, 220, 0.045) 1px, transparent 1px) 0 0 / 76px 76px,
-    linear-gradient(rgba(84, 213, 220, 0.026) 1px, transparent 1px) 0 0 / 76px 76px,
-    radial-gradient(circle at 78% 16%, rgba(84, 213, 220, 0.14), transparent 34rem),
-    radial-gradient(circle at 18% 72%, rgba(198, 244, 95, 0.07), transparent 31rem),
-    linear-gradient(135deg, #030b0f 0%, #07161a 50%, #020608 100%);
+  --page-bg: var(--bg);
   overflow-x: hidden;
 }
 
@@ -2568,14 +2535,14 @@ html[lang="ko"] .about-next-direction h2 {
 .creator-page .button {
   min-height: 50px;
   padding: 0 22px;
-  border-radius: 8px;
+  border-radius: 12px;
   border-color: rgba(238, 248, 247, 0.28);
   color: #eef8f7;
   font-size: 12px;
-  font-weight: 900;
+  font-weight: 700;
   line-height: 1;
   text-decoration: none;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 .creator-page .button.primary {
@@ -2653,7 +2620,7 @@ html[lang="ko"] .about-next-direction h2 {
   margin: 0;
   overflow: hidden;
   border: 1px solid rgba(188, 234, 227, 0.16);
-  border-radius: 8px;
+  border-radius: 12px;
   background: #071216;
   box-shadow: var(--shadow);
 }
@@ -2679,7 +2646,7 @@ html[lang="ko"] .about-next-direction h2 {
   min-height: 58px;
   padding: 14px 16px;
   border: 1px solid rgba(238, 248, 247, 0.18);
-  border-radius: 8px;
+  border-radius: 12px;
   background: rgba(3, 11, 15, 0.74);
   color: #fbfffb;
   backdrop-filter: blur(18px);
@@ -2693,9 +2660,9 @@ html[lang="ko"] .about-next-direction h2 {
 .creator-note {
   color: #54d5dc;
   font-size: 12px;
-  font-weight: 900;
+  font-weight: 700;
   letter-spacing: 0;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 .creator-studio-media strong {
@@ -2784,7 +2751,7 @@ html[lang="ko"] .about-next-direction h2 {
   max-width: 20ch;
   color: rgba(238, 248, 247, 0.6);
   font-size: 13px;
-  font-weight: 750;
+  font-weight: 600;
   line-height: 1.45;
 }
 
@@ -2870,9 +2837,7 @@ html[lang="ko"] .about-next-direction h2 {
 }
 
 .creator-page .creator-pricing-panel {
-  background:
-    linear-gradient(90deg, rgba(198, 244, 95, 0.05), transparent 58%),
-    transparent;
+  background: transparent;
 }
 
 .creator-page .creator-plan-list {
@@ -2881,7 +2846,7 @@ html[lang="ko"] .about-next-direction h2 {
   gap: 0;
   margin-top: 8px;
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 12px;
   overflow: hidden;
 }
 
@@ -2915,7 +2880,7 @@ html[lang="ko"] .about-next-direction h2 {
   margin-top: 4px;
   padding: 14px 16px;
   border: 1px solid rgba(198, 244, 95, 0.32);
-  border-radius: 8px;
+  border-radius: 12px;
   background: rgba(198, 244, 95, 0.07);
   color: rgba(238, 248, 247, 0.72);
   line-height: 1.65;
@@ -2936,13 +2901,13 @@ html[lang="ko"] .about-next-direction h2 {
   min-height: 48px;
   padding: 0 18px;
   border: 1px solid rgba(238, 248, 247, 0.28);
-  border-radius: 8px;
+  border-radius: 12px;
   background: rgba(238, 248, 247, 0.035);
   color: #eef8f7;
   font-size: 12px;
-  font-weight: 900;
+  font-weight: 700;
   text-decoration: none;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 html[lang="ko"] .creator-studio-copy h1 {
@@ -3183,7 +3148,7 @@ body.home-body:not(.official-home-body) .home-feedback-strip h2,
 .creator-guide > article h2,
 .creator-stage-rail strong {
   font-family: inherit;
-  font-weight: 900;
+  font-weight: 700;
   letter-spacing: 0;
   overflow-wrap: normal;
   text-wrap: balance;
@@ -3273,11 +3238,11 @@ html[lang="ko"] .creator-page .creator-guide > article h2 {
   min-height: 96px;
   padding: 16px;
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 12px;
   background: var(--card-bg);
   color: var(--ink);
   font-size: 14px;
-  font-weight: 850;
+  font-weight: 700;
   line-height: 1.35;
 }
 
@@ -3308,7 +3273,7 @@ html[lang="ko"] .creator-page .creator-guide > article h2 {
 .comparison-table {
   display: grid;
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 12px;
   overflow: hidden;
   background: var(--card-bg);
 }
@@ -3317,7 +3282,7 @@ html[lang="ko"] .creator-page .creator-guide > article h2 {
   width: max(100%, 1120px);
   min-width: 1120px;
   border-color: color-mix(in srgb, var(--line) 88%, transparent);
-  background: linear-gradient(180deg, color-mix(in srgb, var(--panel-solid) 54%, transparent), var(--card-bg));
+  background: var(--card-bg);
 }
 
 .comparison-table-redesign .comparison-row {
@@ -3349,13 +3314,13 @@ html[lang="ko"] .creator-page .creator-guide > article h2 {
 
 .comparison-table-redesign .comparison-row > span {
   color: var(--muted);
-  font-weight: 750;
+  font-weight: 600;
 }
 
 .comparison-table-redesign .comparison-row > strong {
   justify-content: center;
   color: var(--ink);
-  font-weight: 850;
+  font-weight: 700;
   text-align: center;
 }
 
@@ -3405,13 +3370,13 @@ html[lang="ko"] .creator-page .creator-guide > article h2 {
   min-height: 44px;
   padding: 0 42px 0 16px;
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 12px;
   appearance: none;
   background: var(--panel-solid);
   color: var(--ink);
   font: inherit;
   font-size: 14px;
-  font-weight: 850;
+  font-weight: 700;
   cursor: pointer;
 }
 
@@ -3429,7 +3394,7 @@ html[lang="ko"] .creator-page .creator-guide > article h2 {
   max-width: 220px;
   color: var(--muted);
   font-size: 13px;
-  font-weight: 800;
+  font-weight: 650;
   line-height: 1.45;
 }
 
@@ -3485,15 +3450,13 @@ html[lang="ko"] .creator-page .creator-guide > article h2 {
   background: color-mix(in srgb, var(--accent) 12%, transparent);
   color: var(--accent);
   font-size: 11px;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .comparison-plan-card-featured {
   border-left-color: #465eff !important;
   border-right: 1px solid #465eff;
-  background:
-    linear-gradient(180deg, rgba(70, 94, 255, 0.13), transparent 42%),
-    color-mix(in srgb, var(--accent) 8%, var(--card-bg-strong));
+  background: color-mix(in srgb, var(--accent) 8%, var(--card-bg-strong));
 }
 
 .comparison-feature-bar {
@@ -3502,9 +3465,9 @@ html[lang="ko"] .creator-page .creator-guide > article h2 {
   justify-content: center;
   min-height: 30px;
   margin: -30px -24px 12px;
-  border-radius: 8px 8px 0 0;
+  border-radius: 12px 12px 0 0;
   background: #465eff;
   color: #ffffff;
   font-size: 12px;
-  font-weight: 900;
+  font-weight: 700;
 }
