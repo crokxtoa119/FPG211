@@ -362,7 +362,6 @@ const enhanceSidebarNavigation = () => {
       labelKey: "nav.groupManage",
       items: [
         { href: "/Pricing", icon: navIconMarkup.pricing, labelKey: "nav.pricing", fallback: "Pricing" },
-        { href: "/usage", icon: navIconMarkup.analytics, labelKey: "usage.nav", fallback: "Usage" },
       ],
     },
     {

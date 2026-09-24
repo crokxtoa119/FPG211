@@ -3899,29 +3899,16 @@ html[lang="ko"] .accessibility-official-hero h1 {
 }
 
 /* 2026-07-10 audit fixes */
-.usage-page .logboard-hero {
-  grid-template-columns: minmax(0, 1fr);
-  align-items: start;
-}
 
-.usage-page .updates-hero h1 {
-  max-width: 900px;
-  font-size: clamp(44px, 5.2vw, 66px);
-  line-height: 1.02;
-  text-wrap: balance;
-}
 
-.usage-page .updates-hero-copy p {
-  max-width: 680px;
-}
 
-.usage-page .updates-hero-actions {
-  justify-content: flex-start;
-}
+
+
+
+
 
 body.settings-dialog-open,
-body.welcome-dialog-open,
-body.usage-dialog-open {
+body.welcome-dialog-open {
   overflow: hidden;
   overscroll-behavior: none;
 }
@@ -3986,11 +3973,7 @@ body.settings-dialog-open .top-search-button {
 }
 
 @media (max-width: 480px) {
-  .usage-page .updates-hero h1 {
-    max-width: 100%;
-    font-size: clamp(36px, 11vw, 46px);
-    line-height: 1.04;
-  }
+
 
   .welcome-dialog {
     padding: 8px;
@@ -4047,7 +4030,6 @@ body {
   .updates-page,
   .activity-page,
   .feedback-page,
-  .usage-page,
   .legal-document-page,
   .trust-page,
   .faq-page,
@@ -4080,7 +4062,6 @@ body.accessibility-body .legal-document-page {
   .updates-page,
   .activity-page,
   .feedback-page,
-  .usage-page,
   .legal-document-page,
   .trust-page,
   .faq-page,
@@ -4145,8 +4126,7 @@ body.portal-body.home-body .home-hero h1 {
 :is(
   .updates-page,
   .activity-page,
-  .feedback-page,
-  .usage-page
+  .feedback-page
 ) :is(.updates-hero, .activity-hero) h1 {
   max-width: 900px;
   font-size: var(--site-board-title);
@@ -4170,9 +4150,6 @@ main.shell :is(
   .button,
   .updates-action-link,
   .logboard-action-button,
-  .usage-learn-button,
-  .usage-reset-button,
-  .usage-upgrade-button,
   .pricing-button
 ) {
   min-height: var(--site-control-height);
@@ -4201,8 +4178,7 @@ main.shell :is(
 :is(
   .updates-page .updates-hero,
   .activity-page .activity-hero,
-  .feedback-page .updates-hero,
-  .usage-page .updates-hero
+  .feedback-page .updates-hero
 ) {
   grid-template-columns: minmax(0, 1fr);
   align-items: start;
@@ -4248,7 +4224,6 @@ main.shell .eyebrow {
     .updates-page,
     .activity-page,
     .feedback-page,
-    .usage-page,
     .legal-document-page,
     .trust-page,
     .faq-page,
@@ -4281,7 +4256,6 @@ main.shell .eyebrow {
     .updates-page,
     .activity-page,
     .feedback-page,
-    .usage-page,
     .legal-document-page,
     .trust-page,
     .faq-page,
@@ -4594,7 +4568,6 @@ main.shell .eyebrow {
   color: var(--panel-solid);
 }
 
-.cache-dialog .usage-reset-confirm-button,
 .cache-dialog .site-data-confirm-button,
 .settings-modal-button.is-danger {
   border-color: var(--danger-action-border);
@@ -4949,10 +4922,6 @@ main.shell .eyebrow {
   main .updates-action-link,
   main .activity-action-link,
   main .logboard-action-button,
-  main .usage-limit-notice a,
-  main .usage-learn-button,
-  main .usage-reset-button,
-  main .usage-upgrade-button,
   main .pricing-button,
   main .feedback-cta,
   main .home-feedback-link,
@@ -5007,9 +4976,6 @@ main.shell .eyebrow {
   main .updates-action-link,
   main .activity-action-link,
   main .logboard-action-button,
-  main .usage-limit-notice a,
-  main .usage-learn-button,
-  main .usage-upgrade-button,
   main .pricing-button,
   main .feedback-cta,
   main .home-feedback-link,
@@ -5068,7 +5034,6 @@ main.shell .eyebrow {
 }
 
 [data-theme] body :is(
-  main .usage-reset-button,
   main .activity-action-link[data-activity-clear]
 ) {
   border-color: color-mix(in srgb, var(--danger-action-border) 72%, var(--line));
@@ -5077,7 +5042,6 @@ main.shell .eyebrow {
 }
 
 [data-theme] body :is(
-  .cache-dialog .usage-reset-confirm-button,
   .cache-dialog .site-data-confirm-button,
   .site-data-delete-button,
   .settings-modal-button.is-danger
@@ -5088,9 +5052,7 @@ main.shell .eyebrow {
 }
 
 [data-theme] body :is(
-  main .usage-reset-button,
   main .activity-action-link[data-activity-clear],
-  .cache-dialog .usage-reset-confirm-button,
   .cache-dialog .site-data-confirm-button,
   .site-data-delete-button,
   .settings-modal-button.is-danger

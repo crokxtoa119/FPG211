@@ -1,6 +1,5 @@
 const routeDocumentGuards = [
   { path: "/settings", selector: ".settings-page", fallback: "/settings/index.html" },
-  { path: "/usage", selector: ".usage-page", fallback: "/usage/index.html" },
 ];
 
 const repairRouteDocumentMismatch = () => {
@@ -455,7 +454,7 @@ const createSettingsDialog = () => {
           <div class="settings-modal-row">
             <div>
               <strong data-i18n="settings.siteDataTitle">사이트 데이터</strong>
-              <span data-i18n="settings.siteDataBody">이 브라우저에 저장된 테마, 언어, 프로필, Activity, Usage, 쿠키 안내 선택을 삭제합니다.</span>
+              <span data-i18n="settings.siteDataBody">이 브라우저에 저장된 테마, 언어, 프로필, Activity, 쿠키 안내 선택을 삭제합니다.</span>
             </div>
             <button class="settings-modal-button is-danger" type="button" data-clear-cache data-i18n="settings.siteDataButton">Delete data</button>
           </div>
@@ -473,7 +472,7 @@ const createSettingsDialog = () => {
           <div class="settings-auth-view" data-settings-auth-signed-out>
             <div class="settings-auth-intro">
               <strong data-i18n="settings.loginTitle">Google 계정으로 계속하기</strong>
-              <span data-i18n="settings.loginBody">로그인하면 프로필, 사용량, 요금제 관련 계정 기능을 사용할 수 있습니다.</span>
+              <span data-i18n="settings.loginBody">로그인하면 프로필, 요금제 관련 계정 기능을 사용할 수 있습니다.</span>
             </div>
             <div class="settings-modal-row">
               <div>
@@ -534,7 +533,7 @@ const createSettingsDialog = () => {
         <p class="eyebrow" data-i18n="settings.siteDataTab">Site data</p>
         <h2 id="cache-dialog-title" data-i18n="settings.siteDataDialogTitle">사이트 데이터 삭제</h2>
         <p data-i18n="settings.clearCacheWarning">
-          이 브라우저에 저장된 사이트 설정, 프로필, Activity, Usage 기록, 쿠키 안내 선택이 삭제됩니다. 계속하시겠습니까?
+          이 브라우저에 저장된 사이트 설정, 프로필, Activity 기록, 쿠키 안내 선택이 삭제됩니다. 계속하시겠습니까?
         </p>
         <div class="cache-warning-actions">
           <button class="button cache-cancel-button" type="button" data-clear-cache-cancel data-i18n="settings.clearCacheCancel">취소</button>
@@ -4320,18 +4319,8 @@ const PAGE_SUMMARY_GUIDES = {
     {
       titleKey: "summaryGuide.pricingThreeTitle",
       bodyKey: "summaryGuide.pricingThreeBody",
-      actionUrl: "/usage",
-      actionLabelKey: "summaryAction.viewUsage",
-    },
-  ],
-  "/usage": [
-    { titleKey: "summaryGuide.usageOneTitle", bodyKey: "summaryGuide.usageOneBody" },
-    { titleKey: "summaryGuide.usageTwoTitle", bodyKey: "summaryGuide.usageTwoBody" },
-    {
-      titleKey: "summaryGuide.usageThreeTitle",
-      bodyKey: "summaryGuide.usageThreeBody",
-      actionUrl: "/Pricing",
-      actionLabelKey: "summaryAction.viewPricing",
+      actionUrl: "/feedback",
+      actionLabelKey: "summaryAction.sendQuestion",
     },
   ],
   "/updates": [

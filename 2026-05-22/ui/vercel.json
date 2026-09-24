@@ -1,6 +1,18 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/usage",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/usage/(.*)",
+      "destination": "/",
+      "permanent": false
+    }
+  ],
   "rewrites": [
     {
       "source": "/settings",
@@ -9,10 +21,6 @@
     {
       "source": "/accessibility",
       "destination": "/accessibility/index.html"
-    },
-    {
-      "source": "/usage",
-      "destination": "/usage/index.html"
     },
     {
       "source": "/activity",
