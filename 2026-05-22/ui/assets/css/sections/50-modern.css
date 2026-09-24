@@ -58,6 +58,12 @@ html[data-theme] body {
   letter-spacing: -0.005em;
 }
 
+/* Korean: break lines between words, never inside them. */
+html[lang="ko"] body {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
 html[data-theme] body :is(h1, h2, h3) {
   letter-spacing: -0.03em;
 }
