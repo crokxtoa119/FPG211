@@ -1,0 +1,379 @@
+/* ---------------------------------------------------------------------------
+   macOS System Settings layout
+   Sidebar with search, account and tinted icon rows; a window-style toolbar
+   above the content; grouped, borderless content boxes; system-blue accent.
+   Loaded last.
+--------------------------------------------------------------------------- */
+
+/* Palette: macOS dark appearance */
+html[data-theme],
+html[data-theme="dark"],
+html[data-theme] body[class] {
+  --bg: #1e1e1e;
+  --modern-page-bg: #1e1e1e;
+  --sidebar-bg: #282828;
+  --ink: #f5f5f7;
+  --muted: #98989d;
+  --line: rgba(255, 255, 255, 0.09);
+  --panel: rgba(255, 255, 255, 0.05);
+  --panel-solid: #2c2c2e;
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --card-bg-strong: rgba(255, 255, 255, 0.08);
+  --pill-bg: rgba(255, 255, 255, 0.07);
+  --soft: #2a2a2c;
+  --brand: #0a84ff;
+  --accent: #0a84ff;
+  --action-bg: #0a84ff;
+  --action-ink: #ffffff;
+  --action-border: transparent;
+  --radius-sm: 7px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+}
+
+html[data-theme="lights-off"],
+html[data-theme="lights-off"] body[class] {
+  --bg: #000000;
+  --modern-page-bg: #000000;
+  --sidebar-bg: #111112;
+  --panel-solid: #1c1c1e;
+}
+
+html[data-theme] body {
+  font-family:
+    -apple-system, BlinkMacSystemFont, "SF Pro Text", "Pretendard Variable", Pretendard,
+    system-ui, "Segoe UI", sans-serif;
+  letter-spacing: -0.01em;
+}
+
+/* Tints for sidebar icon tiles (macOS system colours) */
+[data-tint="blue"] { --tint: #0a84ff; }
+[data-tint="indigo"] { --tint: #5e5ce6; }
+[data-tint="purple"] { --tint: #bf5af2; }
+[data-tint="red"] { --tint: #ff453a; }
+[data-tint="orange"] { --tint: #ff9f0a; }
+[data-tint="green"] { --tint: #30d158; }
+[data-tint="teal"] { --tint: #32ade6; }
+[data-tint="gray"] { --tint: #8e8e93; }
+
+/* Buttons: filled system blue, secondary is a soft grey fill */
+html[data-theme] body :is(.button.primary, .bento-actions .button.primary) {
+  border: 0;
+  background: var(--brand);
+  color: #ffffff;
+}
+
+html[data-theme] body :is(.button.ghost, .bento-actions .button.ghost) {
+  border: 0;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--ink);
+}
+
+html[data-theme] body .bento-actions .button {
+  min-height: 36px;
+  padding: 0 16px;
+  font-size: 14px;
+}
+
+html[data-theme] body .bento-actions .button:is(:hover, :focus-visible) {
+  transform: none;
+  filter: brightness(1.12);
+}
+
+/* Grouped content boxes: no borders, soft fill */
+html[data-theme] body .bento-card {
+  border-color: transparent;
+  border-radius: var(--radius-lg);
+  background: var(--card-bg);
+}
+
+html[data-theme] body .bento-intro h1 {
+  font-size: clamp(36px, 4.2vw, 54px);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+html[data-theme] body .home-section-kicker {
+  border: 0;
+  background: rgba(10, 132, 255, 0.14);
+  color: #64aaff;
+}
+
+html[data-theme] body .home-section-kicker::before {
+  display: none;
+}
+
+.content-toolbar {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  /* Content starts right under the toolbar */
+  html[data-theme][data-nav-layout="sidebar"] body:not(.official-home-body) main.shell {
+    padding-top: 0 !important;
+  }
+
+  html[data-nav-layout="sidebar"][data-theme] body .topbar {
+    border-right: 1px solid rgba(0, 0, 0, 0.55);
+    background: var(--sidebar-bg);
+    box-shadow: inset -1px 0 0 rgba(255, 255, 255, 0.04);
+  }
+
+  html[data-nav-layout="sidebar"][data-theme] body .topbar::after {
+    display: none;
+  }
+
+  /* Order: brand, search, account, then the grouped list */
+  html[data-nav-layout="sidebar"][data-theme] body .topbar > .brand-logo { order: 0; }
+  html[data-nav-layout="sidebar"][data-theme] body .topbar > .sidebar-search { order: 1; }
+  html[data-nav-layout="sidebar"][data-theme] body .topbar > .sidebar-account { order: 2; }
+  html[data-nav-layout="sidebar"][data-theme] body .topbar > .nav-links { order: 3; }
+
+  html[data-nav-layout="sidebar"][data-theme] body .topbar > .sidebar-search {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex: none;
+    width: 100%;
+    min-height: 28px;
+    margin: 4px 0 10px;
+    padding: 0 8px;
+    border: 0;
+    border-radius: 7px;
+    background: rgba(255, 255, 255, 0.07);
+    box-shadow: none;
+    color: var(--muted);
+    cursor: pointer;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 400;
+    text-align: left;
+  }
+
+  html[data-nav-layout="sidebar"][data-theme] body .topbar > .sidebar-search:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  html[data-nav-layout="sidebar"][data-theme] body .topbar > .sidebar-search .nav-icon {
+    display: block;
+    flex: none;
+    width: 14px;
+    height: 14px;
+    stroke-width: 2;
+  }
+
+  html[data-nav-layout="sidebar"][data-theme] body .topbar > .sidebar-search kbd {
+    margin-left: auto;
+    padding: 1px 5px;
+    border: 0;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--muted);
+    font-family: inherit;
+    font-size: 10.5px;
+  }
+
+  /* Account row sits at the top, like the Apple Account row */
+  html[data-nav-layout="sidebar"][data-theme] body .topbar > .sidebar-account {
+    position: relative;
+    margin: 0 0 12px;
+  }
+
+  html[data-nav-layout="sidebar"][data-theme] body .topbar .sidebar-account::before {
+    display: none;
+  }
+
+  html[data-nav-layout="sidebar"][data-theme] body .topbar .sidebar-account-trigger {
+    grid-template-columns: 38px minmax(0, 1fr);
+    column-gap: 10px;
+    min-height: 52px;
+    padding: 6px 8px;
+    border-radius: 8px;
+  }
+
+  html[data-nav-layout="sidebar"][data-theme] body .topbar .sidebar-account-avatar {
+    width: 38px;
+    height: 38px;
+    border: 0;
+  }
+
+  html[data-nav-layout="sidebar"][data-theme] body .topbar .sidebar-account-copy strong {
+    font-size: 13px;
+  }
+
+  html[data-nav-layout="sidebar"][data-theme] body .topbar .sidebar-account-copy small {
+    font-size: 11px;
+  }
+
+  /* The account menu now opens downward */
+  html[data-nav-layout="sidebar"][data-theme] body .topbar .sidebar-account-panel {
+    top: calc(100% + 4px);
+    bottom: auto;
+    background: #323234;
+  }
+
+  html[data-nav-layout="sidebar"][data-theme] body .topbar > .nav-links {
+    flex: 1 1 auto;
+    margin-top: 0;
+    padding-top: 0;
+    min-height: 0;
+    overflow-y: auto;
+    scrollbar-width: none;
+  }
+
+  /* Groups are separated by space, not headings */
+  html[data-nav-layout="sidebar"][data-theme] body .topbar .nav-section-label {
+    display: block;
+    height: 12px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-size: 0;
+    visibility: hidden;
+  }
+
+  html[data-nav-layout="sidebar"][data-theme] body .topbar .nav-menu-group[data-nav-menu-group="main"] .nav-section-label {
+    display: none;
+  }
+
+  html[data-nav-layout="sidebar"][data-theme] body .topbar .nav-links a {
+    gap: 8px;
+    min-height: 28px;
+    padding: 0 6px;
+    border-radius: 6px;
+    color: var(--ink);
+    font-size: 13px;
+    font-weight: 400;
+  }
+
+  /* Tinted icon tile */
+  html[data-nav-layout="sidebar"][data-theme] body .topbar .nav-links a .nav-icon {
+    flex: none;
+    box-sizing: border-box;
+    width: 20px;
+    height: 20px;
+    padding: 3px;
+    border-radius: 5px;
+    background: var(--tint, #8e8e93);
+    color: #ffffff;
+    opacity: 1;
+    stroke-width: 2.1;
+  }
+
+  html[data-nav-layout="sidebar"][data-theme] body .topbar .nav-links a:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--ink);
+  }
+
+  html[data-nav-layout="sidebar"][data-theme] body .topbar .nav-links a.is-active {
+    background: var(--brand);
+    color: #ffffff;
+  }
+
+  html[data-nav-layout="sidebar"][data-theme] body .topbar .nav-links a.is-active .nav-icon {
+    color: #ffffff;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.35);
+  }
+
+  /* Collapsed rail */
+  html[data-nav-layout="sidebar"][data-sidebar-collapsed="true"][data-theme] body .topbar > .sidebar-search {
+    justify-content: center;
+    width: 40px;
+    margin-inline: auto;
+    margin-top: 44px;
+    padding: 0;
+  }
+
+  html[data-nav-layout="sidebar"][data-sidebar-collapsed="true"][data-theme] body .topbar > .sidebar-search > :is(span, kbd) {
+    display: none;
+  }
+
+  html[data-nav-layout="sidebar"][data-sidebar-collapsed="true"][data-theme] body .topbar .sidebar-account-trigger {
+    justify-content: center;
+    padding: 6px 0;
+  }
+
+  html[data-nav-layout="sidebar"][data-sidebar-collapsed="true"][data-theme] body .topbar .nav-links a {
+    justify-content: center;
+    padding: 0;
+    min-height: 32px;
+  }
+
+  /* Window toolbar above the content */
+  html[data-nav-layout="sidebar"][data-theme] body .content-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    height: 52px;
+    margin: 0 0 24px;
+    border-bottom: 1px solid var(--line);
+    background: color-mix(in srgb, var(--bg) 80%, transparent);
+    -webkit-backdrop-filter: blur(20px) saturate(1.4);
+    backdrop-filter: blur(20px) saturate(1.4);
+  }
+
+  html[data-nav-layout="sidebar"][data-theme] body .content-toolbar-nav {
+    display: flex;
+    gap: 2px;
+  }
+
+  html[data-nav-layout="sidebar"][data-theme] body .content-toolbar-button {
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    border: 0;
+    border-radius: 6px;
+    background: transparent;
+    color: var(--ink);
+    cursor: pointer;
+  }
+
+  html[data-nav-layout="sidebar"][data-theme] body .content-toolbar-button:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  html[data-nav-layout="sidebar"][data-theme] body .content-toolbar-button:disabled {
+    cursor: default;
+    opacity: 0.3;
+  }
+
+  html[data-nav-layout="sidebar"][data-theme] body .content-toolbar-button svg {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 2;
+  }
+
+  html[data-nav-layout="sidebar"][data-theme] body .content-toolbar-title {
+    overflow: hidden;
+    color: var(--ink);
+    font-size: 15px;
+    font-weight: 600;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* Sticky elements below the toolbar */
+  html[data-theme] body .doc-toc {
+    top: 76px;
+  }
+
+  html[data-theme] body .doc-body [id] {
+    scroll-margin-top: 76px;
+  }
+}
+
+/* Below desktop the search lives in the mobile quick actions */
+@media (max-width: 1023px) {
+  html[data-theme] body .topbar > .sidebar-search {
+    display: none;
+  }
+}

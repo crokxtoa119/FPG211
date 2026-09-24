@@ -298,55 +298,6 @@
     right: 8px;
   }
 
-  /* Primary items need no heading */
-  html[data-nav-layout="sidebar"][data-theme] body .topbar .nav-menu-group[data-nav-menu-group="main"] .nav-section-label {
-    display: none;
-  }
-
-  /* Collapsible section headings */
-  html[data-nav-layout="sidebar"][data-theme] body .topbar .nav-section-toggle {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    min-height: 28px;
-    margin: 14px 0 2px;
-    padding: 0 10px;
-    border: 0;
-    border-radius: 6px;
-    background: none;
-    color: var(--muted);
-    cursor: pointer;
-    font: inherit;
-    font-size: 12px;
-    font-weight: 500;
-    opacity: 1;
-    text-align: left;
-  }
-
-  html[data-nav-layout="sidebar"][data-theme] body .topbar .nav-section-toggle:hover,
-  html[data-nav-layout="sidebar"][data-theme] body .topbar .nav-section-toggle:focus-visible {
-    background: rgba(255, 255, 255, 0.04);
-    color: var(--ink);
-  }
-
-  html[data-nav-layout="sidebar"][data-theme] body .topbar .nav-section-chevron {
-    width: 14px;
-    height: 14px;
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 2;
-    transition: transform 0.15s ease;
-  }
-
-  html[data-nav-layout="sidebar"][data-theme] body .topbar .nav-menu-group[data-section-collapsed="true"] .nav-section-chevron {
-    transform: rotate(-90deg);
-  }
-
-  html[data-nav-layout="sidebar"]:not([data-sidebar-collapsed="true"])[data-theme] body .topbar .nav-menu-group[data-section-collapsed="true"] .nav-group-menu > a {
-    display: none;
-  }
-
   /* Collapsed rail */
   html[data-nav-layout="sidebar"][data-sidebar-collapsed="true"][data-theme] body .topbar .nav-links a,
   html[data-nav-layout="sidebar"][data-sidebar-collapsed="true"][data-theme] body .topbar .nav-links .nav-search-button {
@@ -395,18 +346,6 @@
   html[data-nav-layout="sidebar"][data-sidebar-collapsed="true"][data-theme] body .topbar .mobile-menu-button {
     top: 58px;
     right: 22px;
-  }
-
-  html[data-nav-layout="sidebar"][data-sidebar-collapsed="true"][data-theme] body .topbar .nav-section-toggle {
-    display: block;
-    min-height: 0;
-    height: 1px;
-    margin: 10px 8px;
-    padding: 0;
-    overflow: hidden;
-    background: var(--line);
-    color: transparent;
-    pointer-events: none;
   }
 }
 

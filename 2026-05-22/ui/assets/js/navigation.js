@@ -341,46 +341,6 @@ const createMobileQuickActions = () => {
   document.body.append(bar);
 };
 
-const sidebarSectionStorageKey = "profile-sidebar-sections";
-
-const readSidebarSectionState = () => {
-  try {
-    const parsed = JSON.parse(localStorage.getItem(sidebarSectionStorageKey) || "{}");
-    return parsed && typeof parsed === "object" ? parsed : {};
-  } catch {
-    return {};
-  }
-};
-
-const writeSidebarSectionState = (state) => {
-  try {
-    localStorage.setItem(sidebarSectionStorageKey, JSON.stringify(state));
-  } catch {
-    // Storage can be blocked; sections still toggle for this page view.
-  }
-};
-
-const setSidebarSectionCollapsed = (groupElement, collapsed) => {
-  groupElement.dataset.sectionCollapsed = String(collapsed);
-  groupElement.querySelector(".nav-section-toggle")?.setAttribute("aria-expanded", String(!collapsed));
-};
-
-const createSidebarSectionToggle = (group, groupElement, menuId) => {
-  const toggle = document.createElement("button");
-  toggle.type = "button";
-  toggle.className = "nav-section-label nav-section-toggle";
-  toggle.setAttribute("aria-controls", menuId);
-  toggle.innerHTML = `<span data-i18n="${group.labelKey}">${group.label}</span><svg class="nav-section-chevron" aria-hidden="true" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" /></svg>`;
-  toggle.addEventListener("click", () => {
-    const collapsed = groupElement.dataset.sectionCollapsed !== "true";
-    setSidebarSectionCollapsed(groupElement, collapsed);
-    const state = readSidebarSectionState();
-    state[group.id] = collapsed;
-    writeSidebarSectionState(state);
-  });
-  return toggle;
-};
-
 const enhanceSidebarBrand = () => {
   document.querySelectorAll(".topbar:not([data-official-home-nav]) .brand-logo").forEach((brand) => {
     if (brand.querySelector(".workspace-copy")) return;
@@ -392,65 +352,70 @@ const enhanceSidebarBrand = () => {
   });
 };
 
+// macOS System Settings pattern: grouped rows with coloured icon tiles, no section headings.
+const createSidebarSearch = () => {
+  document.querySelectorAll(".topbar:not([data-official-home-nav])").forEach((topbar) => {
+    if (topbar.querySelector(".sidebar-search")) return;
+    const search = createNavSearchButton();
+    search.classList.add("sidebar-search");
+    topbar.querySelector(".brand-logo")?.after(search);
+  });
+};
+
 const enhanceSidebarNavigation = () => {
   if (isSystemRecoveryPage) return;
-  // Primary items sit at the top without a heading; the rest are collapsible sections.
   const navGroups = [
     {
       id: "main",
       label: "MAIN",
       labelKey: "nav.groupMain",
       items: [
-        { type: "search" },
-        { href: "/", icon: navIconMarkup.home, labelKey: "nav.home", fallback: "Home" },
-        { href: "/portal", icon: navIconMarkup.analytics, labelKey: "nav.portal", fallback: "Portal" },
-        { href: "/updates", icon: navIconMarkup.updates, labelKey: "nav.updates", fallback: "Latest updates" },
-        { href: "/activity", icon: navIconMarkup.activity, labelKey: "nav.activity", fallback: "Activity" },
+        { href: "/", icon: navIconMarkup.home, labelKey: "nav.home", fallback: "Home", tint: "blue" },
+        { href: "/portal", icon: navIconMarkup.analytics, labelKey: "nav.portal", fallback: "Portal", tint: "indigo" },
+        { href: "/updates", icon: navIconMarkup.updates, labelKey: "nav.updates", fallback: "Updates", tint: "red" },
+        { href: "/activity", icon: navIconMarkup.activity, labelKey: "nav.activity", fallback: "Activity", tint: "orange" },
       ],
     },
     {
       id: "explore",
       label: "EXPLORE",
       labelKey: "nav.groupExplore",
-      collapsible: true,
       items: [
-        { href: "/discover", icon: navIconMarkup.discover, labelKey: "nav.discover", fallback: "Discover" },
-        { href: "/Creator", icon: navIconMarkup.creator, labelKey: "nav.creator", fallback: "Creator" },
-        { href: "/Bio", icon: navIconMarkup.bio, labelKey: "nav.bio", fallback: "Bio" },
-        { href: "/about", icon: navIconMarkup.about, labelKey: "nav.aboutUs", fallback: "About us" },
+        { href: "/discover", icon: navIconMarkup.discover, labelKey: "nav.discover", fallback: "Discover", tint: "teal" },
+        { href: "/Creator", icon: navIconMarkup.creator, labelKey: "nav.creator", fallback: "Creator", tint: "purple" },
+        { href: "/Bio", icon: navIconMarkup.bio, labelKey: "nav.bio", fallback: "Bio", tint: "green" },
+        { href: "/about", icon: navIconMarkup.about, labelKey: "nav.aboutUs", fallback: "About us", tint: "gray" },
       ],
     },
     {
       id: "support",
       label: "SUPPORT",
       labelKey: "nav.groupResources",
-      collapsible: true,
       items: [
-        { href: "/FAQ", icon: navIconMarkup.faq, labelKey: "nav.faq", fallback: "FAQ" },
-        { href: "/community", icon: navIconMarkup.community, labelKey: "nav.community", fallback: "Community" },
-        { href: "/feedback", icon: navIconMarkup.feedback, labelKey: "nav.feedback", fallback: "Feedback" },
-        { href: "/status", icon: navIconMarkup.status, labelKey: "nav.status", fallback: "Status" },
+        { href: "/FAQ", icon: navIconMarkup.faq, labelKey: "nav.faq", fallback: "FAQ", tint: "blue" },
+        { href: "/community", icon: navIconMarkup.community, labelKey: "nav.community", fallback: "Community", tint: "green" },
+        { href: "/feedback", icon: navIconMarkup.feedback, labelKey: "nav.feedback", fallback: "Feedback", tint: "orange" },
+        { href: "/status", icon: navIconMarkup.status, labelKey: "nav.status", fallback: "Status", tint: "teal" },
       ],
     },
     {
       id: "policies",
       label: "POLICIES",
       labelKey: "nav.groupPolicies",
-      collapsible: true,
-      defaultCollapsed: true,
       items: [
-        { href: "/trust", icon: navIconMarkup.trust, labelKey: "nav.trustCenter", fallback: "Trust Center" },
-        { href: "/security", icon: navIconMarkup.security, labelKey: "nav.security", fallback: "Security" },
-        { href: "/privacy", icon: navIconMarkup.privacy, labelKey: "nav.privacy", fallback: "Privacy Policy" },
-        { href: "/terms", icon: navIconMarkup.terms, labelKey: "nav.terms", fallback: "Terms" },
-        { href: "/license", icon: navIconMarkup.license, labelKey: "nav.license", fallback: "License" },
-        { href: "/accessibility", icon: navIconMarkup.accessibility, labelKey: "nav.accessibility", fallback: "Accessibility" },
+        { href: "/trust", icon: navIconMarkup.trust, labelKey: "nav.trustCenter", fallback: "Trust Center", tint: "blue" },
+        { href: "/security", icon: navIconMarkup.security, labelKey: "nav.security", fallback: "Security", tint: "gray" },
+        { href: "/privacy", icon: navIconMarkup.privacy, labelKey: "nav.privacy", fallback: "Privacy Policy", tint: "blue" },
+        { href: "/terms", icon: navIconMarkup.terms, labelKey: "nav.terms", fallback: "Terms", tint: "gray" },
+        { href: "/license", icon: navIconMarkup.license, labelKey: "nav.license", fallback: "License", tint: "gray" },
+        { href: "/accessibility", icon: navIconMarkup.accessibility, labelKey: "nav.accessibility", fallback: "Accessibility", tint: "blue" },
+        { href: "/settings", icon: navIconMarkup.settings, labelKey: "nav.settings", fallback: "Settings", tint: "gray" },
       ],
     },
   ];
 
-  const savedSections = readSidebarSectionState();
   enhanceSidebarBrand();
+  createSidebarSearch();
 
   document.querySelectorAll(".nav-links:not([data-official-home-menu])").forEach((nav, navIndex) => {
     nav.replaceChildren();
@@ -460,7 +425,6 @@ const enhanceSidebarNavigation = () => {
       groupElement.className = "nav-menu-group";
       groupElement.dataset.navMenuGroup = group.id;
       const triggerId = `nav-group-${group.id}-${navIndex}-${index}`;
-      const menuId = `nav-group-menu-${group.id}-${navIndex}`;
 
       const trigger = document.createElement("button");
       trigger.className = "nav-group-trigger";
@@ -471,49 +435,72 @@ const enhanceSidebarNavigation = () => {
 
       const menu = document.createElement("div");
       menu.className = "nav-group-menu";
-      menu.id = menuId;
       menu.setAttribute("aria-labelledby", triggerId);
 
-      if (group.collapsible) {
-        menu.append(createSidebarSectionToggle(group, groupElement, menuId));
-      } else {
-        const sectionLabel = document.createElement("span");
-        sectionLabel.className = "nav-section-label";
-        sectionLabel.textContent = group.label;
-        sectionLabel.dataset.i18n = group.labelKey;
-        sectionLabel.setAttribute("aria-hidden", "true");
-        menu.append(sectionLabel);
-      }
+      const sectionLabel = document.createElement("span");
+      sectionLabel.className = "nav-section-label";
+      sectionLabel.textContent = group.label;
+      sectionLabel.dataset.i18n = group.labelKey;
+      sectionLabel.setAttribute("aria-hidden", "true");
+      menu.append(sectionLabel);
 
       group.items.forEach((item) => {
-        if (item.type === "search") {
-          menu.append(createNavSearchButton());
-          return;
-        }
-        if (item.type === "flyout") {
-          menu.append(createNavFlyout(item));
-          return;
-        }
-
         const anchor = createNavAnchor(item);
-        if (item.className) anchor.classList.add(item.className);
+        if (item.tint) anchor.dataset.tint = item.tint;
         menu.append(anchor);
       });
 
-      const hasActiveItem = Boolean(menu.querySelector(".is-active"));
-      if (hasActiveItem) groupElement.classList.add("has-active-item");
+      if (menu.querySelector(".is-active")) groupElement.classList.add("has-active-item");
       groupElement.append(trigger, menu);
-
-      if (group.collapsible) {
-        // A section holding the current page always opens so the active item stays visible.
-        const saved = savedSections[group.id];
-        const collapsed = !hasActiveItem && (typeof saved === "boolean" ? saved : Boolean(group.defaultCollapsed));
-        setSidebarSectionCollapsed(groupElement, collapsed);
-      }
-
       nav.append(groupElement);
     });
   });
+};
+
+// Title bar above the content, like a macOS window toolbar: back/forward and the page name.
+const createContentToolbar = () => {
+  if (isSystemRecoveryPage) return;
+  const main = document.querySelector("main.shell");
+  const topbar = main?.querySelector(".topbar:not([data-official-home-nav])");
+  if (!main || !topbar || main.querySelector("[data-content-toolbar]")) return;
+
+  const toolbar = document.createElement("div");
+  toolbar.className = "content-toolbar";
+  toolbar.dataset.contentToolbar = "";
+
+  const chevron = (d) => `<svg aria-hidden="true" viewBox="0 0 24 24"><path d="${d}" /></svg>`;
+  const back = document.createElement("button");
+  back.type = "button";
+  back.className = "content-toolbar-button";
+  back.setAttribute("aria-label", "Back");
+  back.dataset.i18nAriaLabel = "context.back";
+  back.innerHTML = chevron("m15 18-6-6 6-6");
+  back.disabled = window.history.length <= 1;
+  back.addEventListener("click", () => window.history.back());
+
+  const forward = document.createElement("button");
+  forward.type = "button";
+  forward.className = "content-toolbar-button";
+  forward.setAttribute("aria-label", "Forward");
+  forward.dataset.i18nAriaLabel = "context.forward";
+  forward.innerHTML = chevron("m9 18 6-6-6-6");
+  forward.addEventListener("click", () => window.history.forward());
+
+  const title = document.createElement("span");
+  title.className = "content-toolbar-title";
+  const activeLabel = topbar.querySelector(".nav-links a.is-active span[data-i18n]");
+  if (activeLabel) {
+    title.dataset.i18n = activeLabel.dataset.i18n;
+    title.textContent = activeLabel.textContent;
+  } else {
+    title.textContent = (document.querySelector("main h1")?.textContent || document.title.split("|")[0]).trim();
+  }
+
+  const nav = document.createElement("div");
+  nav.className = "content-toolbar-nav";
+  nav.append(back, forward);
+  toolbar.append(nav, title);
+  topbar.after(toolbar);
 };
 
 const createStandardFooter = () => {
