@@ -114,9 +114,9 @@
           : "false";
       })();
     </script>
-    <link rel="stylesheet" href="assets/css/styles.css?v=20260924-copy1" />
+    <link rel="stylesheet" href="assets/css/styles.css?v=20260924-mac1" />
   </head>
-  <body class="home-body official-home-body">
+  <body class="home-body landing-body">
     <div class="loading-bar" aria-hidden="true"></div>
     <div class="scroll-progress" aria-hidden="true"></div>
     <div class="adblock-bait pub_300x250 adsbox text-ad" aria-hidden="true"></div>
@@ -128,90 +128,27 @@
     </div>
     <a class="skip-link" href="#main-content" data-i18n="accessibility.skip">Skip to main content</a>
     <main class="shell home-page" id="main-content" tabindex="-1">
-      <nav class="topbar official-home-nav" aria-label="프로필 메뉴" data-i18n-aria-label="aria.profileMenu" data-official-home-nav>
+      <nav class="topbar" aria-label="프로필 메뉴" data-i18n-aria-label="aria.profileMenu">
+        <a class="brand-logo" href="/" aria-label="Home" data-i18n-aria-label="aria.home">
+          <img src="/assets/logo.png" alt="" width="537" height="532" loading="eager" decoding="async" draggable="false" />
+          <span>FP</span>
+        </a>
         <button class="mobile-menu-button" type="button" aria-expanded="false" data-mobile-menu-toggle>
           <span data-i18n="nav.menu">Menu</span>
           <svg class="mobile-menu-icon" aria-hidden="true" viewBox="0 0 24 24">
             <path d="m6 9 6 6 6-6" />
           </svg>
         </button>
-        <div class="nav-links official-home-menu" data-mobile-menu data-official-home-menu>
-          <a class="official-menu-link is-active" href="/" data-i18n="nav.home">Home</a>
-          <a class="official-menu-link" href="/discover" data-i18n="nav.discover">Discover</a>
-          <div class="official-menu-item">
-            <button
-              type="button"
-              aria-haspopup="true"
-              aria-expanded="false"
-              aria-controls="official-features-panel"
-              data-i18n="officialNav.features"
-            >Features</button>
-            <div class="official-mega-panel" id="official-features-panel">
-              <section>
-                <h2 data-i18n="officialNav.profileGroup">Profile</h2>
-                <a href="/portal" data-i18n="nav.portal">Portal</a>
-                <a href="/Bio" data-i18n="nav.bio">Bio</a>
-                <a href="/about" data-i18n="nav.aboutUs">About us</a>
-                <a href="/activity" data-i18n="nav.activity">Activity</a>
-              </section>
-              <section>
-                <h2 data-i18n="officialNav.toolsGroup">Tools</h2>
-                <a href="/search" data-i18n="nav.search">Search</a>
-                <a href="/settings" data-i18n="nav.settings">Settings</a>
-                <a href="/accessibility" data-i18n="nav.accessibility">Accessibility</a>
-              </section>
-              <section>
-                <h2 data-i18n="officialNav.supportGroup">Support</h2>
-                <a href="/FAQ" data-i18n="nav.faq">FAQ</a>
-                <a href="/feedback" data-i18n="nav.feedback">Feedback</a>
-                <a href="/updates" data-i18n="nav.updates">Updates</a>
-                <a href="/status" data-i18n="nav.status">Status</a>
-              </section>
-            </div>
-          </div>
-          <div class="official-menu-item">
-            <button
-              type="button"
-              aria-haspopup="true"
-              aria-expanded="false"
-              aria-controls="official-learn-panel"
-              data-i18n="officialNav.learn"
-            >Learn</button>
-            <div class="official-mega-panel official-mega-panel-compact" id="official-learn-panel">
-              <section>
-                <h2 data-i18n="officialNav.resourcesGroup">Resources</h2>
-                <a href="/FAQ" data-i18n="nav.faq">FAQ</a>
-                <a href="/updates" data-i18n="nav.updates">Updates</a>
-              </section>
-              <section>
-                <h2 data-i18n="officialNav.trustGroup">Trust</h2>
-                <a href="/trust" data-i18n="nav.trustCenter">Trust Center</a>
-                <a href="/security" data-i18n="nav.security">Security</a>
-                <a href="/privacy" data-i18n="nav.privacy">Privacy Policy</a>
-                <a href="/terms" data-i18n="nav.terms">Terms</a>
-                <a href="/license" data-i18n="nav.license">License</a>
-              </section>
-            </div>
-          </div>
-          <div class="official-menu-item">
-            <button
-              type="button"
-              aria-haspopup="true"
-              aria-expanded="false"
-              aria-controls="official-creator-panel"
-              data-i18n="nav.creator"
-            >Creator</button>
-            <div class="official-mega-panel official-mega-panel-projects" id="official-creator-panel">
-              <section>
-                <h2 data-i18n="officialNav.projectsGroup">Projects</h2>
-                <a href="/Creator" data-i18n="officialNav.creatorOverview">Creator overview</a>
-                <a href="/Creator/baldimods" data-i18n="search.baldiModsTitle">Baldi Mods</a>
-                <a href="/Creator/newrobloxexperience" data-i18n="search.newRobloxTitle">New Roblox Experience</a>
-                <a href="/Creator/uiux" data-i18n="search.uiuxTitle">UI/UX Design</a>
-              </section>
-            </div>
-          </div>
-          <a class="official-menu-link" href="/feedback" data-i18n="nav.feedback">Feedback</a>
+        <div class="nav-links" data-mobile-menu>
+          <a class="is-active" href="/"><svg class="nav-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5" /><path d="M5 10v10h14V10" /><path d="M9 20v-6h6v6" /></svg><span data-i18n="nav.home">Home</span></a>
+          <a href="/Creator"><svg class="nav-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3 3 8l9 5 9-5-9-5Z" /><path d="m3 14 9 5 9-5" /><path d="m3 11 9 5 9-5" /></svg><span data-i18n="nav.creator">Creator</span></a>
+          <a href="/Bio"><svg class="nav-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M20 21a8 8 0 0 0-16 0" /><circle cx="12" cy="7" r="4" /></svg><span data-i18n="nav.bio">Bio</span></a>
+          <a href="/about"><svg class="nav-icon" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M12 16v-4" /><path d="M12 8h.01" /></svg><span data-i18n="nav.aboutUs">About us</span></a>
+          <a href="/FAQ"><svg class="nav-icon" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M9.1 9a3 3 0 1 1 5.8 1c-.5.9-1.4 1.3-2.1 1.9-.6.5-.8.9-.8 2.1" /><path d="M12 17h.01" /></svg><span data-i18n="nav.faq">FAQ</span></a>
+          <a href="/settings"><svg class="nav-icon" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" /><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1A2 2 0 1 1 4.2 17l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.6-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1A2 2 0 1 1 7 4.2l.1.1a1.7 1.7 0 0 0 1.9.3h.1A1.7 1.7 0 0 0 10 3.1V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.6h.1a1.7 1.7 0 0 0 1.9-.3l.1-.1A2 2 0 1 1 19.8 7l-.1.1a1.7 1.7 0 0 0-.3 1.9v.1A1.7 1.7 0 0 0 20.9 10h.1a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z" /></svg><span data-i18n="nav.settings">Settings</span></a>
+          <a href="/privacy"><svg class="nav-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3 5 6v5c0 4.4 2.8 8.4 7 10 4.2-1.6 7-5.6 7-10V6l-7-3Z" /><path d="m9 12 2 2 4-5" /></svg><span data-i18n="nav.privacy">Privacy Policy</span></a>
+          <a href="/license"><svg class="nav-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7z" /><path d="M14 3v6h5" /><path d="M9 14h6" /><path d="M9 18h4" /><path d="M5 7v14" /></svg><span data-i18n="nav.license">License</span></a>
+          <a class="nav-feedback-link" href="/feedback" data-i18n="nav.feedback">Feedback</a>
         </div>
       </nav>
 
@@ -432,10 +369,10 @@
         <span data-i18n="context.settings">설정 열기</span>
       </button>
     </div>
-    <script src="assets/js/translations.js?v=20260924-copy1" defer></script>
+    <script src="assets/js/translations.js?v=20260924-mac1" defer></script>
 
     <script src="assets/js/navigation.js?v=20260721-member-news1" defer></script>
-    <script src="assets/js/script.js?v=20260924-copy1" defer></script>
+    <script src="assets/js/script.js?v=20260924-mac1" defer></script>
     <script src="assets/js/page-features.js?v=20260721-member-news1" defer></script>
   </body>
 </html>

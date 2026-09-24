@@ -588,6 +588,7 @@ const createSettingsDialog = () => {
 };
 
 enhanceSidebarNavigation();
+createContentToolbar();
 createTopSearchButton();
 createSidebarAccountMenu();
 createUserProfileDialog();
@@ -2781,7 +2782,7 @@ const setupWelcomeDialog = () => {
   const welcomeSeenKey = "profile-welcome-seen";
   const dialog = document.querySelector("[data-welcome-dialog]");
   if (!dialog || localStorage.getItem(welcomeSeenKey) === "true") return;
-  if (!document.body.classList.contains("official-home-body")) {
+  if (!document.body.classList.contains("landing-body")) {
     dialog.hidden = true;
     return;
   }
@@ -3226,7 +3227,6 @@ const clearSiteCache = () => {
     "profile-currency",
     "profile-setting-profile-public",
     "profile-sidebar-collapsed",
-    "profile-sidebar-sections",
     "profile-setting-kid-mode",
     "profile-setting-custom-context-menu",
     "profile-welcome-seen",
