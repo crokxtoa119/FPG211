@@ -1135,6 +1135,8 @@ window.profileTranslations = {
     "license.fontsTitle": "포함된 글꼴 파일은 별도 자산으로 관리됩니다.",
     "license.fontsBody":
       "이 사이트는 FirstPrizeGames Sans 글꼴 파일을 포함합니다. 이 글꼴 파일은 MIT License 또는 CC BY 4.0에 자동 포함되지 않으며, 다른 프로젝트에서 사용하려면 별도 허가가 필요합니다.",
+    "license.fontsPretendard": "본문에 쓰는 Pretendard 글꼴(© 2021 Kil Hyung-jin)은 SIL Open Font License 1.1로 배포되며, 이 사이트의 MIT·CC BY 4.0 범위와 관계없이 원래 라이선스를 그대로 따릅니다.",
+    "license.fontsPretendardLink": "라이선스 전문 보기",
     "license.noticeTitle": "고지와 출처는 제거하지 마세요.",
     "license.noticeBody":
       "사이트 코드를 공개, 수정, 배포하거나 일부를 재사용하는 경우 루트 LICENSE 파일의 MIT License 전문과 원 저작권 표시를 함께 남겨야 합니다. 이는 사용자와 기여자가 사용 조건을 확인할 수 있게 하기 위한 기준입니다.",
@@ -2701,6 +2703,8 @@ window.profileTranslations = {
     "license.fontsTitle": "Included font files are managed as separate assets.",
     "license.fontsBody":
       "This site includes FirstPrizeGames Sans font files. These font files are not automatically included under the MIT License or CC BY 4.0, and separate permission is required before using them in another project.",
+    "license.fontsPretendard": "The Pretendard typeface used for body text (© 2021 Kil Hyung-jin) is distributed under the SIL Open Font License 1.1 and keeps that license, independent of this site's MIT and CC BY 4.0 terms.",
+    "license.fontsPretendardLink": "Read the full license",
     "license.noticeTitle": "Do not remove notices or attribution.",
     "license.noticeBody":
       "If you publish, modify, distribute, or reuse part of the site code, keep the full MIT License text from the root LICENSE file and the original copyright notice so users and contributors can understand the applicable terms.",

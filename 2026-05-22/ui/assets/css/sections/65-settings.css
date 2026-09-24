@@ -1,0 +1,319 @@
+/* ---------------------------------------------------------------------------
+   Settings window in the style of macOS System Settings:
+   tinted sidebar tabs, a large pane title, grouped inset rows,
+   pop-up buttons and switches. Works for /settings and the settings dialog.
+--------------------------------------------------------------------------- */
+html[data-theme] body :is(.settings-dialog, .settings-modal-shell) {
+  --settings-group: rgba(255, 255, 255, 0.05);
+  --settings-group-line: rgba(255, 255, 255, 0.08);
+  --settings-control-bg: rgba(255, 255, 255, 0.1);
+  --settings-switch-off: rgba(120, 120, 128, 0.36);
+}
+
+html[data-theme="light"] body :is(.settings-dialog, .settings-modal-shell) {
+  --settings-group: #ffffff;
+  --settings-group-line: rgba(0, 0, 0, 0.08);
+  --settings-control-bg: #ffffff;
+  --settings-switch-off: rgba(120, 120, 128, 0.22);
+}
+
+/* Window */
+html[data-theme] body :is(.settings-dialog, .settings-modal-shell) .settings-modal {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--bg);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+}
+
+html[data-theme="light"] body :is(.settings-dialog, .settings-modal-shell) .settings-modal {
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.18);
+}
+
+/* Sidebar */
+html[data-theme] body :is(.settings-dialog, .settings-modal-shell) .settings-modal-nav {
+  gap: 2px;
+  padding: 12px 10px;
+  border-right: 1px solid var(--line);
+  background: var(--sidebar-bg);
+}
+
+html[data-theme] body :is(.settings-dialog, .settings-modal-shell) .settings-modal-close {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  margin: 0 0 10px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--muted);
+}
+
+html[data-theme] body :is(.settings-dialog, .settings-modal-shell) .settings-modal-close:hover {
+  background: color-mix(in srgb, var(--ink) 8%, transparent);
+  color: var(--ink);
+}
+
+html[data-theme] body :is(.settings-dialog, .settings-modal-shell) .settings-modal-tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 30px;
+  padding: 0 6px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  box-shadow: none;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 400;
+}
+
+html[data-theme] body :is(.settings-dialog, .settings-modal-shell) .settings-modal-tab:hover {
+  background: color-mix(in srgb, var(--ink) 7%, transparent);
+}
+
+html[data-theme] body :is(.settings-dialog, .settings-modal-shell) .settings-modal-tab svg {
+  box-sizing: border-box;
+  flex: none;
+  width: 20px;
+  height: 20px;
+  padding: 3px;
+  border-radius: 5px;
+  background: var(--tint, #8e8e93);
+  color: #ffffff;
+  stroke: currentColor;
+  stroke-width: 2.1;
+}
+
+html[data-theme] body :is(.settings-dialog, .settings-modal-shell) [data-settings-modal-tab="general"] { --tint: #8e8e93; }
+html[data-theme] body :is(.settings-dialog, .settings-modal-shell) [data-settings-modal-tab="accessibility"] { --tint: #0a84ff; }
+html[data-theme] body :is(.settings-dialog, .settings-modal-shell) [data-settings-modal-tab="keyboard"] { --tint: #8e8e93; }
+html[data-theme] body :is(.settings-dialog, .settings-modal-shell) [data-settings-modal-tab="security"] { --tint: #5e5ce6; }
+html[data-theme] body :is(.settings-dialog, .settings-modal-shell) [data-settings-modal-tab="profile"] { --tint: #30d158; }
+html[data-theme] body :is(.settings-dialog, .settings-modal-shell) [data-settings-modal-tab="context"] { --tint: #ff9f0a; }
+
+html[data-theme] body :is(.settings-dialog, .settings-modal-shell) .settings-modal-tab.is-active {
+  background: var(--brand);
+  color: #ffffff;
+}
+
+html[data-theme] body :is(.settings-dialog, .settings-modal-shell) .settings-modal-tab.is-active svg {
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.35);
+}
+
+/* Content pane */
+html[data-theme] body :is(.settings-dialog, .settings-modal-shell) .settings-modal-content {
+  padding: 22px 28px 28px;
+  background: var(--bg);
+}
+
+html[data-theme] body :is(.settings-dialog, .settings-modal-shell) .settings-modal-panel > :is(h1, h2) {
+  margin: 0 0 18px;
+  padding: 0;
+  border: 0;
+  color: var(--ink);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* Grouped inset rows */
+html[data-theme] body :is(.settings-dialog, .settings-modal-shell) .settings-modal-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 52px;
+  margin: 0;
+  padding: 10px 14px;
+  border: 0;
+  border-radius: 0;
+  background: var(--settings-group);
+  box-shadow: inset 0 1px 0 var(--settings-group-line);
+}
+
+html[data-theme] body :is(.settings-dialog, .settings-modal-shell) .settings-modal-row:first-of-type {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  box-shadow: none;
+}
+
+html[data-theme] body :is(.settings-dialog, .settings-modal-shell) .settings-modal-row:last-of-type {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+html[data-theme] body :is(.settings-dialog, .settings-modal-shell) .settings-modal-row > :last-child:not(:first-child) {
+  flex: none;
+  width: auto;
+  margin-left: auto;
+}
+
+html[data-theme] body :is(.settings-dialog, .settings-modal-shell) .settings-modal-row > div:first-child {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+html[data-theme] body :is(.settings-dialog, .settings-modal-shell) .settings-modal-row strong {
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+html[data-theme] body :is(.settings-dialog, .settings-modal-shell) .settings-modal-row > div:first-child > span {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+/* Pop-up buttons */
+html[data-theme] body :is(.settings-dialog, .settings-modal-shell) .setting-select {
+  display: flex;
+  justify-content: flex-end;
+}
+
+html[data-theme] body :is(.settings-dialog, .settings-modal-shell) .setting-select-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  min-height: 26px;
+  padding: 0 6px 0 10px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--settings-control-bg);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 400;
+}
+
+html[data-theme] body :is(.settings-dialog, .settings-modal-shell) .setting-select-chevron svg {
+  width: 12px;
+  height: 12px;
+}
+
+html[data-theme] body :is(.settings-dialog, .settings-modal-shell) .setting-select-menu {
+  padding: 5px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-solid);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+}
+
+html[data-theme] body :is(.settings-dialog, .settings-modal-shell) .setting-select-menu button {
+  min-height: 26px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: 5px;
+  background: transparent;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 400;
+}
+
+html[data-theme] body :is(.settings-dialog, .settings-modal-shell) .setting-select-menu button:is(:hover, .is-active) {
+  background: var(--brand);
+  color: #ffffff;
+}
+
+/* Buttons and links inside rows */
+html[data-theme] body :is(.settings-dialog, .settings-modal-shell) :is(.settings-modal-button, .settings-modal-link) {
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--settings-control-bg);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 400;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+html[data-theme] body :is(.settings-dialog, .settings-modal-shell) .settings-modal-button.is-danger {
+  color: #ff453a;
+}
+
+html[data-theme="light"] body :is(.settings-dialog, .settings-modal-shell) .settings-modal-button.is-danger {
+  color: #d70015;
+}
+
+/* Switches */
+html[data-theme] body :is(.settings-dialog, .settings-modal-shell) .toggle {
+  position: relative;
+  flex: none;
+  width: 38px;
+  min-width: 38px;
+  height: 22px;
+  min-height: 22px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: var(--settings-switch-off);
+  box-shadow: none;
+  transition: background 0.2s ease;
+}
+
+html[data-theme] body :is(.settings-dialog, .settings-modal-shell) .toggle::before {
+  display: none;
+}
+
+html[data-theme] body :is(.settings-dialog, .settings-modal-shell) .toggle::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  transform: none;
+  transition: transform 0.2s ease;
+}
+
+html[data-theme] body :is(.settings-dialog, .settings-modal-shell) .toggle.is-on {
+  background: var(--brand);
+}
+
+html[data-theme] body :is(.settings-dialog, .settings-modal-shell) .toggle.is-on::after {
+  transform: translateX(16px);
+}
+
+@media (max-width: 760px) {
+  html[data-theme] body :is(.settings-dialog, .settings-modal-shell) .settings-modal-nav {
+    gap: 4px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  html[data-theme] body :is(.settings-dialog, .settings-modal-shell) .settings-modal-tab {
+    flex: none;
+    width: auto;
+    min-width: 0;
+    min-height: 32px;
+    padding: 0 10px 0 6px;
+  }
+
+  html[data-theme] body :is(.settings-dialog, .settings-modal-shell) .settings-modal-content {
+    padding: 18px 16px 24px;
+  }
+
+  html[data-theme] body :is(.settings-dialog, .settings-modal-shell) .setting-select-trigger {
+    width: auto;
+    min-width: 0;
+    justify-content: flex-start;
+  }
+}
+
+/* License: the extra font paragraph sits in the same column as the body text */
+html[data-theme] body .license-dossier article > p + p {
+  grid-column: -2 / -1;
+}
