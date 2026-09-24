@@ -215,107 +215,90 @@
         </div>
       </nav>
 
-      <section class="home-hero corporate-home-hero" id="intro">
-        <div class="home-hero-copy">
+      <section class="bento home-bento" aria-label="Site overview" data-i18n-aria-label="aria.homeRoutes">
+        <div class="bento-card bento-intro" id="intro">
           <p class="home-section-kicker" data-i18n="homeCorporate.kicker">Official Home</p>
           <h1 data-i18n="homeCorporate.title">First PrizeGames</h1>
-          <p class="home-lead" data-i18n="homeCorporate.lead">
+          <p class="bento-lead" data-i18n="homeCorporate.lead">
             응급 대응 프로필, 제작 기록, 지원 경로, 개인정보 안내를 한곳에서 확인할 수 있는 공식 사이트입니다.
           </p>
-          <div class="home-hero-actions">
+          <div class="bento-actions">
             <a class="button primary" href="/portal" data-i18n="homeCorporate.openPortal">Portal 열기</a>
             <a class="button ghost" href="/about" data-i18n="homeCorporate.openAbout">사이트 소개</a>
           </div>
         </div>
-        <figure class="home-hero-media">
+
+        <figure class="bento-card bento-media">
           <img src="assets/official-home-operations-hero.jpg" alt="" width="1672" height="941" loading="eager" decoding="async" />
           <figcaption>
             <span data-i18n="homeCorporate.mediaLabel">Public profile</span>
             <strong data-i18n="homeCorporate.mediaValue">Emergency response and creation notes</strong>
           </figcaption>
         </figure>
-      </section>
 
-      <section class="home-ledger corporate-home-ledger" aria-label="Site summary" data-i18n-aria-label="aria.homeLedger">
-        <div>
-          <span data-i18n="homeCorporate.ledgerProfileLabel">Profile</span>
-          <strong data-i18n="homeCorporate.ledgerProfileValue">Public</strong>
-        </div>
-        <div>
-          <span data-i18n="homeCorporate.ledgerPortalLabel">Portal</span>
-          <strong data-i18n="homeCorporate.ledgerPortalValue">Tools ready</strong>
-        </div>
-        <div>
-          <span data-i18n="homeCorporate.ledgerTrustLabel">Trust</span>
-          <strong data-i18n="homeCorporate.ledgerTrustValue">Policies available</strong>
-        </div>
-        <div>
-          <span data-i18n="homeCorporate.ledgerStatusLabel">Status</span>
-          <strong data-i18n="homeCorporate.ledgerStatusValue">실시간 감시 없음</strong>
-        </div>
-      </section>
+        <a class="bento-card bento-link bento-portal" href="/portal">
+          <svg class="bento-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M4 20V10" /><path d="M10 20V6" /><path d="M16 20v-8" /><path d="M22 20H2" /></svg>
+          <div>
+            <strong data-i18n="homeCorporate.routePortalTitle">Portal</strong>
+            <p data-i18n="homeCorporate.routePortalBody">공유, 구독, 빠른 이동 기능을 모아 둔 기존 Home입니다.</p>
+          </div>
+          <svg class="bento-arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M7 17 17 7" /><path d="M8 7h9v9" /></svg>
+        </a>
 
-      <section class="home-route-deck corporate-home-routes" aria-label="Primary site routes" data-i18n-aria-label="aria.homeRoutes">
-        <div class="home-section-copy">
-          <p class="home-section-kicker" data-i18n="homeCorporate.routesKicker">Start here</p>
-          <h2 data-i18n="homeCorporate.routesTitle">필요한 페이지로 바로 이동하세요.</h2>
-          <p data-i18n="homeCorporate.routesLead">Home은 공식 첫 화면으로 유지하고, 작업성 기능은 Portal과 전용 페이지로 분리했습니다.</p>
-        </div>
-        <div class="home-route-list">
-          <a href="/portal">
-            <span>01</span>
-            <div>
-              <strong data-i18n="homeCorporate.routePortalTitle">Portal</strong>
-              <p data-i18n="homeCorporate.routePortalBody">공유, 구독, 빠른 이동 기능을 모아 둔 기존 Home입니다.</p>
-            </div>
-            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14" /><path d="m13 6 6 6-6 6" /></svg>
-          </a>
-          <a href="/Bio">
-            <span>02</span>
-            <div>
-              <strong data-i18n="homeCorporate.routeBioTitle">Bio</strong>
-              <p data-i18n="homeCorporate.routeBioBody">프로필, 관심사, 소개 정보를 확인합니다.</p>
-            </div>
-            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14" /><path d="m13 6 6 6-6 6" /></svg>
-          </a>
-          <a href="/Creator">
-            <span>03</span>
-            <div>
-              <strong data-i18n="homeCorporate.routeCreatorTitle">Creator</strong>
-              <p data-i18n="homeCorporate.routeCreatorBody">제작 기록과 프로젝트 방향을 봅니다.</p>
-            </div>
-            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14" /><path d="m13 6 6 6-6 6" /></svg>
-          </a>
-          <a href="/trust">
-            <span>04</span>
-            <div>
-              <strong data-i18n="homeCorporate.routeTrustTitle">Trust Center</strong>
-              <p data-i18n="homeCorporate.routeTrustBody">개인정보, 보안, 상태 정보를 한곳에서 확인합니다.</p>
-            </div>
-            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14" /><path d="m13 6 6 6-6 6" /></svg>
-          </a>
-        </div>
-      </section>
+        <a class="bento-card bento-link" href="/Bio">
+          <svg class="bento-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M20 21a8 8 0 0 0-16 0" /><circle cx="12" cy="7" r="4" /></svg>
+          <div>
+            <strong data-i18n="homeCorporate.routeBioTitle">Bio</strong>
+            <p data-i18n="homeCorporate.routeBioBody">프로필, 관심사, 소개 정보를 확인합니다.</p>
+          </div>
+          <svg class="bento-arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M7 17 17 7" /><path d="M8 7h9v9" /></svg>
+        </a>
 
-      <section class="home-feedback-strip corporate-home-strip" aria-label="Operational links" data-i18n-aria-label="aria.homeFeedback">
-        <div>
+        <a class="bento-card bento-link" href="/Creator">
+          <svg class="bento-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3 3 8l9 5 9-5-9-5Z" /><path d="m3 14 9 5 9-5" /><path d="m3 11 9 5 9-5" /></svg>
+          <div>
+            <strong data-i18n="homeCorporate.routeCreatorTitle">Creator</strong>
+            <p data-i18n="homeCorporate.routeCreatorBody">제작 기록과 프로젝트 방향을 봅니다.</p>
+          </div>
+          <svg class="bento-arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M7 17 17 7" /><path d="M8 7h9v9" /></svg>
+        </a>
+
+        <dl class="bento-card bento-stats" aria-label="Site summary" data-i18n-aria-label="aria.homeLedger">
+          <div>
+            <dt data-i18n="homeCorporate.ledgerProfileLabel">Profile</dt>
+            <dd data-i18n="homeCorporate.ledgerProfileValue">Public</dd>
+          </div>
+          <div>
+            <dt data-i18n="homeCorporate.ledgerPortalLabel">Portal</dt>
+            <dd data-i18n="homeCorporate.ledgerPortalValue">Tools ready</dd>
+          </div>
+          <div>
+            <dt data-i18n="homeCorporate.ledgerTrustLabel">Trust</dt>
+            <dd data-i18n="homeCorporate.ledgerTrustValue">Policies available</dd>
+          </div>
+          <div>
+            <dt data-i18n="homeCorporate.ledgerStatusLabel">Status</dt>
+            <dd data-i18n="homeCorporate.ledgerStatusValue">실시간 감시 없음</dd>
+          </div>
+        </dl>
+
+        <a class="bento-card bento-link bento-trust" href="/trust">
+          <svg class="bento-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3 5 6v5c0 4.4 2.8 8.4 7 10 4.2-1.6 7-5.6 7-10V6l-7-3Z" /><path d="M8.5 12.5 11 15l4.5-5" /></svg>
+          <div>
+            <strong data-i18n="homeCorporate.routeTrustTitle">Trust Center</strong>
+            <p data-i18n="homeCorporate.routeTrustBody">개인정보, 보안, 상태 정보를 한곳에서 확인합니다.</p>
+          </div>
+          <svg class="bento-arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M7 17 17 7" /><path d="M8 7h9v9" /></svg>
+        </a>
+
+        <div class="bento-card bento-support">
           <p class="home-section-kicker" data-i18n="homeCorporate.stripKicker">Support</p>
-          <h2 data-i18n="homeCorporate.stripTitle">문의와 업데이트는 전용 페이지에서 관리합니다.</h2>
-          <p data-i18n="homeCorporate.stripBody">커뮤니티, 피드백, 최신 업데이트는 각각 독립된 페이지에서 더 명확하게 확인할 수 있습니다.</p>
-        </div>
-        <div class="corporate-home-strip-actions">
-          <a class="home-feedback-link" href="/community">
-            <span data-i18n="homeCorporate.communityButton">Community</span>
-            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14" /><path d="m13 6 6 6-6 6" /></svg>
-          </a>
-          <a class="home-feedback-link" href="/feedback">
-            <span data-i18n="homeCorporate.feedbackButton">Feedback</span>
-            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14" /><path d="m13 6 6 6-6 6" /></svg>
-          </a>
-          <a class="home-feedback-link" href="/updates">
-            <span data-i18n="homeCorporate.updatesButton">Latest updates</span>
-            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14" /><path d="m13 6 6 6-6 6" /></svg>
-          </a>
+          <p class="bento-support-body" data-i18n="homeCorporate.stripBody">커뮤니티, 피드백, 최신 업데이트는 각각 독립된 페이지에서 더 명확하게 확인할 수 있습니다.</p>
+          <nav class="bento-support-links" aria-label="Support" data-i18n-aria-label="aria.homeFeedback">
+            <a href="/community"><span data-i18n="homeCorporate.communityButton">Community</span><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14" /><path d="m13 6 6 6-6 6" /></svg></a>
+            <a href="/feedback"><span data-i18n="homeCorporate.feedbackButton">Feedback</span><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14" /><path d="m13 6 6 6-6 6" /></svg></a>
+            <a href="/updates"><span data-i18n="homeCorporate.updatesButton">Latest updates</span><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14" /><path d="m13 6 6 6-6 6" /></svg></a>
+          </nav>
         </div>
       </section>
       <div class="cache-dialog share-dialog" data-share-dialog hidden>
