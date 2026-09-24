@@ -3226,6 +3226,7 @@ const clearSiteCache = () => {
     "profile-currency",
     "profile-setting-profile-public",
     "profile-sidebar-collapsed",
+    "profile-sidebar-sections",
     "profile-setting-kid-mode",
     "profile-setting-custom-context-menu",
     "profile-welcome-seen",

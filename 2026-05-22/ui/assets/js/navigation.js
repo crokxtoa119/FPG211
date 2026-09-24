@@ -341,50 +341,126 @@ const createMobileQuickActions = () => {
   document.body.append(bar);
 };
 
+const sidebarSectionStorageKey = "profile-sidebar-sections";
+
+const readSidebarSectionState = () => {
+  try {
+    const parsed = JSON.parse(localStorage.getItem(sidebarSectionStorageKey) || "{}");
+    return parsed && typeof parsed === "object" ? parsed : {};
+  } catch {
+    return {};
+  }
+};
+
+const writeSidebarSectionState = (state) => {
+  try {
+    localStorage.setItem(sidebarSectionStorageKey, JSON.stringify(state));
+  } catch {
+    // Storage can be blocked; sections still toggle for this page view.
+  }
+};
+
+const setSidebarSectionCollapsed = (groupElement, collapsed) => {
+  groupElement.dataset.sectionCollapsed = String(collapsed);
+  groupElement.querySelector(".nav-section-toggle")?.setAttribute("aria-expanded", String(!collapsed));
+};
+
+const createSidebarSectionToggle = (group, groupElement, menuId) => {
+  const toggle = document.createElement("button");
+  toggle.type = "button";
+  toggle.className = "nav-section-label nav-section-toggle";
+  toggle.setAttribute("aria-controls", menuId);
+  toggle.innerHTML = `<span data-i18n="${group.labelKey}">${group.label}</span><svg class="nav-section-chevron" aria-hidden="true" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" /></svg>`;
+  toggle.addEventListener("click", () => {
+    const collapsed = groupElement.dataset.sectionCollapsed !== "true";
+    setSidebarSectionCollapsed(groupElement, collapsed);
+    const state = readSidebarSectionState();
+    state[group.id] = collapsed;
+    writeSidebarSectionState(state);
+  });
+  return toggle;
+};
+
+const enhanceSidebarBrand = () => {
+  document.querySelectorAll(".topbar:not([data-official-home-nav]) .brand-logo").forEach((brand) => {
+    if (brand.querySelector(".workspace-copy")) return;
+    const copy = document.createElement("span");
+    copy.className = "workspace-copy";
+    copy.innerHTML = '<strong>First PrizeGames</strong><small data-i18n="nav.workspaceTagline">Official site</small>';
+    brand.classList.add("workspace-brand");
+    brand.append(copy);
+  });
+};
+
 const enhanceSidebarNavigation = () => {
   if (isSystemRecoveryPage) return;
+  // Primary items sit at the top without a heading; the rest are collapsible sections.
   const navGroups = [
     {
+      id: "main",
       label: "MAIN",
       labelKey: "nav.groupMain",
       items: [
         { type: "search" },
         { href: "/", icon: navIconMarkup.home, labelKey: "nav.home", fallback: "Home" },
         { href: "/portal", icon: navIconMarkup.analytics, labelKey: "nav.portal", fallback: "Portal" },
-        { href: "/discover", icon: navIconMarkup.discover, labelKey: "nav.discover", fallback: "Discover" },
         { href: "/updates", icon: navIconMarkup.updates, labelKey: "nav.updates", fallback: "Latest updates" },
         { href: "/activity", icon: navIconMarkup.activity, labelKey: "nav.activity", fallback: "Activity" },
       ],
     },
     {
-      label: "ABOUT",
-      labelKey: "nav.groupAbout",
+      id: "explore",
+      label: "EXPLORE",
+      labelKey: "nav.groupExplore",
+      collapsible: true,
       items: [
+        { href: "/discover", icon: navIconMarkup.discover, labelKey: "nav.discover", fallback: "Discover" },
         { href: "/Creator", icon: navIconMarkup.creator, labelKey: "nav.creator", fallback: "Creator" },
         { href: "/Bio", icon: navIconMarkup.bio, labelKey: "nav.bio", fallback: "Bio" },
         { href: "/about", icon: navIconMarkup.about, labelKey: "nav.aboutUs", fallback: "About us" },
       ],
     },
     {
-      label: "RESOURCES",
+      id: "support",
+      label: "SUPPORT",
       labelKey: "nav.groupResources",
+      collapsible: true,
       items: [
         { href: "/FAQ", icon: navIconMarkup.faq, labelKey: "nav.faq", fallback: "FAQ" },
         { href: "/community", icon: navIconMarkup.community, labelKey: "nav.community", fallback: "Community" },
         { href: "/feedback", icon: navIconMarkup.feedback, labelKey: "nav.feedback", fallback: "Feedback" },
+        { href: "/status", icon: navIconMarkup.status, labelKey: "nav.status", fallback: "Status" },
+      ],
+    },
+    {
+      id: "policies",
+      label: "POLICIES",
+      labelKey: "nav.groupPolicies",
+      collapsible: true,
+      defaultCollapsed: true,
+      items: [
+        { href: "/trust", icon: navIconMarkup.trust, labelKey: "nav.trustCenter", fallback: "Trust Center" },
+        { href: "/security", icon: navIconMarkup.security, labelKey: "nav.security", fallback: "Security" },
+        { href: "/privacy", icon: navIconMarkup.privacy, labelKey: "nav.privacy", fallback: "Privacy Policy" },
+        { href: "/terms", icon: navIconMarkup.terms, labelKey: "nav.terms", fallback: "Terms" },
+        { href: "/license", icon: navIconMarkup.license, labelKey: "nav.license", fallback: "License" },
         { href: "/accessibility", icon: navIconMarkup.accessibility, labelKey: "nav.accessibility", fallback: "Accessibility" },
       ],
     },
   ];
 
-  document.querySelectorAll(".nav-links:not([data-official-home-menu])").forEach((nav) => {
+  const savedSections = readSidebarSectionState();
+  enhanceSidebarBrand();
+
+  document.querySelectorAll(".nav-links:not([data-official-home-menu])").forEach((nav, navIndex) => {
     nav.replaceChildren();
 
     navGroups.forEach((group, index) => {
       const groupElement = document.createElement("div");
       groupElement.className = "nav-menu-group";
-      groupElement.dataset.navMenuGroup = group.label.toLowerCase();
-      const triggerId = `nav-group-${group.label.toLowerCase()}-${index}`;
+      groupElement.dataset.navMenuGroup = group.id;
+      const triggerId = `nav-group-${group.id}-${navIndex}-${index}`;
+      const menuId = `nav-group-menu-${group.id}-${navIndex}`;
 
       const trigger = document.createElement("button");
       trigger.className = "nav-group-trigger";
@@ -395,14 +471,19 @@ const enhanceSidebarNavigation = () => {
 
       const menu = document.createElement("div");
       menu.className = "nav-group-menu";
+      menu.id = menuId;
       menu.setAttribute("aria-labelledby", triggerId);
 
-      const sectionLabel = document.createElement("span");
-      sectionLabel.className = "nav-section-label";
-      sectionLabel.textContent = group.label;
-      sectionLabel.dataset.i18n = group.labelKey;
-      sectionLabel.setAttribute("aria-hidden", "true");
-      menu.append(sectionLabel);
+      if (group.collapsible) {
+        menu.append(createSidebarSectionToggle(group, groupElement, menuId));
+      } else {
+        const sectionLabel = document.createElement("span");
+        sectionLabel.className = "nav-section-label";
+        sectionLabel.textContent = group.label;
+        sectionLabel.dataset.i18n = group.labelKey;
+        sectionLabel.setAttribute("aria-hidden", "true");
+        menu.append(sectionLabel);
+      }
 
       group.items.forEach((item) => {
         if (item.type === "search") {
@@ -419,8 +500,17 @@ const enhanceSidebarNavigation = () => {
         menu.append(anchor);
       });
 
-      if (menu.querySelector(".is-active")) groupElement.classList.add("has-active-item");
+      const hasActiveItem = Boolean(menu.querySelector(".is-active"));
+      if (hasActiveItem) groupElement.classList.add("has-active-item");
       groupElement.append(trigger, menu);
+
+      if (group.collapsible) {
+        // A section holding the current page always opens so the active item stays visible.
+        const saved = savedSections[group.id];
+        const collapsed = !hasActiveItem && (typeof saved === "boolean" ? saved : Boolean(group.defaultCollapsed));
+        setSidebarSectionCollapsed(groupElement, collapsed);
+      }
+
       nav.append(groupElement);
     });
   });
