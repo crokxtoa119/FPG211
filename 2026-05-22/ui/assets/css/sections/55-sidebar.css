@@ -224,6 +224,129 @@
     background: var(--line);
   }
 
+  /* Workspace header: logo tile + site name, like a team switcher */
+  html[data-nav-layout="sidebar"][data-theme] body .topbar .brand-logo.workspace-brand {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    height: 56px;
+    padding: 0 34px 0 6px;
+    background: none;
+    text-decoration: none;
+  }
+
+  /* Tile */
+  html[data-nav-layout="sidebar"][data-theme] body .topbar .brand-logo.workspace-brand::before {
+    content: "";
+    display: block;
+    flex: none;
+    width: 28px;
+    height: 28px;
+    margin: 0;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: #1b1b1f;
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Mark, cropped out of the wide logo sprite */
+  html[data-nav-layout="sidebar"][data-theme] body .topbar .brand-logo.workspace-brand::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 11px;
+    display: block;
+    width: 19px;
+    height: 18px;
+    margin: 0;
+    border: 0;
+    background: url("../../logo-v2-sidebar.png") 0 center / auto 18px no-repeat;
+    opacity: 1;
+    transform: translateY(-50%);
+  }
+
+  html[data-nav-layout="sidebar"][data-theme] body .topbar .brand-logo.workspace-brand > :is(img, span:not(.workspace-copy)) {
+    display: none;
+  }
+
+  html[data-nav-layout="sidebar"][data-theme] body .topbar .workspace-copy {
+    display: grid;
+    min-width: 0;
+    line-height: 1.25;
+  }
+
+  html[data-nav-layout="sidebar"][data-theme] body .topbar .workspace-copy strong {
+    overflow: hidden;
+    color: var(--ink);
+    font-size: 13.5px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  html[data-nav-layout="sidebar"][data-theme] body .topbar .workspace-copy small {
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 400;
+  }
+
+  html[data-nav-layout="sidebar"][data-theme] body .topbar .mobile-menu-button {
+    top: 14px;
+    right: 8px;
+  }
+
+  /* Primary items need no heading */
+  html[data-nav-layout="sidebar"][data-theme] body .topbar .nav-menu-group[data-nav-menu-group="main"] .nav-section-label {
+    display: none;
+  }
+
+  /* Collapsible section headings */
+  html[data-nav-layout="sidebar"][data-theme] body .topbar .nav-section-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 28px;
+    margin: 14px 0 2px;
+    padding: 0 10px;
+    border: 0;
+    border-radius: 6px;
+    background: none;
+    color: var(--muted);
+    cursor: pointer;
+    font: inherit;
+    font-size: 12px;
+    font-weight: 500;
+    opacity: 1;
+    text-align: left;
+  }
+
+  html[data-nav-layout="sidebar"][data-theme] body .topbar .nav-section-toggle:hover,
+  html[data-nav-layout="sidebar"][data-theme] body .topbar .nav-section-toggle:focus-visible {
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--ink);
+  }
+
+  html[data-nav-layout="sidebar"][data-theme] body .topbar .nav-section-chevron {
+    width: 14px;
+    height: 14px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    transition: transform 0.15s ease;
+  }
+
+  html[data-nav-layout="sidebar"][data-theme] body .topbar .nav-menu-group[data-section-collapsed="true"] .nav-section-chevron {
+    transform: rotate(-90deg);
+  }
+
+  html[data-nav-layout="sidebar"]:not([data-sidebar-collapsed="true"])[data-theme] body .topbar .nav-menu-group[data-section-collapsed="true"] .nav-group-menu > a {
+    display: none;
+  }
+
   /* Collapsed rail */
   html[data-nav-layout="sidebar"][data-sidebar-collapsed="true"][data-theme] body .topbar .nav-links a,
   html[data-nav-layout="sidebar"][data-sidebar-collapsed="true"][data-theme] body .topbar .nav-links .nav-search-button {
@@ -254,6 +377,37 @@
     right: 4px;
     left: 4px;
   }
+
+  html[data-nav-layout="sidebar"][data-sidebar-collapsed="true"][data-theme] body .topbar .brand-logo.workspace-brand {
+    justify-content: center;
+    height: 52px;
+    padding: 0;
+  }
+
+  html[data-nav-layout="sidebar"][data-sidebar-collapsed="true"][data-theme] body .topbar .workspace-copy {
+    display: none;
+  }
+
+  html[data-nav-layout="sidebar"][data-sidebar-collapsed="true"][data-theme] body .topbar .brand-logo.workspace-brand::after {
+    left: calc(50% - 9px);
+  }
+
+  html[data-nav-layout="sidebar"][data-sidebar-collapsed="true"][data-theme] body .topbar .mobile-menu-button {
+    top: 58px;
+    right: 22px;
+  }
+
+  html[data-nav-layout="sidebar"][data-sidebar-collapsed="true"][data-theme] body .topbar .nav-section-toggle {
+    display: block;
+    min-height: 0;
+    height: 1px;
+    margin: 10px 8px;
+    padding: 0;
+    overflow: hidden;
+    background: var(--line);
+    color: transparent;
+    pointer-events: none;
+  }
 }
 
 /* Tablet: the nav is a single pill row; let it scroll instead of squeezing labels */
@@ -273,4 +427,8 @@
     flex: none;
     white-space: nowrap;
   }
+}
+
+.workspace-copy {
+  display: none;
 }
