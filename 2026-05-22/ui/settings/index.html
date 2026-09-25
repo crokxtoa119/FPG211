@@ -89,14 +89,47 @@
           : "false";
       })();
     </script>
-    <link rel="stylesheet" href="../assets/css/styles.css?v=20260924-set1" />
+    <link rel="stylesheet" href="../assets/css/styles.css?v=20260925-setpage1" />
   </head>
-  <body class="settings-body settings-modal-body">
+  <body class="settings-body settings-full-body">
     <div class="loading-bar" aria-hidden="true"></div>
     <div class="adblock-bait pub_300x250 adsbox text-ad" aria-hidden="true"></div>
     <a class="skip-link" href="#main-content" data-i18n="accessibility.skip">Skip to main content</a>
 
-    <main class="settings-modal-shell settings-page" id="main-content" tabindex="-1">
+    <main class="shell settings-page settings-full" id="main-content" tabindex="-1">
+      <nav class="topbar" aria-label="설정 메뉴" data-i18n-aria-label="aria.settingsMenu">
+        <a class="brand-logo" href="/" aria-label="Home" data-i18n-aria-label="aria.home">
+          <img src="/assets/logo.png" alt="" width="537" height="532" loading="eager" decoding="async" draggable="false" />
+          <span>FP</span>
+        </a>
+        <button class="mobile-menu-button" type="button" aria-expanded="false" data-mobile-menu-toggle>
+          <span data-i18n="nav.menu">Menu</span>
+          <svg class="mobile-menu-icon" aria-hidden="true" viewBox="0 0 24 24">
+            <path d="m6 9 6 6 6-6" />
+          </svg>
+        </button>
+        <div class="nav-links" data-mobile-menu>
+          <a href="/"><svg class="nav-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5" /><path d="M5 10v10h14V10" /><path d="M9 20v-6h6v6" /></svg><span data-i18n="nav.home">Home</span></a>
+          <a href="/Creator"><svg class="nav-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3 3 8l9 5 9-5-9-5Z" /><path d="m3 14 9 5 9-5" /><path d="m3 11 9 5 9-5" /></svg><span data-i18n="nav.creator">Creator</span></a>
+          <a href="/Bio"><svg class="nav-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M20 21a8 8 0 0 0-16 0" /><circle cx="12" cy="7" r="4" /></svg><span data-i18n="nav.bio">Bio</span></a>
+          <a href="/about"><svg class="nav-icon" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M12 16v-4" /><path d="M12 8h.01" /></svg><span data-i18n="nav.aboutUs">About us</span></a>
+          <a href="/FAQ"><svg class="nav-icon" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M9.1 9a3 3 0 1 1 5.8 1c-.5.9-1.4 1.3-2.1 1.9-.6.5-.8.9-.8 2.1" /><path d="M12 17h.01" /></svg><span data-i18n="nav.faq">FAQ</span></a>
+          <a class="is-active" href="/settings"><svg class="nav-icon" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" /><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1A2 2 0 1 1 4.2 17l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.6-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1A2 2 0 1 1 7 4.2l.1.1a1.7 1.7 0 0 0 1.9.3h.1A1.7 1.7 0 0 0 10 3.1V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.6h.1a1.7 1.7 0 0 0 1.9-.3l.1-.1A2 2 0 1 1 19.8 7l-.1.1a1.7 1.7 0 0 0-.3 1.9v.1A1.7 1.7 0 0 0 20.9 10h.1a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z" /></svg><span data-i18n="nav.settings">Settings</span></a>
+          <a href="/privacy"><svg class="nav-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3 5 6v5c0 4.4 2.8 8.4 7 10 4.2-1.6 7-5.6 7-10V6l-7-3Z" /><path d="m9 12 2 2 4-5" /></svg><span data-i18n="nav.privacy">Privacy Policy</span></a>
+          <a href="/license"><svg class="nav-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7z" /><path d="M14 3v6h5" /><path d="M9 14h6" /><path d="M9 18h4" /><path d="M5 7v14" /></svg><span data-i18n="nav.license">License</span></a>
+          <a class="nav-feedback-link" href="/feedback" data-i18n="nav.feedback">Feedback</a>
+        </div>
+      </nav>
+      <header class="settings-page-header">
+        <h1 data-i18n="nav.settings">설정</h1>
+        <p data-i18n="settings.pageLead">테마, 언어, 접근성, 보안을 한곳에서 관리합니다.</p>
+        <label class="settings-search">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" /><path d="m16 16 5 5" /></svg>
+          <span class="sr-only" data-i18n="settings.searchLabel">설정 검색</span>
+          <input type="search" autocomplete="off" placeholder="설정 검색" data-settings-search data-i18n-placeholder="settings.searchPlaceholder" />
+        </label>
+        <p class="settings-search-empty" data-settings-search-empty hidden data-i18n="settings.searchEmpty">일치하는 설정이 없습니다.</p>
+      </header>
       <section class="settings-modal" aria-labelledby="settings-modal-title">
         <aside class="settings-modal-nav" aria-label="Settings sections">
           <a class="settings-modal-close" href="/" aria-label="Close settings" data-i18n-aria-label="share.close">
@@ -375,11 +408,11 @@
       </div>
     </main>
 
-    <script src="../assets/js/translations.js?v=20260924-set1" defer></script>
+    <script src="../assets/js/translations.js?v=20260925-setpage1" defer></script>
 
 
     <script src="../assets/js/navigation.js?v=20260721-member-news1" defer></script>
-    <script src="../assets/js/script.js?v=20260924-set1" defer></script>
+    <script src="../assets/js/script.js?v=20260925-setpage1" defer></script>
     <script src="../assets/js/page-features.js?v=20260721-member-news1" defer></script>
   </body>
 </html>

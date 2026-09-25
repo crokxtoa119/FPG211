@@ -2336,7 +2336,11 @@ const setLanguage = (language) => {
   setTheme(document.documentElement.dataset.themePreference || getInitialTheme());
   setKidMode(document.documentElement.dataset.kidMode || "off");
   settingToggles.forEach((button) => {
-    updateSettingToggle(button, button.classList.contains("is-on"));
+    // The display-assistance switch mirrors the stored mode, not its (possibly not yet synced) class.
+    const isOn = button.dataset.toggleKey === "kid-mode"
+      ? document.documentElement.dataset.kidMode !== "off"
+      : button.classList.contains("is-on");
+    updateSettingToggle(button, isOn);
   });
   updateCookiePreferenceControls(getCookiePreferences().preferences);
   updateStorageEstimate();
@@ -2374,6 +2378,8 @@ const setupSettingToggles = () => {
     const storageKey = `profile-setting-${button.dataset.toggleKey}`;
     const savedValue = localStorage.getItem(storageKey);
     let isOn = normalizeBooleanSetting(savedValue, button.classList.contains("is-on"));
+    // setKidMode stores the mode name ("strong"/"soft") under the same key; treat it as on.
+    if (button.dataset.toggleKey === "kid-mode" && ["strong", "soft"].includes(savedValue)) isOn = true;
 
     updateSettingToggle(button, isOn);
     localStorage.setItem(storageKey, String(isOn));
@@ -5074,6 +5080,44 @@ const setupSettingsModalTabs = () => {
 
 setupSettingsModalTabs();
 setupSettingsControlRecovery();
+
+// Full-page settings: filter rows across every pane while a query is typed.
+const setupSettingsSearch = () => {
+  const input = document.querySelector("[data-settings-search]");
+  const modal = document.querySelector(".settings-full .settings-modal");
+  if (!input || !modal) return;
+  const empty = document.querySelector("[data-settings-search-empty]");
+  const panels = [...modal.querySelectorAll(".settings-modal-panel")];
+
+  const apply = () => {
+    const query = input.value.trim().toLowerCase();
+    modal.classList.toggle("is-searching", Boolean(query));
+    let matches = 0;
+    panels.forEach((panel) => {
+      const title = (panel.querySelector("h1, h2")?.textContent || "").toLowerCase();
+      let panelMatches = 0;
+      panel.querySelectorAll(".settings-modal-row").forEach((row) => {
+        const hit = !query || title.includes(query) || row.textContent.toLowerCase().includes(query);
+        row.classList.toggle("is-search-miss", !hit);
+        if (hit) panelMatches += 1;
+      });
+      panel.classList.toggle("is-search-empty", Boolean(query) && panelMatches === 0);
+      matches += panelMatches;
+    });
+    if (empty) empty.hidden = !query || matches > 0;
+  };
+
+  input.addEventListener("input", apply);
+  input.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && input.value) {
+      event.stopPropagation();
+      input.value = "";
+      apply();
+    }
+  });
+};
+
+setupSettingsSearch();
 
 const setupDocToc = () => {
   const toc = document.querySelector("[data-doc-toc]");
