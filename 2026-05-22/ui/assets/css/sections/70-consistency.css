@@ -102,10 +102,10 @@ html[data-theme] body main.shell :is(
   .about-hero-actions, .faq-archive-actions, .trust-hero, .actions
 ) .button,
 html[data-theme] body main.shell :is(.updates-action-link, .bio-hero-actions a, .sitemap-xml-link) {
-  min-height: var(--control-height);
+  min-height: max(var(--control-height), var(--site-button-accessibility-height, 0px));
   padding: 0 16px;
   border-radius: 7px;
-  font-size: 14px;
+  font-size: max(14px, var(--site-button-accessibility-font-size, 0px));
   font-weight: 600;
 }
 
