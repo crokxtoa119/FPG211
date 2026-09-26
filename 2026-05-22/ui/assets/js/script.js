@@ -20,6 +20,8 @@ const isOfflinePage =
   document.body.classList.contains("offline-body") ||
   window.location.pathname.replace(/\/index\.html$/i, "").replace(/\/+$/, "") === "/offline";
 const isSystemRecoveryPage = isOfflinePage || document.body.classList.contains("error-body");
+// 404/500 keep the full site layout; only the offline screen stays chromeless, since its links and sign-in need the network.
+const skipsSiteChrome = isOfflinePage;
 
 const setupSettingsPageEarlyRecovery = () => {
   if (!document.querySelector(".settings-page")) return;

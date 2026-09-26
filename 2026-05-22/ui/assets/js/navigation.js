@@ -125,7 +125,7 @@ const createNavFlyout = ({ icon, labelKey, fallback, items = [] }) => {
 };
 
 const createTopSearchButton = () => {
-  if (isSystemRecoveryPage) return;
+  if (skipsSiteChrome) return;
   if (document.body.classList.contains("official-home-body")) return;
   if (document.body.classList.contains("search-body")) return;
   if (document.querySelector("[data-top-search]")) return;
@@ -218,7 +218,7 @@ const createSidebarHelpMenu = () => {
 };
 
 const createSidebarAccountMenu = () => {
-  if (isSystemRecoveryPage) return;
+  if (skipsSiteChrome) return;
   if (document.querySelector("[data-sidebar-account]")) return;
 
   document.querySelectorAll(".topbar:not([data-official-home-nav])").forEach((topbar, index) => {
@@ -294,7 +294,7 @@ const createMobileQuickActionButton = ({
 };
 
 const createMobileQuickActions = () => {
-  if (isSystemRecoveryPage) return;
+  if (skipsSiteChrome) return;
   if (document.querySelector("[data-mobile-quick-actions]")) return;
 
   const bar = document.createElement("nav");
@@ -363,7 +363,7 @@ const createSidebarSearch = () => {
 };
 
 const enhanceSidebarNavigation = () => {
-  if (isSystemRecoveryPage) return;
+  if (skipsSiteChrome) return;
   const navGroups = [
     {
       id: "main",
@@ -459,7 +459,7 @@ const enhanceSidebarNavigation = () => {
 
 // Title bar above the content, like a macOS window toolbar: back/forward and the page name.
 const createContentToolbar = () => {
-  if (isSystemRecoveryPage) return;
+  if (skipsSiteChrome) return;
   const main = document.querySelector("main.shell");
   const topbar = main?.querySelector(".topbar:not([data-official-home-nav])");
   if (!main || !topbar || main.querySelector("[data-content-toolbar]")) return;
@@ -493,7 +493,9 @@ const createContentToolbar = () => {
     title.dataset.i18n = activeLabel.dataset.i18n;
     title.textContent = activeLabel.textContent;
   } else {
-    title.textContent = (document.querySelector("main h1")?.textContent || document.title.split("|")[0]).trim();
+    const heading = document.querySelector("main h1");
+    if (heading?.dataset.i18n) title.dataset.i18n = heading.dataset.i18n;
+    title.textContent = (heading?.textContent || document.title.split("|")[0]).trim();
   }
 
   const nav = document.createElement("div");
@@ -504,7 +506,7 @@ const createContentToolbar = () => {
 };
 
 const createStandardFooter = () => {
-  if (isSystemRecoveryPage) return;
+  if (skipsSiteChrome) return;
   if (document.querySelector("[data-site-footer]")) return;
 
   const footer = document.createElement("footer");
