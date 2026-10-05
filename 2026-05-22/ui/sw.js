@@ -1,4 +1,4 @@
-const CACHE_NAME = "profile-offline-20260926-consist1";
+const CACHE_NAME = "profile-offline-20261005-brand1";
 const OFFLINE_URL = "/offline";
 const PRECACHE_URLS = [
   OFFLINE_URL,
@@ -19,6 +19,7 @@ const PRECACHE_URLS = [
   "/settings",
   "/privacy",
   "/license",
+  "/brand",
   "/trust",
   "/status",
   "/security",
@@ -45,6 +46,7 @@ const PRECACHE_URLS = [
   "/assets/css/sections/60-macos.css",
   "/assets/css/sections/65-settings.css",
   "/assets/css/sections/70-consistency.css",
+  "/assets/css/sections/75-brand.css",
   "/assets/js/translations.js",
   "/assets/js/navigation.js",
   "/assets/js/script.js",

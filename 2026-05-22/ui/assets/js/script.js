@@ -2224,6 +2224,15 @@ const siteSearchIndex = [
     },
   },
   {
+    titleKey: "search.brandTitle",
+    bodyKey: "search.brandBody",
+    url: "/brand",
+    keywords: {
+      ko: "brand 브랜드 안내 로고 색상 글꼴 폰트 이름 상표 허가 사칭 가이드라인",
+      en: "brand guidelines logo colors fonts name trademark permission impersonation",
+    },
+  },
+  {
     titleKey: "search.termsTitle",
     bodyKey: "search.termsBody",
     url: "/terms",
@@ -3011,7 +3020,7 @@ const getSearchCategory = (item) => {
   const url = item.url || "";
   if (["/settings", "/accessibility"].includes(url)) return "settings";
   if (["/FAQ", "/feedback", "/community", "/updates", "/activity"].includes(url)) return "help";
-  if (["/privacy", "/license", "/terms", "/trust", "/security", "/status"].includes(url)) return "legal";
+  if (["/privacy", "/license", "/brand", "/terms", "/trust", "/security", "/status"].includes(url)) return "legal";
   return "pages";
 };
 

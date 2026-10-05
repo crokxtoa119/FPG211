@@ -1,0 +1,241 @@
+/* ---------------------------------------------------------------------------
+   Brand guidelines (/brand)
+   Document-style sections beside the shared header, logo gallery, colour
+   swatches and a permission checklist. Loaded after the consistency layer.
+--------------------------------------------------------------------------- */
+
+html[data-theme] body .brand-sections {
+  display: grid;
+  margin-top: 8px;
+}
+
+html[data-theme] body .brand-section {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: 20px 56px;
+  padding: 44px 0;
+  border-top: 1px solid var(--line);
+}
+
+html[data-theme] body .brand-section-head > span {
+  display: block;
+  color: var(--brand);
+  font-size: 13px;
+  font-weight: 650;
+  letter-spacing: 0;
+}
+
+html[data-theme] body .brand-section-head h2 {
+  margin: 8px 0 0;
+  color: var(--ink);
+  font-size: clamp(22px, 1.4vw + 14px, 30px);
+  font-weight: 700;
+  line-height: 1.22;
+  letter-spacing: -0.02em;
+}
+
+html[data-theme] body .brand-section-body > p {
+  max-width: 62ch;
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+html[data-theme] body .brand-section-body > p:last-child {
+  margin-bottom: 0;
+}
+
+html[data-theme] body .brand-section-body a:not(.button) {
+  color: var(--brand);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+html[data-theme] body .brand-section-body a:not(.button):is(:hover, :focus-visible) {
+  text-decoration: underline;
+}
+
+/* Logo gallery: the artwork has white lettering, so every tile is dark in both themes. */
+html[data-theme] body .brand-logo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 22px;
+}
+
+html[data-theme] body .brand-logo-card {
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: var(--card-bg);
+}
+
+html[data-theme] body .brand-logo-stage {
+  display: grid;
+  place-items: center;
+  height: 176px;
+  padding: 24px;
+  background: #151514;
+}
+
+html[data-theme] body .brand-logo-stage img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 128px;
+}
+
+html[data-theme] body .brand-logo-meta {
+  padding: 14px 16px 16px;
+}
+
+html[data-theme] body .brand-logo-meta strong {
+  display: block;
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 650;
+}
+
+html[data-theme] body .brand-logo-meta p {
+  margin: 4px 0 8px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+html[data-theme] body .brand-logo-meta code,
+html[data-theme] body .brand-swatch code {
+  color: var(--muted);
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 12px;
+}
+
+/* Colour swatches */
+html[data-theme] body .brand-swatches {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin: 22px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+html[data-theme] body .brand-swatch {
+  display: grid;
+  gap: 2px;
+  margin: 0;
+}
+
+html[data-theme] body .brand-swatch-chip {
+  display: block;
+  height: 76px;
+  margin-bottom: 8px;
+  border-radius: 10px;
+  box-shadow: inset 0 0 0 1px rgba(128, 128, 128, 0.3);
+}
+
+html[data-theme] body .brand-swatch[data-color="blue"] .brand-swatch-chip { background: #335fff; }
+html[data-theme] body .brand-swatch[data-color="yellow"] .brand-swatch-chip { background: #dddd00; }
+html[data-theme] body .brand-swatch[data-color="red"] .brand-swatch-chip { background: #e50000; }
+html[data-theme] body .brand-swatch[data-color="white"] .brand-swatch-chip { background: #ffffff; }
+
+html[data-theme] body .brand-swatch strong {
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 650;
+}
+
+/* Permission checklist */
+html[data-theme] body .brand-use-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+html[data-theme] body .brand-use-card {
+  padding: 20px;
+  border-radius: var(--radius-lg);
+  background: var(--card-bg);
+}
+
+html[data-theme] body .brand-use-card h3 {
+  margin: 0 0 12px;
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 650;
+}
+
+html[data-theme] body .brand-use-card ul {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+html[data-theme] body .brand-use-card li {
+  position: relative;
+  padding-left: 20px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+html[data-theme] body .brand-use-card li::before {
+  content: "";
+  position: absolute;
+  top: 0.5em;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #30d158;
+}
+
+html[data-theme] body .brand-use-card[data-kind="ask"] li::before {
+  background: #ff9f0a;
+}
+
+html[data-theme] body .brand-section-body > .brand-quote-label {
+  margin: 22px 0 8px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+html[data-theme] body .brand-quote {
+  margin: 0;
+  padding: 14px 16px;
+  border-radius: 10px;
+  background: var(--card-bg);
+  color: var(--ink);
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+  user-select: all;
+}
+
+html[data-theme] body .brand-section-body > .actions {
+  margin-top: 20px;
+}
+
+@media (max-width: 900px) {
+  html[data-theme] body .brand-section {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+    padding: 32px 0;
+  }
+}
+
+@media (max-width: 600px) {
+  html[data-theme] body .brand-logo-grid,
+  html[data-theme] body .brand-use-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  html[data-theme] body .brand-swatches {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
