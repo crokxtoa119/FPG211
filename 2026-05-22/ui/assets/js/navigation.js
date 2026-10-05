@@ -47,6 +47,8 @@ const navIconMarkup = {
     '<svg class="nav-icon" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="4" r="2" /><path d="M5 8h14" /><path d="M12 8v13" /><path d="M8 21l4-8 4 8" /></svg>',
   privacy:
     '<svg class="nav-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3 5 6v5c0 4.4 2.8 8.4 7 10 4.2-1.6 7-5.6 7-10V6l-7-3Z" /><path d="m9 12 2 2 4-5" /></svg>',
+  brand:
+    '<svg class="nav-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18c1.1 0 1.6-.8 1.2-1.7-.4-1 .2-1.8 1.3-1.8H17a4 4 0 0 0 4-4c0-5-4-9-9-9Z" /><circle cx="7.5" cy="11.5" r="1" /><circle cx="10" cy="7.5" r="1" /><circle cx="14.5" cy="7.5" r="1" /></svg>',
   license:
     '<svg class="nav-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7z" /><path d="M14 3v6h5" /><path d="M9 14h6" /><path d="M9 18h4" /><path d="M5 7v14" /></svg>',
   trust:
@@ -197,6 +199,7 @@ const createSidebarHelpMenu = () => {
     { divider: true },
     { href: "/terms", icon: navIconMarkup.terms, labelKey: "nav.terms", fallback: "Terms" },
     { href: "/license", icon: navIconMarkup.license, labelKey: "nav.license", fallback: "License" },
+    { href: "/brand", icon: navIconMarkup.brand, labelKey: "nav.brand", fallback: "Brand" },
   ].forEach((item) => {
     if (item.divider) {
       const divider = document.createElement("div");
@@ -408,6 +411,7 @@ const enhanceSidebarNavigation = () => {
         { href: "/privacy", icon: navIconMarkup.privacy, labelKey: "nav.privacy", fallback: "Privacy Policy", tint: "blue" },
         { href: "/terms", icon: navIconMarkup.terms, labelKey: "nav.terms", fallback: "Terms", tint: "gray" },
         { href: "/license", icon: navIconMarkup.license, labelKey: "nav.license", fallback: "License", tint: "gray" },
+        { href: "/brand", icon: navIconMarkup.brand, labelKey: "nav.brand", fallback: "Brand", tint: "purple" },
         { href: "/accessibility", icon: navIconMarkup.accessibility, labelKey: "nav.accessibility", fallback: "Accessibility", tint: "blue" },
         { href: "/settings", icon: navIconMarkup.settings, labelKey: "nav.settings", fallback: "Settings", tint: "gray" },
       ],

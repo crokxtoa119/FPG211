@@ -91,6 +91,10 @@
       "destination": "/license/index.html"
     },
     {
+      "source": "/brand",
+      "destination": "/brand/index.html"
+    },
+    {
       "source": "/sitemap",
       "destination": "/sitemap/index.html"
     },
