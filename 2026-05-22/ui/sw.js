@@ -1,4 +1,4 @@
-const CACHE_NAME = "profile-offline-20261022-cookie1";
+const CACHE_NAME = "profile-offline-20261022-bun1";
 const OFFLINE_URL = "/offline";
 const PRECACHE_URLS = [
   OFFLINE_URL,
@@ -31,23 +31,6 @@ const PRECACHE_URLS = [
   "/feedback",
   "/community",
   "/assets/css/styles.css",
-  "/assets/css/sections/00-foundation.css",
-  "/assets/css/sections/05-themes.css",
-  "/assets/css/sections/10-layout-navigation.css",
-  "/assets/css/sections/20-pages-components.css",
-  "/assets/css/sections/25-context-menu.css",
-  "/assets/css/sections/30-dialogs-usage.css",
-  "/assets/css/sections/35-settings-modal.css",
-  "/assets/css/sections/40-responsive-polish.css",
-  "/assets/css/sections/45-light-legacy.css",
-  "/assets/css/sections/50-modern.css",
-  "/assets/css/sections/55-sidebar.css",
-  "/assets/css/sections/58-light-modern.css",
-  "/assets/css/sections/60-macos.css",
-  "/assets/css/sections/65-settings.css",
-  "/assets/css/sections/70-consistency.css",
-  "/assets/css/sections/75-brand.css",
-  "/assets/css/sections/80-minimal.css",
   "/assets/js/translations.js",
   "/assets/js/navigation.js",
   "/assets/js/script.js",
