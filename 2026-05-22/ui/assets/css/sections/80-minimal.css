@@ -87,7 +87,7 @@ html:root[data-nav-layout="sidebar"][data-theme] body .topbar .nav-links a:not(.
 
 /* Actions: one neutral solid, one outlined. The accent colour is only for
    links and focus. */
-html:root[data-theme] body main.shell .button.primary,
+html:root[data-theme] body main.shell :is(.button.primary, .faq-feedback-link, .accessibility-action-links > a),
 html:root[data-theme] body .button.primary {
   background: var(--m-action);
   color: var(--m-action-ink);
@@ -95,14 +95,14 @@ html:root[data-theme] body .button.primary {
   box-shadow: none;
 }
 
-html:root[data-theme] body main.shell .button.primary:is(:hover, :focus-visible),
+html:root[data-theme] body main.shell :is(.button.primary, .faq-feedback-link, .accessibility-action-links > a):is(:hover, :focus-visible),
 html:root[data-theme] body .button.primary:is(:hover, :focus-visible) {
   background: var(--m-action);
   opacity: 0.86;
   transform: none;
 }
 
-html:root[data-theme] body main.shell :is(.button.ghost, .button:not(.primary)),
+html:root[data-theme] body main.shell :is(.button.ghost, .button:not(.primary):not([class*="confirm"]):not([class*="save"])),
 html:root[data-theme] body main.shell :is(.updates-action-link, .bio-hero-actions a, .sitemap-xml-link) {
   background: transparent;
   color: var(--m-ink);
@@ -110,7 +110,7 @@ html:root[data-theme] body main.shell :is(.updates-action-link, .bio-hero-action
   box-shadow: none;
 }
 
-html:root[data-theme] body main.shell :is(.button.ghost, .button:not(.primary), .updates-action-link, .bio-hero-actions a, .sitemap-xml-link):is(:hover, :focus-visible) {
+html:root[data-theme] body main.shell :is(.button.ghost, .button:not(.primary):not([class*="confirm"]):not([class*="save"]), .updates-action-link, .bio-hero-actions a, .sitemap-xml-link):is(:hover, :focus-visible) {
   background: var(--m-hover);
   transform: none;
 }
@@ -119,7 +119,7 @@ html:root[data-theme] body main.shell :is(.button.ghost, .button:not(.primary), 
    drops its own frame so frames never stack. */
 html:root[data-theme] body main.shell :is(
   .bento-card, .brand-logo-card, .brand-use-card, .brand-quote, .creator-project-link, .creator-note,
-  .faq-feedback-link, .trust-status-card, .status-overall-meta, .error-console, .offline-panel,
+  .trust-status-card, .status-overall-meta, .error-console, .offline-panel,
   .offline-page, .error-page, .error-route-card, .about-route-list, .about-route-index, .about-principles,
   .about-principle-list, .about-trust-band, .about-next-direction, .about-visual-panel, .bio-media-panel,
   .bio-editorial-grid, .faq-archive-media, .creator-studio-media, .baldi-project-media, .creator-stage-rail,
@@ -147,7 +147,7 @@ html:root[data-theme] body main.shell :is(
   border-radius: 0;
 }
 
-html:root[data-theme] body main.shell :is(.bento-card, .creator-project-link, .faq-feedback-link, .bento-link, .activity-action-link):is(a, button):is(:hover, :focus-visible) {
+html:root[data-theme] body main.shell :is(.bento-card, .creator-project-link, .bento-link, .activity-action-link):is(a, button):is(:hover, :focus-visible) {
   background: var(--m-hover);
   border-color: var(--m-line-strong);
 }
@@ -284,4 +284,100 @@ html:root[data-theme] body :is(.settings-dialog, .settings-modal-shell, .setting
   background: transparent;
   border: 1px solid var(--m-line-strong);
   color: var(--m-ink);
+}
+
+/* Cells of summary strips: no fill of their own. */
+html:root[data-theme] body main.shell :is(
+  .updates-release-meta, .activity-release-meta, .creator-ledger, .about-ledger, .faq-ledger,
+  .accessibility-ledger, .policy-ledger, .terms-ledger, .license-ledger, .sitemap-ledger, .bio-dossier,
+  .status-overall-meta
+) > * {
+  background: transparent;
+}
+
+/* Repeated items: outlined, never filled. */
+html:root[data-theme] body main.shell :is(
+  .offline-tips > article, .creator-guide > article, .likes-list > span, .trust-grid > a,
+  .bento-tiles > :is(a, button), .security-checklist > article, .discover-noteworthy-grid > article,
+  .status-list > article, .home-subscribe-topics > label, .creator-resource-links > a,
+  .terms-notice-board > article, .terms-related-links > a
+) {
+  background: transparent;
+  border: 1px solid var(--m-line);
+  border-radius: var(--radius-lg);
+  box-shadow: none;
+}
+
+html:root[data-theme] body main.shell :is(
+  .trust-grid > a, .bento-tiles > :is(a, button), .creator-resource-links > a,
+  .terms-related-links > a, .home-subscribe-topics > label
+):is(:hover, :focus-visible) {
+  background: var(--m-hover);
+  border-color: var(--m-line-strong);
+}
+
+/* Fields. */
+html:root[data-theme] body :is(
+  main.shell input:not([type="checkbox"]):not([type="radio"]):not([type="range"]), main.shell textarea, main.shell select
+) {
+  background: transparent;
+  border: 1px solid var(--m-line-strong);
+  border-radius: var(--radius-md);
+  box-shadow: none;
+}
+
+/* Plain group headers (feedback) need their own padding. */
+html:root[data-theme] body main.shell .release-group > header:not(:has(> button)) {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--m-line);
+}
+
+/* Mobile chrome: flat bars split by one hairline. */
+html:root[data-theme] body .mobile-menu-button {
+  background: var(--m-page);
+  border: 1px solid var(--m-line);
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+html:root[data-theme] body .mobile-quick-actions {
+  background: var(--m-page);
+  border-color: var(--m-line);
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+html:root[data-theme] body .mobile-quick-action.is-active {
+  background: var(--m-active);
+  border-color: transparent;
+}
+
+/* Floating layers: the only place a shadow remains, and a soft one. */
+html:root[data-theme] body :is(dialog, [role="dialog"], [aria-modal="true"]) {
+  background: var(--m-page);
+  border: 1px solid var(--m-line-strong);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.24);
+  backdrop-filter: none;
+}
+
+html:root[data-theme] body :is(dialog, [role="dialog"], [aria-modal="true"]) :is(input:not([type="checkbox"]):not([type="radio"]):not([type="range"]), textarea, select) {
+  background: transparent;
+  border: 1px solid var(--m-line-strong);
+  border-radius: var(--radius-md);
+  box-shadow: none;
+}
+
+html:root[data-theme] body :is(dialog, [role="dialog"], [aria-modal="true"]) :is(.button.ghost, .cookie-settings-essential, .cache-cancel-button) {
+  background: transparent;
+  border: 1px solid var(--m-line-strong);
+  color: var(--m-ink);
+}
+
+html:root[data-theme] body :is(dialog, [role="dialog"], [aria-modal="true"]) :is(.button.primary, .cookie-settings-save) {
+  background: var(--m-action);
+  color: var(--m-action-ink);
 }

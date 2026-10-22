@@ -1,4 +1,4 @@
-const CACHE_NAME = "profile-offline-20261022-css1";
+const CACHE_NAME = "profile-offline-20261022-min1";
 const OFFLINE_URL = "/offline";
 const PRECACHE_URLS = [
   OFFLINE_URL,
@@ -47,6 +47,7 @@ const PRECACHE_URLS = [
   "/assets/css/sections/65-settings.css",
   "/assets/css/sections/70-consistency.css",
   "/assets/css/sections/75-brand.css",
+  "/assets/css/sections/80-minimal.css",
   "/assets/js/translations.js",
   "/assets/js/navigation.js",
   "/assets/js/script.js",
