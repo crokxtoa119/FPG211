@@ -394,3 +394,62 @@ html:root[data-theme] body :is(dialog, [role="dialog"], [aria-modal="true"]) :is
     scroll-behavior: auto !important;
   }
 }
+
+/* Sidebar, second pass: groups get a small quiet label instead of a blank
+   gap, the current page is marked by a 2px bar and weight rather than a
+   fill, and the sign-in row stops competing with the navigation. The
+   collapsed rail keeps its own hairline dividers. */
+html:root[data-nav-layout="sidebar"]:not([data-sidebar-collapsed="true"])[data-theme] body .topbar .nav-section-label {
+  height: auto;
+  margin: 16px 0 4px;
+  padding: 0 8px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 16px;
+  color: var(--m-muted);
+  opacity: 0.85;
+  visibility: visible;
+}
+
+html:root[data-nav-layout="sidebar"][data-theme] body .topbar .nav-menu-group[data-nav-menu-group="main"] .nav-section-label {
+  display: none;
+}
+
+html:root[data-nav-layout="sidebar"][data-theme] body .topbar .nav-links a {
+  position: relative;
+  min-height: 30px;
+  border-radius: var(--radius-sm);
+}
+
+html:root[data-nav-layout="sidebar"][data-theme] body .topbar .nav-links a.is-active {
+  background: var(--m-hover);
+  font-weight: 500;
+}
+
+html:root[data-nav-layout="sidebar"][data-theme] body .topbar .nav-links a.is-active::before {
+  content: "";
+  display: block;
+  position: absolute;
+  inset: 7px auto 7px 0;
+  width: 2px;
+  border-radius: 2px;
+  background: var(--m-ink);
+}
+
+html:root[data-nav-layout="sidebar"][data-theme] body .topbar .sidebar-account-trigger {
+  min-height: 40px;
+  padding: 4px 8px;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+}
+
+html:root[data-nav-layout="sidebar"][data-theme] body .topbar .sidebar-account-trigger:hover {
+  background: var(--m-hover);
+}
+
+html:root[data-nav-layout="sidebar"][data-theme] body .topbar .sidebar-account-copy strong {
+  font-size: 13px;
+  font-weight: 500;
+}

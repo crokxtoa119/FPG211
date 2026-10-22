@@ -1,4 +1,4 @@
-const CACHE_NAME = "profile-offline-20261022-mot1";
+const CACHE_NAME = "profile-offline-20261022-sb1";
 const OFFLINE_URL = "/offline";
 const PRECACHE_URLS = [
   OFFLINE_URL,
