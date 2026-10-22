@@ -3476,9 +3476,9 @@ main.shell .eyebrow {
   font-size: 13px;
   font-weight: 600;
   transition:
-    border-color 140ms ease,
-    background 140ms ease,
-    color 140ms ease;
+    border-color 120ms ease,
+    background 120ms ease,
+    color 120ms ease;
 }
 
 .cache-dialog .button:hover,
@@ -3876,7 +3876,6 @@ main.shell .eyebrow {
   background: color-mix(in srgb, var(--ink) 10%, var(--panel-solid));
   color: var(--ink);
   outline: 2px solid transparent;
-  transform: translateY(-1px);
 }
 
 [data-theme] body :is(
@@ -5109,7 +5108,7 @@ body .cookie-settings-dialog .cookie-settings-dialog-panel .cookie-settings-acti
   background: var(--panel-solid);
   color: var(--ink);
   text-decoration: none;
-  transition: border-color 160ms ease, background 160ms ease;
+  transition: border-color 120ms ease, background 120ms ease;
 }
 
 .creator-project-link:hover,
@@ -5338,7 +5337,7 @@ body .cookie-settings-dialog .cookie-settings-dialog-panel .cookie-settings-acti
   border-bottom: 1px solid var(--line);
   color: var(--ink);
   text-decoration: none;
-  transition: background 150ms ease;
+  transition: background 120ms ease;
 }
 
 .discover-route-list a:hover,
@@ -5505,7 +5504,7 @@ body .cookie-settings-dialog .cookie-settings-dialog-panel .cookie-settings-acti
   border-bottom: 1px solid var(--popup-divider);
   color: var(--ink);
   text-decoration: none;
-  transition: background 140ms ease, opacity 140ms ease;
+  transition: background 120ms ease, opacity 120ms ease;
 }
 
 .site-news-item:last-child {

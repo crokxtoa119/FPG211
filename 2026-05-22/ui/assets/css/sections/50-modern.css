@@ -190,10 +190,6 @@ html[data-theme] body .bento-actions {
   margin-top: 28px;
 }
 
-html[data-theme] body .bento-actions .button:is(:hover, :focus-visible) {
-  transform: translateY(-1px);
-}
-
 /* Media */
 html[data-theme] body .bento-media {
   overflow: hidden;
@@ -246,7 +242,6 @@ html[data-theme] body .bento-link {
 html[data-theme] body .bento-link:is(:hover, :focus-visible) {
   border-color: rgba(255, 255, 255, 0.16);
   background: var(--card-bg-strong);
-  transform: translateY(-2px);
 }
 
 html[data-theme] body .bento-link strong {
@@ -295,7 +290,6 @@ html[data-theme] body .bento-arrow {
 
 html[data-theme] body .bento-link:is(:hover, :focus-visible) .bento-arrow {
   color: var(--brand);
-  transform: translate(2px, -2px);
 }
 
 html[data-theme] body .bento-portal strong {
@@ -367,7 +361,7 @@ html[data-theme] body .bento-support-links a {
   font-size: 14px;
   font-weight: 600;
   text-decoration: none;
-  transition: background 160ms ease;
+  transition: background 120ms ease;
 }
 
 html[data-theme] body .bento-support-links a:is(:hover, :focus-visible) {
@@ -419,7 +413,7 @@ html[data-theme] body .bento-tiles > :is(a, button) {
   text-align: left;
   text-decoration: none;
   cursor: pointer;
-  transition: background 160ms ease, border-color 160ms ease;
+  transition: background 120ms ease, border-color 120ms ease;
 }
 
 html[data-theme] body .bento-tiles > :is(a, button):is(:hover, :focus-visible) {

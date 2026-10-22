@@ -2033,7 +2033,6 @@
   border-color: var(--action-bg);
   background: color-mix(in srgb, var(--action-bg) 88%, var(--panel-solid));
   color: var(--action-ink);
-  transform: translateY(-1px);
 }
 
 .share-dialog .share-socials button:hover,
@@ -2618,17 +2617,6 @@
   line-height: 1.6;
 }
 
-.page-summary-content p.is-generating::after {
-  content: "";
-  display: inline-block;
-  width: 1px;
-  height: 1em;
-  margin-left: 3px;
-  background: var(--accent);
-  vertical-align: -0.12em;
-  animation: page-summary-cursor 520ms steps(1, end) infinite;
-}
-
 .page-summary-topics {
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
@@ -2758,18 +2746,6 @@
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@keyframes page-summary-cursor {
-  0%,
-  48% {
-    opacity: 1;
-  }
-
-  49%,
-  100% {
-    opacity: 0;
   }
 }
 
