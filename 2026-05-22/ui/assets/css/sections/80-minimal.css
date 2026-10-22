@@ -453,3 +453,76 @@ html:root[data-nav-layout="sidebar"][data-theme] body .topbar .sidebar-account-c
   font-size: 13px;
   font-weight: 500;
 }
+
+/* First-visit storage notice: a compact card. The two choice rows keep their
+   switch and label; their long descriptions repeat the intro paragraph and
+   stay in the full dialog (Settings > Storage) and the privacy page. The
+   status line is still announced to screen readers. */
+html:root[data-theme] body .cookie-settings-dialog[data-cookie-first-visit="true"] .cookie-settings-dialog-panel {
+  padding: 16px 18px 16px;
+  gap: 0;
+}
+
+html:root[data-theme] body .cookie-settings-dialog[data-cookie-first-visit="true"] :is(.eyebrow, .cookie-choice-copy small) {
+  display: none;
+}
+
+html:root[data-theme] body .cookie-settings-dialog[data-cookie-first-visit="true"] h2 {
+  margin: 0 28px 6px 0;
+  font-size: 18px;
+  line-height: 1.3;
+}
+
+html:root[data-theme] body .cookie-settings-dialog[data-cookie-first-visit="true"] .cookie-settings-dialog-panel > p:not(.cookie-settings-status) {
+  margin: 0 0 6px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+html:root[data-theme] body .cookie-settings-dialog[data-cookie-first-visit="true"] .cookie-settings-links {
+  display: flex;
+  flex-flow: row wrap;
+  margin-top: 4px;
+  gap: 4px 16px;
+}
+
+html:root[data-theme] body .cookie-settings-dialog[data-cookie-first-visit="true"] .cookie-choice-list {
+  margin-top: 10px;
+}
+
+html:root[data-theme] body .cookie-settings-dialog[data-cookie-first-visit="true"] .cookie-choice {
+  min-height: 44px;
+  padding: 6px 0;
+  gap: 12px;
+}
+
+html:root[data-theme] body .cookie-settings-dialog[data-cookie-first-visit="true"] .cookie-choice-copy strong {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+html:root[data-theme] body .cookie-settings-dialog[data-cookie-first-visit="true"] .cookie-settings-status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  min-height: 0;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+html:root[data-theme] body .cookie-settings-dialog[data-cookie-first-visit="true"] .cookie-settings-actions {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+html:root[data-theme] body .cookie-settings-dialog[data-cookie-first-visit="true"] .cookie-settings-actions .button {
+  flex: 1 1 0;
+  min-height: 36px;
+  padding: 0 12px;
+  font-size: 13px;
+}
