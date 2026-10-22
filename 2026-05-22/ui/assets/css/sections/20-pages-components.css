@@ -167,7 +167,7 @@
   border: 1px solid var(--line);
   border-radius: 12px;
   background: var(--card-bg);
-  transition: border-color 180ms ease, background 180ms ease;
+  transition: border-color 120ms ease, background 120ms ease;
 }
 
 .faq-list summary {
@@ -337,7 +337,7 @@
   border-left: 1px solid var(--line);
   color: #f5f1e7;
   text-decoration: none;
-  transition: background 180ms ease, color 180ms ease, border-color 180ms ease;
+  transition: background 120ms ease, color 120ms ease, border-color 120ms ease;
 }
 
 .faq-topic-rail a:last-child {
@@ -406,7 +406,7 @@
   border-bottom: 1px solid var(--line);
   border-radius: 0;
   background: transparent;
-  transition: background 180ms ease, border-color 180ms ease;
+  transition: background 120ms ease, border-color 120ms ease;
 }
 
 .faq-page .faq-list summary {
@@ -903,7 +903,7 @@ html[lang="ko"] .faq-feedback-strip h2 {
   border-radius: 0 999px 999px 0;
   background: var(--accent);
   opacity: 0;
-  transition: opacity 180ms ease;
+  transition: opacity 120ms ease;
 }
 
 .setting-card:hover,
@@ -1113,7 +1113,6 @@ html[lang="ko"] .faq-feedback-strip h2 {
 .cookie-notice-actions button:focus-visible {
   outline: 2px solid color-mix(in srgb, var(--ink) 24%, transparent);
   outline-offset: 2px;
-  transform: translateY(-1px);
 }
 
 .cookie-notice-actions a:first-child:hover,
@@ -1162,7 +1161,6 @@ html[lang="ko"] .faq-feedback-strip h2 {
   border-color: color-mix(in srgb, var(--ink) 24%, var(--line));
   background: color-mix(in srgb, var(--ink) 8%, var(--panel-solid));
   outline: none;
-  transform: translateY(-1px);
 }
 
 .updates-action-link svg {
@@ -1279,7 +1277,7 @@ html[lang="ko"] .faq-feedback-strip h2 {
   font: inherit;
   text-align: left;
   cursor: pointer;
-  transition: background 160ms ease;
+  transition: background 120ms ease;
 }
 
 .release-group-toggle:hover {
@@ -2091,7 +2089,7 @@ html[lang="ko"] .faq-feedback-strip h2 {
   border-radius: 999px;
   background: color-mix(in srgb, var(--ink) 22%, var(--panel-solid));
   cursor: pointer;
-  transition: background 160ms ease, border-color 160ms ease;
+  transition: background 120ms ease, border-color 120ms ease;
 }
 
 .cookie-switch::after {
@@ -2750,7 +2748,6 @@ html[lang="ko"] .faq-feedback-strip h2 {
   border-color: color-mix(in srgb, var(--ink) 24%, var(--line));
   background: color-mix(in srgb, var(--ink) 8%, var(--panel-solid));
   outline: none;
-  transform: translateY(-1px);
 }
 
 .activity-action-link svg {
@@ -2857,7 +2854,7 @@ html[lang="ko"] .faq-feedback-strip h2 {
   font: inherit;
   text-align: left;
   cursor: pointer;
-  transition: background 160ms ease;
+  transition: background 120ms ease;
 }
 
 .activity-date-toggle:hover {

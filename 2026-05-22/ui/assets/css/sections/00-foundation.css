@@ -144,7 +144,7 @@ body {
     Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
   line-height: 1.5;
-  transition: background 180ms ease, color 180ms ease;
+  transition: background 120ms ease, color 120ms ease;
 }
 
 .loading-bar,
@@ -176,7 +176,6 @@ body {
   transform: scaleX(var(--loading-progress));
   transform-origin: left center;
   transition: transform 460ms cubic-bezier(0.2, 0, 0, 1);
-  animation: loadingSweep 920ms linear infinite;
 }
 
 .loading-bar::before {
@@ -366,26 +365,6 @@ body {
   font: inherit;
   font-size: 13px;
   font-weight: 700;
-}
-
-@keyframes loadingSweep {
-  0% {
-    background-position: 0% 50%;
-  }
-
-  100% {
-    background-position: 180% 50%;
-  }
-}
-
-@keyframes loadingGlow {
-  0% {
-    transform: translateX(-100%);
-  }
-
-  100% {
-    transform: translateX(100%);
-  }
 }
 
 @keyframes pageLoaderSpin {
@@ -676,7 +655,7 @@ summary {
   line-height: 1;
   text-align: center;
   white-space: nowrap;
-  transition: background 180ms ease, color 180ms ease, box-shadow 180ms ease;
+  transition: background 120ms ease, color 120ms ease, box-shadow 120ms ease;
 }
 
 .nav-flyout-trigger:hover,
@@ -1085,7 +1064,7 @@ summary {
     letter-spacing: 0;
     line-height: 1.1;
     text-align: left;
-    transition: background 160ms ease, color 160ms ease;
+    transition: background 120ms ease, color 120ms ease;
   }
 
   [data-nav-layout="sidebar"] .sidebar-account-trigger:hover,
@@ -1286,7 +1265,7 @@ summary {
     letter-spacing: 0;
     line-height: 1;
     text-align: left;
-    transition: background 180ms ease, border-color 180ms ease, color 180ms ease, box-shadow 180ms ease;
+    transition: background 120ms ease, border-color 120ms ease, color 120ms ease, box-shadow 120ms ease;
   }
 
   [data-nav-layout="sidebar"] .nav-links .nav-search-button:hover {
@@ -1624,31 +1603,14 @@ summary {
   width: var(--ripple-size, 14px);
   height: var(--ripple-size, 14px);
   border-radius: 50%;
-  background: color-mix(in srgb, var(--accent) 18%, transparent);
+  background: var(--m-active, color-mix(in srgb, var(--accent) 14%, transparent));
   opacity: 0;
   pointer-events: none;
-  transform: translate(-50%, -50%) scale(0.08);
-  animation: ripple 1320ms cubic-bezier(0.2, 0, 0, 1) forwards;
+  transform: translate(-50%, -50%) scale(1);
+  animation: ripple 240ms ease-out forwards;
 }
 
-@keyframes ripple {
-  0% {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0.08);
-  }
-
-  22% {
-    opacity: 0.24;
-  }
-
-  72% {
-    opacity: 0.13;
-  }
-
-  to {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(1.06);
-  }
+@keyframes ripple {0%{opacity:0}30%{opacity:1}to{opacity:0}
 }
 
 @keyframes mobileMenuIn {
@@ -1682,32 +1644,6 @@ summary {
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@keyframes offlineSignal {
-  0%,
-  100% {
-    opacity: 0.42;
-    transform: scaleY(0.86);
-  }
-
-  45% {
-    opacity: 1;
-    transform: scaleY(1);
-  }
-}
-
-@keyframes errorSignal {
-  0%,
-  100% {
-    opacity: 0.34;
-    transform: scaleX(0.58);
-  }
-
-  50% {
-    opacity: 1;
-    transform: scaleX(1);
   }
 }
 
@@ -1950,10 +1886,6 @@ h2 {
   font-size: 15px;
   font-weight: 700;
   transition: border-color 180ms ease, background 180ms ease, color 180ms ease, transform 180ms ease;
-}
-
-.hero-button:hover {
-  transform: translateY(-2px);
 }
 
 .hero-button-icon {
@@ -2387,7 +2319,6 @@ h2 {
 .home-route-list a:hover {
   border-color: rgba(143, 179, 106, 0.56);
   background: rgba(143, 179, 106, 0.08);
-  transform: translateY(-2px);
 }
 
 .home-route-list strong {
@@ -2441,7 +2372,6 @@ h2 {
 .home-action-grid button:hover {
   border-color: rgba(143, 179, 106, 0.46);
   background: rgba(143, 179, 106, 0.07);
-  transform: translateY(-2px);
 }
 
 .home-action-grid strong {
@@ -2526,7 +2456,6 @@ h2 {
 
 .home-feedback-link:hover {
   background: rgba(255, 84, 22, 0.14);
-  transform: translateY(-2px);
 }
 
 .corporate-home-hero {
@@ -3075,7 +3004,6 @@ html[lang="ko"] .home-subscribe h2 {
 
 .work-item:hover {
   background: var(--panel-solid);
-  transform: translateY(-2px);
 }
 
 .work-item p {
@@ -3397,7 +3325,6 @@ html[lang="ko"] .home-subscribe h2 {
 .feedback-topics article:hover {
   border-color: color-mix(in srgb, var(--accent) 46%, var(--line));
   background: var(--card-bg-strong);
-  transform: translateY(-3px);
 }
 
 .feedback-topics article > span {

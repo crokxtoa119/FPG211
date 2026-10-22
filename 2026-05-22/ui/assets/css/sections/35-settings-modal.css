@@ -15,7 +15,7 @@
 
 .settings-dialog.is-closing {
   opacity: 0;
-  transition: opacity 160ms ease;
+  transition: opacity 120ms ease;
 }
 
 .settings-dialog .settings-modal {

@@ -125,7 +125,7 @@
   border-bottom: 1px solid var(--line);
   color: #fffaf0;
   text-decoration: none;
-  transition: background 180ms ease, color 180ms ease;
+  transition: background 120ms ease, color 120ms ease;
 }
 
 .about-route-list a:hover {
@@ -215,7 +215,6 @@
 
 .about-outline-link:hover {
   background: rgba(209, 147, 52, 0.12);
-  transform: translateY(-2px);
 }
 
 .about-outline-link svg {
@@ -1101,7 +1100,6 @@ html[lang="ko"] .about-next-direction h2 {
   border-radius: 999px;
   background: color-mix(in srgb, var(--accent) 18%, transparent);
   transform-origin: left;
-  animation: errorSignal 1800ms ease-in-out infinite;
 }
 
 .error-console-map span:nth-child(2) {
@@ -1156,7 +1154,6 @@ html[lang="ko"] .about-next-direction h2 {
 .error-route-card:focus-visible {
   border-color: color-mix(in srgb, var(--accent) 54%, var(--line));
   background: var(--card-bg-strong);
-  transform: translateY(-3px);
 }
 
 .error-route-card span {
@@ -1702,7 +1699,7 @@ html[lang="ko"] .about-next-direction h2 {
   border-left: 1px solid var(--line);
   color: #eef8f7;
   text-decoration: none;
-  transition: background 180ms ease, color 180ms ease, border-color 180ms ease;
+  transition: background 120ms ease, color 120ms ease, border-color 120ms ease;
 }
 
 .creator-stage-rail a:hover {

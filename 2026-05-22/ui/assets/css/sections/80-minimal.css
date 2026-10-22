@@ -381,3 +381,16 @@ html:root[data-theme] body :is(dialog, [role="dialog"], [aria-modal="true"]) :is
   background: var(--m-action);
   color: var(--m-action-ink);
 }
+
+/* Motion: state changes are quick colour shifts, nothing lifts or drifts.
+   People who ask for less motion get instant changes. */
+@media (prefers-reduced-motion: reduce) {
+  html:root[data-theme] body *,
+  html:root[data-theme] body *::before,
+  html:root[data-theme] body *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
