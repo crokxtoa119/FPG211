@@ -1974,6 +1974,11 @@
 
 @media (min-width: 1024px) {
   [data-theme][data-nav-layout="sidebar"] .topbar {
+    --sidebar-rail-start: #151515;
+    --sidebar-rail-mid: #101010;
+    --sidebar-rail-end: #090909;
+    --sidebar-button-bg: rgba(30, 30, 30, 0.92);
+    --sidebar-button-line: rgba(218, 218, 218, 0.24);
     color: var(--sidebar-link);
   }
 
@@ -2051,11 +2056,16 @@
 }
 
 .settings-body {
+  --settings-bg: #171715;
+  --settings-surface: rgba(31, 31, 29, 0.76);
+  --settings-surface-strong: rgba(38, 38, 35, 0.92);
+  --settings-rail: rgba(30, 30, 28, 0.9);
   --settings-line: color-mix(in srgb, var(--line) 92%, rgba(244, 243, 238, 0.12));
   --settings-text: var(--ink);
   --settings-muted: var(--muted);
   --settings-shadow: 0 28px 80px rgba(0, 0, 0, 0.26);
   --settings-soft-shadow: 0 16px 38px rgba(0, 0, 0, 0.18);
+  --settings-grid-line: rgba(244, 243, 238, 0.055);
 }
 
 .settings-body .settings-hero,
