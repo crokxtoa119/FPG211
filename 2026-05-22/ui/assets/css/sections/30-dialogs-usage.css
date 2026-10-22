@@ -252,16 +252,6 @@
   background: color-mix(in srgb, var(--accent) 10%, transparent);
 }
 
-[data-theme] .about-visual-panel {
-  box-shadow: var(--shadow);
-}
-
-[data-theme] .about-visual-panel figcaption {
-  border-color: var(--line);
-  background: color-mix(in srgb, var(--panel-solid) 78%, transparent);
-  color: var(--ink);
-}
-
 [data-theme] .about-trust-mark {
   border-color: color-mix(in srgb, var(--accent) 54%, var(--line));
   color: var(--accent);
@@ -559,9 +549,7 @@
     align-items: center;
     gap: 11px;
     min-width: 0;
-    min-height: 50px;
     padding: 0 14px 0 10px;
-    border-radius: 14px;
     line-height: 1.2;
     text-align: left;
     white-space: normal;
@@ -2516,11 +2504,7 @@
   max-height: calc(100dvh - 32px);
   overflow: auto;
   padding: 20px;
-  border: 1px solid color-mix(in srgb, var(--line) 92%, transparent);
-  border-radius: 12px;
-  background: color-mix(in srgb, var(--panel-solid) 98%, transparent);
   color: var(--ink);
-  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.34);
 }
 
 .page-summary-header {
@@ -2765,14 +2749,6 @@
     max-height: calc(100dvh - 98px - env(safe-area-inset-bottom));
     padding: 18px;
   }
-}
-
-.cookie-notice,
-.cache-dialog-panel,
-.settings-body .cache-dialog-panel {
-  border-color: color-mix(in srgb, var(--line) 92%, transparent);
-  background: color-mix(in srgb, var(--panel-solid) 98%, transparent);
-  box-shadow: 0 28px 86px rgba(0, 0, 0, 0.28);
 }
 
 .cookie-notice-actions a:first-child {

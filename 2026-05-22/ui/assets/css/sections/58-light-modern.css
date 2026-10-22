@@ -12,14 +12,6 @@ html:where([data-theme="light"])[data-theme] body.official-home-body .official-m
   background: rgba(0, 0, 0, 0.06) !important;
 }
 
-html:where([data-theme="light"])[data-theme] body .scroll-actions button {
-  background: rgba(235, 235, 235, 0.72);
-}
-
-html:where([data-theme="light"])[data-theme] body .bento-media figcaption {
-  border: 1px solid rgba(0, 0, 0, 0.1);
-}
-
 html:where([data-theme="light"])[data-theme] body .bento-link:is(:hover, :focus-visible) {
   border-color: rgba(0, 0, 0, 0.16);
 }
@@ -34,10 +26,6 @@ html:where([data-theme="light"])[data-theme] body .bento-support-links a {
 
 html:where([data-theme="light"])[data-theme] body .bento-support-links a:is(:hover, :focus-visible) {
   background: rgba(0, 0, 0, 0.08);
-}
-
-html:where([data-theme="light"])[data-theme] body .bento-tiles > :is(a, button) {
-  background: rgba(0, 0, 0, 0.04);
 }
 
 html:where([data-theme="light"])[data-theme] body .bento-tiles > :is(a, button):is(:hover, :focus-visible) {

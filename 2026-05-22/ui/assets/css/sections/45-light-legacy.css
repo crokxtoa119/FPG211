@@ -263,7 +263,6 @@
 }
 
 :where(html[data-theme="light"]) .home-subscribe-field input {
-  border: 1px solid rgba(15, 15, 15, 0.2);
   color: #070707;
 }
 
@@ -272,7 +271,6 @@
 }
 
 :where(html[data-theme="light"]) .home-subscribe-topics label {
-  border: 1px solid rgba(15, 15, 15, 0.15);
   color: rgba(15, 15, 15, 0.82);
 }
 
@@ -327,9 +325,6 @@
 }
 
 /* from 10-layout-navigation.css: 23 rules */
-:where(html[data-theme="light"]) .about-visual-panel {
-  border: 1px solid rgba(32, 32, 32, 0.14);
-}
 
 :where(html[data-theme="light"]) .policy-hero-media,
 :where(html[data-theme="light"]) .license-hero-media,
@@ -360,10 +355,6 @@
   background: rgba(255, 255, 255, 0.45);
 }
 
-:where(html[data-theme="light"]) .bio-media-panel figcaption {
-  border-top: 1px solid rgba(0, 0, 0, 0.36);
-}
-
 :where(html[data-theme="light"]) .bio-dossier {
   color: #0b0b0b;
 }
@@ -384,15 +375,7 @@
   border: 1px solid rgba(11, 11, 11, 0.18);
 }
 
-:where(html[data-theme="light"]) .creator-page .creator-resource-links a {
-  border: 1px solid rgba(11, 11, 11, 0.28);
-}
-
 /* from 20-pages-components.css: 16 rules */
-
-:where(html[data-theme="light"]) .faq-archive-media {
-  border: 1px solid rgba(30, 30, 30, 0.14);
-}
 
 :where(html[data-theme="light"]) .faq-archive-media figcaption {
   border: 1px solid rgba(16, 16, 16, 0.18);
@@ -428,10 +411,6 @@
 
 :where(html[data-theme="light"]) .user-profile-section {
   border-bottom: 1px solid rgba(17, 17, 17, 0.1);
-}
-
-:where(html[data-theme="light"]) .user-profile-control input {
-  border: 1px solid rgba(17, 17, 17, 0.14);
 }
 
 :where(html[data-theme="light"]) .qr-preview {
@@ -662,21 +641,8 @@
   background: rgba(255, 255, 255, 0.08);
 }
 
-:where(html[data-theme="light"]) .portal-body .home-subscribe-field input,
-:where(html[data-theme="light"]) .portal-body .home-subscribe-topics label {
-  background: rgba(255, 255, 255, 0.08);
-}
-
 :where(html[data-theme="light"]) .creator-page .creator-plan-list div {
   background: rgba(0, 0, 0, 0.018);
-}
-
-:where(html[data-theme="light"]) .creator-page .creator-note {
-  background: rgba(0, 0, 0, 0.025);
-}
-
-:where(html[data-theme="light"]) .creator-page .creator-resource-links a {
-  background: rgba(0, 0, 0, 0.025);
 }
 
 :where(html[data-theme="light"]) .faq-archive-media span,
@@ -712,22 +678,6 @@
 }
 }
 
-:where(html[data-theme="light"]) .bio-interests .likes-list span {
-  background: rgba(0, 0, 0, 0.025);
-}
-
-:where(html[data-theme="light"]) .about-principle-list,
-:where(html[data-theme="light"]) .about-route-list,
-:where(html[data-theme="light"]) .sitemap-grid article {
-  background: rgba(255, 255, 255, 0.08);
-}
-
-:where(html[data-theme="light"]) .accessibility-standard-actions a {
-  border: 1px solid #131313;
-  background: #131313;
-  color: #efefef;
-}
-
 :root:where([data-theme="light"]) {
   --popup-backdrop: rgba(250, 250, 250, 0.72);
 }
@@ -739,10 +689,6 @@
   .settings-modal-button.is-danger
 ):is(:hover, :focus-visible) {
   color: #000000;
-}
-
-:where(html[data-theme="light"]) .terms-related-links a {
-  background: #e5e5e5;
 }
 
 :where(html[data-theme="light"]) .terms-related-links a:hover,
@@ -879,8 +825,6 @@
 
 :where(html[data-theme="light"]) body .cookie-settings-dialog .cookie-settings-dialog-panel .cookie-settings-actions .cookie-settings-save {
   border-color: #0d0d0d;
-  background: #0d0d0d;
-  color: #eeeeee;
 }
 
 :where(html[data-theme="light"]) body .cookie-settings-dialog .cookie-settings-dialog-panel .cookie-settings-actions .cookie-settings-save:hover,

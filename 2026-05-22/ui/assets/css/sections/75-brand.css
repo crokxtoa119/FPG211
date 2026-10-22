@@ -29,7 +29,6 @@ html[data-theme] body .brand-section-head h2 {
   margin: 8px 0 0;
   color: var(--ink);
   font-size: clamp(22px, 1.4vw + 14px, 30px);
-  font-weight: 700;
   line-height: 1.22;
   letter-spacing: -0.02em;
 }
@@ -47,7 +46,6 @@ html[data-theme] body .brand-section-body > p:last-child {
 }
 
 html[data-theme] body .brand-section-body a:not(.button) {
-  color: var(--brand);
   font-weight: 600;
   text-decoration: none;
 }
@@ -68,8 +66,6 @@ html[data-theme] body .brand-logo-grid {
 
 html[data-theme] body .brand-logo-card {
   overflow: hidden;
-  border-radius: var(--radius-lg);
-  background: var(--card-bg);
 }
 
 html[data-theme] body .brand-logo-stage {
@@ -157,15 +153,12 @@ html[data-theme] body .brand-use-grid {
 
 html[data-theme] body .brand-use-card {
   padding: 20px;
-  border-radius: var(--radius-lg);
-  background: var(--card-bg);
 }
 
 html[data-theme] body .brand-use-card h3 {
   margin: 0 0 12px;
   color: var(--ink);
   font-size: 15px;
-  font-weight: 650;
 }
 
 html[data-theme] body .brand-use-card ul {
@@ -209,8 +202,6 @@ html[data-theme] body .brand-section-body > .brand-quote-label {
 html[data-theme] body .brand-quote {
   margin: 0;
   padding: 14px 16px;
-  border-radius: 10px;
-  background: var(--card-bg);
   color: var(--ink);
   font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   font-size: 13px;
