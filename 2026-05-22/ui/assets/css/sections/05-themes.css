@@ -48,31 +48,13 @@
 }
 
 [data-theme="dark"] {
-  --bg: #151514;
-  --ink: #f4f3ee;
-  --muted: #aaa69d;
-  --line: #383732;
-  --panel: rgba(30, 30, 28, 0.86);
-  --panel-solid: #242421;
-  --nav-bg: rgba(30, 30, 28, 0.82);
-  --card-bg: rgba(31, 31, 29, 0.78);
-  --card-bg-strong: rgba(38, 38, 35, 0.78);
-  --pill-bg: rgba(35, 35, 32, 0.84);
-  --segment-bg: rgba(37, 37, 32, 0.88);
-  --panel-border: var(--highlight-hover);
   --toggle-border: #56534c;
   --toggle-knob-off: #c9c4b8;
   --toggle-knob-on: #242421;
   --switch-ring: rgba(244, 243, 238, 0.18);
   --dark: #f4f3ee;
-  --soft: #252520;
-  --accent: #c7c0b4;
   --progress-color: #f4f3ee;
   --progress-track: #353535;
-  --action-bg: #f4f3ee;
-  --action-ink: #151514;
-  --action-border: rgba(244, 243, 238, 0.32);
-  --action-muted-bg: rgba(244, 243, 238, 0.08);
   --danger-bg: #d8d5cc;
   --danger-ink: #151514;
   --danger-action-bg: #7f1d1d;
@@ -80,38 +62,18 @@
   --danger-action-border: #b91c1c;
   --danger-action-border-hover: #dc2626;
   --danger-action-ink: #fff5f5;
-  --shadow: 0 28px 80px rgba(0, 0, 0, 0.32);
   --hero-tint: rgba(0, 0, 0, 0.5);
   --hero-tint-mobile: rgba(0, 0, 0, 0.55);
-  --page-bg: var(--bg);
 }
 
 [data-theme="lights-off"] {
-  --bg: #060606;
-  --ink: #f2f1ec;
-  --muted: #8d8980;
-  --line: #22211e;
-  --panel: rgba(12, 12, 11, 0.9);
-  --panel-solid: #10100f;
-  --nav-bg: rgba(10, 10, 9, 0.88);
-  --card-bg: rgba(13, 13, 12, 0.86);
-  --card-bg-strong: rgba(18, 18, 16, 0.84);
-  --pill-bg: rgba(16, 16, 15, 0.9);
-  --segment-bg: rgba(20, 20, 18, 0.92);
-  --panel-border: var(--highlight-soft);
   --toggle-border: #444139;
   --toggle-knob-off: #b8b2a5;
   --toggle-knob-on: #10100f;
   --switch-ring: rgba(242, 241, 236, 0.16);
   --dark: #f2f1ec;
-  --soft: #11110f;
-  --accent: #bdb5a7;
   --progress-color: #f2f1ec;
   --progress-track: #242424;
-  --action-bg: #f2f1ec;
-  --action-ink: #060606;
-  --action-border: rgba(242, 241, 236, 0.28);
-  --action-muted-bg: rgba(242, 241, 236, 0.07);
   --danger-bg: #d1cec4;
   --danger-ink: #060606;
   --danger-action-bg: #6f1d1b;
@@ -119,8 +81,6 @@
   --danger-action-border: #a82323;
   --danger-action-border-hover: #c92a2a;
   --danger-action-ink: #fff5f5;
-  --shadow: 0 28px 80px rgba(0, 0, 0, 0.58);
   --hero-tint: rgba(0, 0, 0, 0.5);
   --hero-tint-mobile: rgba(0, 0, 0, 0.55);
-  --page-bg: var(--bg);
 }

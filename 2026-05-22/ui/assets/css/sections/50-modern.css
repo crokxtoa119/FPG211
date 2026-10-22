@@ -6,38 +6,16 @@
 html[data-theme],
 html[data-theme="dark"],
 html[data-theme] body[class] {
-  --bg: #0a0a0b;
-  --ink: #ededef;
-  --muted: #8e8e96;
-  --line: rgba(255, 255, 255, 0.08);
-  --panel: rgba(255, 255, 255, 0.03);
-  --panel-solid: #131316;
   --nav-bg: rgba(10, 10, 11, 0.72);
-  --card-bg: rgba(255, 255, 255, 0.03);
-  --card-bg-strong: rgba(255, 255, 255, 0.05);
-  --pill-bg: rgba(255, 255, 255, 0.04);
   --segment-bg: rgba(255, 255, 255, 0.05);
   --panel-border: rgba(255, 255, 255, 0.08);
-  --soft: #16161a;
-  --accent: #a1a1aa;
-  --brand: #ff7a1a;
-  --action-bg: #ededef;
-  --action-ink: #0a0a0b;
-  --action-border: rgba(255, 255, 255, 0.14);
   --action-muted-bg: rgba(255, 255, 255, 0.05);
   --shadow: 0 24px 64px rgba(0, 0, 0, 0.45);
-  --radius-sm: 10px;
-  --radius-md: 14px;
-  --radius-lg: 20px;
-  --modern-page-bg: #0a0a0b;
 }
 
 html[data-theme="lights-off"],
 html[data-theme="lights-off"] body[class] {
-  --bg: #000;
-  --panel-solid: #0b0b0c;
   --nav-bg: rgba(0, 0, 0, 0.78);
-  --modern-page-bg: #000;
 }
 
 /* Pages used to set their own --page-bg on body; give every page the same one. */
@@ -69,12 +47,6 @@ html[data-theme] body :is(h1, h2, h3) {
 }
 
 /* ---------- Global components ---------- */
-
-html[data-theme] body :is(.button, .feedback-cta, .logboard-action-button, .updates-action-link, .status-check-button, .cache-confirm-button, .cache-cancel-button, .settings-modal-button, .home-feedback-link) {
-  border-radius: var(--radius-sm);
-  font-weight: 600;
-  letter-spacing: -0.01em;
-}
 
 html[data-theme] body .eyebrow {
   color: var(--muted);
@@ -185,8 +157,6 @@ html[data-theme] body .bento-card {
   margin: 0;
   padding: clamp(20px, 2.2vw, 28px);
   border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  background: var(--card-bg);
   color: var(--ink);
   text-decoration: none;
   box-shadow: none;
@@ -203,9 +173,6 @@ html[data-theme] body .bento-intro {
 }
 
 html[data-theme] body .bento-intro h1 {
-  font-size: clamp(40px, 5.4vw, 72px);
-  font-weight: 700;
-  letter-spacing: -0.045em;
   line-height: 1;
 }
 
@@ -220,26 +187,7 @@ html[data-theme] body .bento-lead {
 html[data-theme] body .bento-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
   margin-top: 28px;
-}
-
-html[data-theme] body .bento-actions .button {
-  min-height: 44px;
-  padding: 0 18px;
-  font-size: 15px;
-}
-
-html[data-theme] body .bento-actions .button.primary {
-  border: 1px solid transparent;
-  background: var(--action-bg);
-  color: var(--action-ink);
-}
-
-html[data-theme] body .bento-actions .button.ghost {
-  border: 1px solid var(--line);
-  background: transparent;
-  color: var(--ink);
 }
 
 html[data-theme] body .bento-actions .button:is(:hover, :focus-visible) {
@@ -250,7 +198,6 @@ html[data-theme] body .bento-actions .button:is(:hover, :focus-visible) {
 html[data-theme] body .bento-media {
   overflow: hidden;
   padding: 0;
-  background: var(--panel-solid);
 }
 
 html[data-theme] body .bento-media img {
@@ -394,9 +341,6 @@ html[data-theme] body .bento-stats dd {
 }
 
 /* Support */
-html[data-theme] body .bento-support .home-section-kicker {
-  margin-bottom: 14px;
-}
 
 html[data-theme] body .bento-support-body {
   color: var(--muted);
@@ -685,8 +629,6 @@ html[data-theme] body .doc-body {
   word-break: keep-all;
   overflow-wrap: break-word;
 }
-
-html[data-theme] body .doc-body [id] { scroll-margin-top: 32px; }
 
 @media (max-width: 1023px) {
   html[data-theme] body .doc-body [id] { scroll-margin-top: 88px; }

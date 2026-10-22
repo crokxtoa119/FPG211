@@ -59,20 +59,12 @@ html[data-theme] body {
 /* Buttons: filled system blue, secondary is a soft grey fill */
 html[data-theme] body :is(.button.primary, .bento-actions .button.primary) {
   border: 0;
-  background: var(--brand);
-  color: #ffffff;
 }
 
 html[data-theme] body :is(.button.ghost, .bento-actions .button.ghost) {
   border: 0;
   background: rgba(255, 255, 255, 0.1);
   color: var(--ink);
-}
-
-html[data-theme] body .bento-actions .button {
-  min-height: 36px;
-  padding: 0 16px;
-  font-size: 14px;
 }
 
 html[data-theme] body .bento-actions .button:is(:hover, :focus-visible) {
@@ -91,12 +83,6 @@ html[data-theme] body .bento-intro h1 {
   font-size: clamp(36px, 4.2vw, 54px);
   font-weight: 700;
   letter-spacing: -0.025em;
-}
-
-html[data-theme] body .home-section-kicker {
-  border: 0;
-  background: rgba(10, 132, 255, 0.14);
-  color: #64aaff;
 }
 
 html[data-theme] body .home-section-kicker::before {
@@ -426,11 +412,6 @@ html[data-theme="light"] body .bento-card {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
 }
 
-html[data-theme="light"] body .home-section-kicker {
-  background: rgba(0, 122, 255, 0.1);
-  color: #0062cc;
-}
-
 @media (min-width: 1024px) {
   html[data-nav-layout="sidebar"][data-theme="light"] body .topbar {
     border-right-color: rgba(0, 0, 0, 0.12);
@@ -467,9 +448,6 @@ html[data-theme="light"] body .home-section-kicker {
 }
 
 /* Light appearance: spots whose colours come from local variables */
-html[data-theme="light"] body :is(.status-overall-card, .status-list article) {
-  --status-tone: #6e6e73;
-}
 
 html[data-theme="light"] body :is(.status-overall-card, .status-list article)[data-status-state="operational"] {
   --status-tone: #248a3d;
