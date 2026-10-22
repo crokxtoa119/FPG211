@@ -1,10 +1,5 @@
 /* Custom context menu: shell, flyout, actions, shortcuts, and interaction states. */
 
-.context-menu[hidden],
-.context-menu-flyout[hidden] {
-  display: none;
-}
-
 .context-menu,
 .context-menu-flyout {
   position: fixed;
