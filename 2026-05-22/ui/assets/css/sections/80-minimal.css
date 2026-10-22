@@ -1,0 +1,383 @@
+/* ---------------------------------------------------------------------------
+   Minimal
+   One restrained look: flat surfaces separated by hairlines, a single neutral
+   action colour, monochrome icons, small corners and no shadows. Loaded last,
+   so the earlier layers keep their structure and only lose their decoration.
+--------------------------------------------------------------------------- */
+
+html:root[data-theme] body {
+  --m-page: #0f0f0f;
+  --m-side: #141414;
+  --m-line: rgba(255, 255, 255, 0.09);
+  --m-line-strong: rgba(255, 255, 255, 0.18);
+  --m-hover: rgba(255, 255, 255, 0.05);
+  --m-active: rgba(255, 255, 255, 0.09);
+  --m-ink: #ededed;
+  --m-muted: #a1a1a1;
+  --m-action: #ededed;
+  --m-action-ink: #0f0f0f;
+  --m-link: #52a8ff;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 10px;
+  --page-title-size: clamp(32px, 1.6vw + 22px, 44px);
+  --page-lead-size: 17px;
+  --ghost-fill: transparent;
+  --ghost-fill-hover: var(--m-hover);
+  --ink: var(--m-ink);
+  --muted: var(--m-muted);
+  --bg: var(--m-page);
+  --page-bg: var(--m-page);
+  --shadow: none;
+  --tint: var(--m-muted);
+}
+
+html:root[data-theme="light"] body {
+  --m-page: #ffffff;
+  --m-side: #fafafa;
+  --m-line: rgba(0, 0, 0, 0.09);
+  --m-line-strong: rgba(0, 0, 0, 0.18);
+  --m-hover: rgba(0, 0, 0, 0.04);
+  --m-active: rgba(0, 0, 0, 0.07);
+  --m-ink: #111111;
+  --m-muted: #666666;
+  --m-action: #111111;
+  --m-action-ink: #ffffff;
+  --m-link: #0060df;
+}
+
+html:root[data-theme],
+html:root[data-theme] body {
+  background: var(--m-page);
+}
+
+html:root[data-theme] body :is([data-tint]) {
+  --tint: var(--m-muted);
+}
+
+/* Sidebar: same surface family as the page, split by one hairline, icons
+   without coloured tiles, the current page marked by a quiet fill. */
+html:root[data-nav-layout="sidebar"][data-theme] body .topbar {
+  background: var(--m-side);
+  box-shadow: inset -1px 0 0 var(--m-line);
+  border: 0;
+}
+
+html:root[data-nav-layout="sidebar"][data-theme] body .topbar .nav-links a .nav-icon,
+html:root[data-nav-layout="sidebar"][data-theme] body .topbar .nav-links a.is-active .nav-icon,
+html:root[data-nav-layout="sidebar"][data-theme] body .topbar :is(.sidebar-account-item, .sidebar-help-link) .nav-icon {
+  background: transparent;
+  color: var(--m-muted);
+  stroke: currentColor;
+  padding: 3px;
+}
+
+html:root[data-nav-layout="sidebar"][data-theme] body .topbar .nav-links a.is-active {
+  background: var(--m-active);
+  color: var(--m-ink);
+}
+
+html:root[data-nav-layout="sidebar"][data-theme] body .topbar .nav-links a.is-active .nav-icon {
+  color: var(--m-ink);
+}
+
+html:root[data-nav-layout="sidebar"][data-theme] body .topbar .nav-links a:not(.is-active):hover {
+  background: var(--m-hover);
+}
+
+/* Actions: one neutral solid, one outlined. The accent colour is only for
+   links and focus. */
+html:root[data-theme] body main.shell :is(.button.primary, .faq-feedback-link, .accessibility-action-links > a),
+html:root[data-theme] body .button.primary {
+  background: var(--m-action);
+  color: var(--m-action-ink);
+  border: 0;
+  box-shadow: none;
+}
+
+html:root[data-theme] body main.shell :is(.button.primary, .faq-feedback-link, .accessibility-action-links > a):is(:hover, :focus-visible),
+html:root[data-theme] body .button.primary:is(:hover, :focus-visible) {
+  background: var(--m-action);
+  opacity: 0.86;
+  transform: none;
+}
+
+html:root[data-theme] body main.shell :is(.button.ghost, .button:not(.primary):not([class*="confirm"]):not([class*="save"])),
+html:root[data-theme] body main.shell :is(.updates-action-link, .bio-hero-actions a, .sitemap-xml-link) {
+  background: transparent;
+  color: var(--m-ink);
+  border: 1px solid var(--m-line-strong);
+  box-shadow: none;
+}
+
+html:root[data-theme] body main.shell :is(.button.ghost, .button:not(.primary):not([class*="confirm"]):not([class*="save"]), .updates-action-link, .bio-hero-actions a, .sitemap-xml-link):is(:hover, :focus-visible) {
+  background: var(--m-hover);
+  transform: none;
+}
+
+/* Surfaces: no fill, no shadow, one hairline. A surface inside a surface
+   drops its own frame so frames never stack. */
+html:root[data-theme] body main.shell :is(
+  .bento-card, .brand-logo-card, .brand-use-card, .brand-quote, .creator-project-link, .creator-note,
+  .trust-status-card, .status-overall-meta, .error-console, .offline-panel,
+  .offline-page, .error-page, .error-route-card, .about-route-list, .about-route-index, .about-principles,
+  .about-principle-list, .about-trust-band, .about-next-direction, .about-visual-panel, .bio-media-panel,
+  .bio-editorial-grid, .faq-archive-media, .creator-studio-media, .baldi-project-media, .creator-stage-rail,
+  .creator-pricing-panel, .creator-resources-panel, .release-group, .updates-release-rail,
+  .activity-release-rail, .activity-date-group, .updates-help-band, .activity-help-band,
+  .activity-action-link, .sitemap-route-list, .giscus-shell, .accessibility-limitations-grid,
+  .search-page-results-panel
+) {
+  background: transparent;
+  border: 1px solid var(--m-line);
+  border-radius: var(--radius-lg);
+  box-shadow: none;
+}
+
+html:root[data-theme] body main.shell :is(
+  .bento-card, .about-route-list, .about-route-index, .about-principles, .about-trust-band,
+  .about-next-direction, .bio-editorial-grid, .creator-stage-rail, .release-group, .updates-release-rail,
+  .activity-release-rail, .activity-date-group, .sitemap-route-list, .giscus-shell,
+  .accessibility-limitations-grid, .search-page-results-panel
+) :is(
+  .bento-card, .about-route-list, .about-route-index, .about-principle-list, .creator-pricing-panel,
+  .creator-resources-panel, .release-group, .activity-date-group, .sitemap-route-list
+) {
+  border: 0;
+  border-radius: 0;
+}
+
+html:root[data-theme] body main.shell :is(.bento-card, .creator-project-link, .bento-link, .activity-action-link):is(a, button):is(:hover, :focus-visible) {
+  background: var(--m-hover);
+  border-color: var(--m-line-strong);
+}
+
+/* Summary strips and side panels: a single outlined strip, cells split by
+   hairlines instead of separate boxes. */
+html:root[data-theme] body main.shell :is(
+  .updates-release-meta, .activity-release-meta, .creator-ledger, .about-ledger, .faq-ledger,
+  .accessibility-ledger, .policy-ledger, .terms-ledger, .license-ledger, .sitemap-ledger, .bio-dossier,
+  .privacy-scope-panel, .terms-scope-panel, .license-scope-panel, .accessibility-scope-panel, .sitemap-scope-panel
+) {
+  background: transparent;
+  border: 1px solid var(--m-line);
+  border-radius: var(--radius-lg);
+  box-shadow: none;
+}
+
+/* Photo captions sit on the picture, so they stay dark glass in both themes. */
+html:root[data-theme] body main.shell :is(.bento-media figcaption, .about-visual-panel figcaption, .bio-media-panel figcaption) {
+  background: rgba(15, 15, 15, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #ededed;
+  box-shadow: none;
+}
+
+html:root[data-theme] body main.shell :is(.bento-badge, .hero-pill, .pill, .eyebrow-pill) {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  color: var(--m-muted);
+}
+
+/* Floating scroll buttons: small, flat, quiet. */
+html:root[data-theme] body .scroll-actions button {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  background: var(--m-page);
+  border: 1px solid var(--m-line);
+  box-shadow: none;
+  backdrop-filter: none;
+  color: var(--m-muted);
+}
+
+html:root[data-theme] body .scroll-actions button:is(:hover, :focus-visible) {
+  background: var(--m-hover);
+  color: var(--m-ink);
+}
+
+/* Headings: lighter, tighter. */
+html:root[data-theme] body main.shell :is(h1, h2, h3) {
+  font-weight: 600;
+}
+
+/* Links keep the one accent. */
+html:root[data-theme] body main.shell p a:not(.button) {
+  color: var(--m-link);
+}
+
+/* Tags and kickers: quiet outlined labels instead of filled pills. */
+html:root[data-theme] body :is(.release-badge, .activity-type-badge) {
+  background: transparent;
+  border: 1px solid var(--m-line-strong);
+  border-radius: var(--radius-sm);
+  color: var(--m-muted);
+  box-shadow: none;
+}
+
+html:root[data-theme] body :is(.home-section-kicker, .eyebrow-pill) {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  border-radius: 0;
+  color: var(--m-muted);
+}
+
+html:root[data-theme] body main.shell .release-group > header {
+  background: transparent;
+}
+
+/* Footer links read as plain text links. */
+html:root[data-theme] body .site-footer-links a {
+  background: transparent;
+  border: 0;
+  padding-inline: 10px;
+  color: var(--m-muted);
+  box-shadow: none;
+}
+
+html:root[data-theme] body .site-footer-links a:is(:hover, :focus-visible) {
+  background: var(--m-hover);
+  color: var(--m-ink);
+}
+
+html:root[data-theme] body .site-footer {
+  border-color: var(--m-line);
+}
+
+/* Settings: monochrome tabs, outlined groups. */
+html:root[data-theme] body {
+  --settings-group: transparent;
+  --settings-group-line: var(--m-line);
+}
+
+html:root[data-theme] body :is(.settings-dialog, .settings-modal-shell, .settings-full) .settings-modal-tab svg {
+  background: transparent;
+  color: var(--m-muted);
+  padding: 2px;
+}
+
+html:root[data-theme] body :is(.settings-dialog, .settings-modal-shell, .settings-full) .settings-modal-tab.is-active {
+  background: var(--m-active);
+  color: var(--m-ink);
+}
+
+html:root[data-theme] body :is(.settings-dialog, .settings-modal-shell, .settings-full) .settings-modal-tab.is-active svg {
+  background: transparent;
+  color: var(--m-ink);
+  box-shadow: none;
+}
+
+html:root[data-theme] body :is(.settings-dialog, .settings-modal-shell, .settings-full) :is(.settings-modal-nav, .settings-search) {
+  background: transparent;
+  border: 1px solid var(--m-line);
+  box-shadow: none;
+}
+
+html:root[data-theme] body :is(.settings-dialog, .settings-modal-shell, .settings-full) .settings-modal-panel :is(.settings-modal-row, .setting-row) {
+  background: transparent;
+  box-shadow: none;
+}
+
+html:root[data-theme] body :is(.settings-dialog, .settings-modal-shell, .settings-full) .setting-select-trigger {
+  background: transparent;
+  border: 1px solid var(--m-line-strong);
+  color: var(--m-ink);
+}
+
+/* Cells of summary strips: no fill of their own. */
+html:root[data-theme] body main.shell :is(
+  .updates-release-meta, .activity-release-meta, .creator-ledger, .about-ledger, .faq-ledger,
+  .accessibility-ledger, .policy-ledger, .terms-ledger, .license-ledger, .sitemap-ledger, .bio-dossier,
+  .status-overall-meta
+) > * {
+  background: transparent;
+}
+
+/* Repeated items: outlined, never filled. */
+html:root[data-theme] body main.shell :is(
+  .offline-tips > article, .creator-guide > article, .likes-list > span, .trust-grid > a,
+  .bento-tiles > :is(a, button), .security-checklist > article, .discover-noteworthy-grid > article,
+  .status-list > article, .home-subscribe-topics > label, .creator-resource-links > a,
+  .terms-notice-board > article, .terms-related-links > a
+) {
+  background: transparent;
+  border: 1px solid var(--m-line);
+  border-radius: var(--radius-lg);
+  box-shadow: none;
+}
+
+html:root[data-theme] body main.shell :is(
+  .trust-grid > a, .bento-tiles > :is(a, button), .creator-resource-links > a,
+  .terms-related-links > a, .home-subscribe-topics > label
+):is(:hover, :focus-visible) {
+  background: var(--m-hover);
+  border-color: var(--m-line-strong);
+}
+
+/* Fields. */
+html:root[data-theme] body :is(
+  main.shell input:not([type="checkbox"]):not([type="radio"]):not([type="range"]), main.shell textarea, main.shell select
+) {
+  background: transparent;
+  border: 1px solid var(--m-line-strong);
+  border-radius: var(--radius-md);
+  box-shadow: none;
+}
+
+/* Plain group headers (feedback) need their own padding. */
+html:root[data-theme] body main.shell .release-group > header:not(:has(> button)) {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--m-line);
+}
+
+/* Mobile chrome: flat bars split by one hairline. */
+html:root[data-theme] body .mobile-menu-button {
+  background: var(--m-page);
+  border: 1px solid var(--m-line);
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+html:root[data-theme] body .mobile-quick-actions {
+  background: var(--m-page);
+  border-color: var(--m-line);
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+html:root[data-theme] body .mobile-quick-action.is-active {
+  background: var(--m-active);
+  border-color: transparent;
+}
+
+/* Floating layers: the only place a shadow remains, and a soft one. */
+html:root[data-theme] body :is(dialog, [role="dialog"], [aria-modal="true"]) {
+  background: var(--m-page);
+  border: 1px solid var(--m-line-strong);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.24);
+  backdrop-filter: none;
+}
+
+html:root[data-theme] body :is(dialog, [role="dialog"], [aria-modal="true"]) :is(input:not([type="checkbox"]):not([type="radio"]):not([type="range"]), textarea, select) {
+  background: transparent;
+  border: 1px solid var(--m-line-strong);
+  border-radius: var(--radius-md);
+  box-shadow: none;
+}
+
+html:root[data-theme] body :is(dialog, [role="dialog"], [aria-modal="true"]) :is(.button.ghost, .cookie-settings-essential, .cache-cancel-button) {
+  background: transparent;
+  border: 1px solid var(--m-line-strong);
+  color: var(--m-ink);
+}
+
+html:root[data-theme] body :is(dialog, [role="dialog"], [aria-modal="true"]) :is(.button.primary, .cookie-settings-save) {
+  background: var(--m-action);
+  color: var(--m-action-ink);
+}
