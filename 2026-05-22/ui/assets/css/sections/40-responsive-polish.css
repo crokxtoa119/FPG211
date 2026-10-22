@@ -42,10 +42,7 @@
   display: inline-flex;
   align-items: center;
   padding: 0 10px;
-  border: 1px solid color-mix(in srgb, var(--line) 88%, transparent);
   border-radius: 10px;
-  background: color-mix(in srgb, var(--panel-solid) 78%, transparent);
-  color: var(--muted);
   font-size: 12px;
   font-weight: 600;
   line-height: 1;
@@ -420,7 +417,6 @@
 @media (max-width: 900px) {
   .topbar:not(.is-open) {
     padding: 0;
-    border: 0;
     border-radius: 0;
   }
 
@@ -429,11 +425,8 @@
     height: 44px;
     min-height: 44px;
     padding: 0 8px 0 14px;
-    border: 1px solid color-mix(in srgb, var(--line) 82%, transparent);
     border-radius: 12px;
-    background: color-mix(in srgb, var(--panel-solid) 88%, transparent);
     color: var(--ink);
-    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
   }
 
   .topbar:not(.is-open) .mobile-menu-button::before {
@@ -1343,12 +1336,6 @@ html[lang="ko"] .portal-body .home-subscribe h2 {
   color: var(--ink);
 }
 
-.portal-body .home-subscribe-field input,
-.portal-body .home-subscribe-topics label {
-  border-color: color-mix(in srgb, var(--line) 78%, transparent);
-  background: rgba(0, 0, 0, 0.08);
-}
-
 @media (max-width: 900px) {
 
   .official-home-body .corporate-home-hero,
@@ -1438,12 +1425,6 @@ html[lang="ko"] .creator-studio-copy h1 {
   font-family: inherit;
 }
 
-.creator-studio-media {
-  border-color: color-mix(in srgb, var(--line) 80%, transparent);
-  background: color-mix(in srgb, var(--panel-solid) 88%, #000 12%);
-  box-shadow: none;
-}
-
 .creator-studio-media img {
   height: clamp(250px, 31vw, 380px);
   filter: saturate(0.74) contrast(0.98);
@@ -1476,9 +1457,6 @@ html[lang="ko"] .creator-studio-copy h1 {
   margin-top: 14px;
   padding: 0;
   overflow: hidden;
-  border: 1px solid color-mix(in srgb, var(--line) 82%, transparent);
-  border-radius: 12px;
-  background: color-mix(in srgb, var(--panel-solid) 78%, transparent);
 }
 
 .creator-stage-rail p {
@@ -1520,9 +1498,6 @@ html[lang="ko"] .creator-studio-copy h1 {
   grid-template-columns: minmax(104px, 140px) minmax(0, 1fr);
   gap: clamp(18px, 4vw, 48px);
   padding: clamp(24px, 4vw, 34px);
-  border: 1px solid color-mix(in srgb, var(--line) 82%, transparent);
-  border-radius: 12px;
-  background: color-mix(in srgb, var(--panel-solid) 78%, transparent);
 }
 
 .creator-page .creator-guide > article .eyebrow {
@@ -1537,7 +1512,6 @@ html[lang="ko"] .creator-page .creator-guide > article h2 {
   color: var(--ink);
   font-family: inherit;
   font-size: clamp(24px, 2.8vw, 34px);
-  font-weight: 700;
   line-height: 1.18;
 }
 
@@ -1586,15 +1560,8 @@ html[lang="ko"] .creator-page .creator-guide > article h2 {
   color: var(--muted);
 }
 
-.creator-page .creator-note {
-  border-color: color-mix(in srgb, var(--line) 84%, transparent);
-  background: rgba(255, 255, 255, 0.025);
-}
-
 .creator-page .creator-resource-links a {
   min-height: 44px;
-  border-color: color-mix(in srgb, var(--line) 84%, transparent);
-  background: rgba(255, 255, 255, 0.025);
   color: var(--ink);
 }
 
@@ -1735,19 +1702,6 @@ html[lang="ko"] .faq-archive-copy h1 {
 .status-list p,
 .security-checklist p {
   color: var(--muted);
-}
-
-.faq-page .button.primary,
-.faq-feedback-link {
-  border-color: rgba(255, 255, 255, 0.22);
-  background: var(--ink);
-  color: var(--bg);
-}
-
-.faq-archive-media {
-  border-color: var(--line);
-  background: var(--panel-solid);
-  box-shadow: none;
 }
 
 .faq-archive-media img {
@@ -2087,7 +2041,6 @@ html[lang="ko"] .about-hero h1 {
 .about-visual-panel {
   height: auto;
   min-height: 0;
-  box-shadow: none;
 }
 
 .bio-media-panel img,
@@ -2114,9 +2067,7 @@ html[lang="ko"] .about-hero h1 {
   justify-content: space-between;
   min-height: 48px;
   padding: 11px 12px;
-  border: 1px solid color-mix(in srgb, var(--line) 76%, transparent);
   border-radius: 12px;
-  background: color-mix(in srgb, var(--panel-solid) 84%, transparent);
 }
 
 .bio-media-panel figcaption span,
@@ -2156,9 +2107,6 @@ html[lang="ko"] .about-hero h1 {
 .sitemap-grid article {
   margin-top: 14px;
   padding: clamp(24px, 4vw, 34px);
-  border: 1px solid color-mix(in srgb, var(--line) 82%, transparent);
-  border-radius: 12px;
-  background: color-mix(in srgb, var(--panel-solid) 78%, transparent);
 }
 
 .bio-editorial-grid {
@@ -2185,7 +2133,6 @@ html[lang="ko"] .about-next-direction h2 {
   color: var(--ink);
   font-family: inherit;
   font-size: clamp(24px, 2.8vw, 34px);
-  font-weight: 700;
   line-height: 1.18;
 }
 
@@ -2247,8 +2194,6 @@ html[lang="ko"] .about-next-direction h2 {
 
 .bio-interests .likes-list span {
   min-height: 42px;
-  border-color: color-mix(in srgb, var(--line) 80%, transparent);
-  background: rgba(255, 255, 255, 0.025);
   color: var(--ink);
 }
 
@@ -2262,9 +2207,6 @@ html[lang="ko"] .about-next-direction h2 {
 .about-route-list,
 .sitemap-grid article {
   overflow: hidden;
-  border: 1px solid color-mix(in srgb, var(--line) 75%, transparent);
-  border-radius: 12px;
-  background: rgba(0, 0, 0, 0.08);
 }
 
 .about-principle-list li,
@@ -2541,7 +2483,6 @@ html[lang="ko"] .sitemap-copy h1 {
   color: var(--ink);
   font-family: inherit;
   font-size: clamp(22px, 2.5vw, 30px);
-  font-weight: 700;
   line-height: 1.2;
 }
 
@@ -2554,9 +2495,6 @@ html[lang="ko"] .sitemap-copy h1 {
 
 .sitemap-route-list {
   overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  background: color-mix(in srgb, var(--panel) 72%, transparent);
 }
 
 .sitemap-route-list a {
@@ -2772,7 +2710,6 @@ html[lang="ko"] .accessibility-official-hero h1 {
   color: var(--ink);
   font-family: inherit;
   font-size: clamp(21px, 2.3vw, 28px);
-  font-weight: 700;
   line-height: 1.22;
 }
 
@@ -2796,9 +2733,6 @@ html[lang="ko"] .accessibility-official-hero h1 {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  background: color-mix(in srgb, var(--panel) 72%, transparent);
 }
 
 .accessibility-limitations-grid article {
@@ -2848,21 +2782,12 @@ html[lang="ko"] .accessibility-official-hero h1 {
   justify-content: center;
   min-height: 42px;
   padding: 0 16px;
-  border: 1px solid #f0eee6;
   border-radius: 10px;
-  background: #f0eee6;
-  color: #11110f;
   font-size: 13px;
   font-weight: 650;
   line-height: 1.25;
   text-align: center;
   text-decoration: none;
-}
-
-.accessibility-standard-actions a:last-child {
-  border-color: var(--line);
-  background: transparent;
-  color: var(--ink);
 }
 
 .accessibility-standard-actions a:hover,
@@ -3385,7 +3310,6 @@ main.shell .eyebrow {
 .settings-modal {
   border: 1px solid var(--popup-border);
   border-radius: var(--popup-radius);
-  background: var(--popup-surface);
   color: var(--ink);
   box-shadow: var(--popup-shadow);
 }
@@ -3677,8 +3601,6 @@ main.shell .eyebrow {
   .context-mode-dialog .cache-dialog-panel {
     width: min(100%, 620px);
     max-height: calc(100dvh - 16px);
-    border: 1px solid var(--popup-border);
-    border-radius: var(--popup-radius);
     padding: 20px;
   }
 
@@ -3746,12 +3668,6 @@ main.shell .eyebrow {
   --creator-amber: color-mix(in srgb, var(--accent) 78%, var(--muted));
   --faq-warm: var(--accent);
   color: var(--ink);
-}
-
-[data-theme] body .topbar:not(.error-topbar) {
-  border-color: var(--line);
-  background: color-mix(in srgb, var(--nav-bg) 90%, transparent);
-  box-shadow: none;
 }
 
 [data-theme] .home-body .home-route-list a {
@@ -3909,8 +3825,6 @@ main.shell .eyebrow {
 [data-theme] body :is(
   main .activity-action-link[data-activity-clear]
 ) {
-  border-color: color-mix(in srgb, var(--danger-action-border) 72%, var(--line));
-  background: color-mix(in srgb, var(--danger-action-bg) 22%, var(--panel-solid));
   color: color-mix(in srgb, #ffffff 84%, var(--danger-action-hover));
 }
 
@@ -4055,9 +3969,6 @@ main.shell .eyebrow {
   gap: 1px;
   margin: 8px 0 0;
   overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  background: var(--line);
 }
 
 .status-overall-meta div {
@@ -4065,7 +3976,6 @@ main.shell .eyebrow {
   gap: 5px;
   min-width: 0;
   padding: 13px 14px;
-  background: var(--panel-solid);
 }
 
 .status-overall-meta dt,
@@ -4240,9 +4150,6 @@ html[lang="ko"] .terms-official-hero h1 {
   justify-content: center;
   min-height: 42px;
   padding: 0 15px;
-  border: 1px solid var(--legal-line-strong);
-  border-radius: 10px;
-  background: #1b1b19;
   color: var(--legal-ink);
   font-size: 13px;
   font-weight: 700;
@@ -4318,11 +4225,7 @@ html[lang="ko"] .terms-official-hero h1 {
   width: min(560px, 100%);
   gap: 16px;
   padding: 28px;
-  border: 1px solid var(--shortcut-line-strong);
-  border-radius: 12px;
-  background: var(--shortcut-surface);
   color: var(--shortcut-ink);
-  box-shadow: 0 30px 84px rgba(0, 0, 0, 0.58);
 }
 
 .keyboard-shortcuts-dialog .keyboard-shortcuts-dialog-panel > .eyebrow {
@@ -4419,10 +4322,6 @@ html[lang="ko"] .terms-official-hero h1 {
 
 .settings-dialog .settings-modal {
   color: var(--settings-modal-ink);
-}
-
-.settings-dialog .settings-modal-nav {
-  border-color: var(--settings-modal-line);
 }
 
 .settings-dialog .settings-modal-tab:hover,
@@ -4526,12 +4425,6 @@ html[lang="ko"] .terms-official-hero h1 {
   background: var(--settings-modal-control);
 }
 
-@media (max-width: 760px) {
-  .settings-dialog .settings-modal-nav {
-    border-color: var(--settings-modal-line);
-  }
-}
-
 /* Cookie preferences: compact, staged controls that describe actual storage use. */
 .cookie-settings-dialog {
   --cookie-surface: #111110;
@@ -4550,11 +4443,7 @@ html[lang="ko"] .terms-official-hero h1 {
   width: min(560px, 100%);
   gap: 0;
   padding: 28px;
-  border: 1px solid var(--cookie-line-strong);
-  border-radius: 12px;
-  background: var(--cookie-surface);
   color: var(--cookie-ink);
-  box-shadow: 0 32px 90px rgba(0, 0, 0, 0.62);
 }
 
 .cookie-settings-dialog .dialog-close-button {
@@ -4682,8 +4571,6 @@ html[lang="ko"] .terms-official-hero h1 {
 
 body .cookie-settings-dialog .cookie-settings-dialog-panel .cookie-settings-actions .cookie-settings-save {
   border-color: #f4f3ee;
-  background: #f4f3ee;
-  color: #111110;
 }
 
 body .cookie-settings-dialog .cookie-settings-dialog-panel .cookie-settings-actions .cookie-settings-save:hover,
@@ -4712,7 +4599,6 @@ body .cookie-settings-dialog .cookie-settings-dialog-panel .cookie-settings-acti
   padding: 22px;
   pointer-events: auto;
   transform-origin: left bottom;
-  box-shadow: 0 20px 56px rgba(0, 0, 0, 0.52);
 }
 
 .cookie-settings-dialog[data-cookie-first-visit="true"] h2 {
@@ -4916,8 +4802,6 @@ body .cookie-settings-dialog .cookie-settings-dialog-panel .cookie-settings-acti
   margin: 34px 0 0;
   aspect-ratio: 16 / 8;
   overflow: hidden;
-  border: 1px solid var(--line);
-  background: var(--panel-solid);
 }
 
 .baldi-project-media img {
@@ -5394,9 +5278,6 @@ body .cookie-settings-dialog .cookie-settings-dialog-panel .cookie-settings-acti
   flex-direction: column;
   align-items: flex-start;
   padding: 28px;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  background: var(--panel-solid);
 }
 
 .uiux-project-media img {

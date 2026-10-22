@@ -30,7 +30,6 @@
 [data-kid-mode="soft"] .faq-topic-nav a,
 [data-kid-mode="soft"] .info-tabs button,
 [data-kid-mode="soft"] .feedback-cta {
-  min-height: 58px;
   font-size: 16px;
 }
 
@@ -42,7 +41,6 @@
 [data-kid-mode="strong"] .faq-topic-nav a,
 [data-kid-mode="strong"] .info-tabs button,
 [data-kid-mode="strong"] .feedback-cta {
-  min-height: 64px;
   font-size: 17px;
 }
 
@@ -944,10 +942,6 @@ summary {
 
   [data-nav-layout="sidebar"] .nav-menu-group[data-nav-menu-group="utility"] .nav-section-label {
     margin-top: 0;
-  }
-
-  [data-nav-layout="sidebar"] .nav-section-label {
-    line-height: 1;
   }
 
   [data-nav-layout="sidebar"] .nav-links a {
@@ -2732,8 +2726,6 @@ h2 {
   width: 100%;
   min-height: 52px;
   padding: 0 16px;
-  border: 1px solid rgba(247, 242, 232, 0.2);
-  border-radius: 12px;
   color: #fffaf0;
   font: inherit;
   font-weight: 600;
@@ -2770,8 +2762,6 @@ h2 {
   min-width: 0;
   min-height: 44px;
   padding: 10px 12px;
-  border: 1px solid rgba(247, 242, 232, 0.15);
-  border-radius: 12px;
   color: rgba(247, 242, 232, 0.82);
   font-size: 13px;
   font-weight: 650;

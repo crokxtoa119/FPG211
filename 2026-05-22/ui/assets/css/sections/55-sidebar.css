@@ -35,15 +35,7 @@
 
   /* Group labels */
   html[data-nav-layout="sidebar"][data-theme] body .topbar .nav-section-label {
-    color: var(--muted);
-    font-weight: 500;
-    letter-spacing: 0;
     text-transform: none;
-    opacity: 0.8;
-  }
-
-  html[data-nav-layout="sidebar"][data-theme] body .topbar .nav-menu-group:first-child .nav-section-label {
-    margin-top: 6px;
   }
 
   /* Items */
@@ -124,8 +116,6 @@
   /* Account row at the bottom */
   html[data-nav-layout="sidebar"][data-theme] body .topbar .sidebar-account-trigger {
     gap: 10px;
-    border: 0;
-    background: transparent;
     box-shadow: none;
     color: var(--ink);
   }
@@ -137,10 +127,6 @@
 
   html[data-nav-layout="sidebar"][data-theme] body .topbar .sidebar-account-avatar {
     border-radius: 999px;
-  }
-
-  html[data-nav-layout="sidebar"][data-theme] body .topbar .sidebar-account-copy strong {
-    font-weight: 600;
   }
 
   html[data-nav-layout="sidebar"][data-theme] body .topbar .sidebar-account-copy small {

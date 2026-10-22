@@ -34,8 +34,6 @@ html[data-theme="light"] body :is(.settings-dialog, .settings-modal-shell, .sett
 html[data-theme] body :is(.settings-dialog, .settings-modal-shell, .settings-full) .settings-modal-nav {
   gap: 2px;
   padding: 12px 10px;
-  border-right: 1px solid var(--line);
-  background: var(--sidebar-bg);
 }
 
 html[data-theme] body :is(.settings-dialog, .settings-modal-shell, .settings-full) .settings-modal-close {
@@ -79,10 +77,7 @@ html[data-theme] body :is(.settings-dialog, .settings-modal-shell, .settings-ful
   flex: none;
   width: 20px;
   height: 20px;
-  padding: 3px;
   border-radius: 5px;
-  background: var(--tint, #8e8e93);
-  color: #ffffff;
   stroke: currentColor;
   stroke-width: 2.1;
 }
@@ -93,15 +88,6 @@ html[data-theme] body :is(.settings-dialog, .settings-modal-shell, .settings-ful
 html[data-theme] body :is(.settings-dialog, .settings-modal-shell, .settings-full) [data-settings-modal-tab="security"] { --tint: #5e5ce6; }
 html[data-theme] body :is(.settings-dialog, .settings-modal-shell, .settings-full) [data-settings-modal-tab="profile"] { --tint: #30d158; }
 html[data-theme] body :is(.settings-dialog, .settings-modal-shell, .settings-full) [data-settings-modal-tab="context"] { --tint: #ff9f0a; }
-
-html[data-theme] body :is(.settings-dialog, .settings-modal-shell, .settings-full) .settings-modal-tab.is-active {
-  background: var(--brand);
-  color: #ffffff;
-}
-
-html[data-theme] body :is(.settings-dialog, .settings-modal-shell, .settings-full) .settings-modal-tab.is-active svg {
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.35);
-}
 
 /* Content pane */
 html[data-theme] body :is(.settings-dialog, .settings-modal-shell, .settings-full) .settings-modal-content {
@@ -130,14 +116,11 @@ html[data-theme] body :is(.settings-dialog, .settings-modal-shell, .settings-ful
   padding: 10px 14px;
   border: 0;
   border-radius: 0;
-  background: var(--settings-group);
-  box-shadow: inset 0 1px 0 var(--settings-group-line);
 }
 
 html[data-theme] body :is(.settings-dialog, .settings-modal-shell, .settings-full) .settings-modal-row:first-of-type {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  box-shadow: none;
 }
 
 html[data-theme] body :is(.settings-dialog, .settings-modal-shell, .settings-full) .settings-modal-row:last-of-type {
@@ -182,11 +165,8 @@ html[data-theme] body :is(.settings-dialog, .settings-modal-shell, .settings-ful
   min-width: 0;
   min-height: 26px;
   padding: 0 6px 0 10px;
-  border: 1px solid var(--line);
   border-radius: 6px;
-  background: var(--settings-control-bg);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
-  color: var(--ink);
   font-size: 13px;
   font-weight: 400;
 }
@@ -290,8 +270,6 @@ html[data-theme] body :is(.settings-dialog, .settings-modal-shell, .settings-ful
 @media (max-width: 760px) {
   html[data-theme] body :is(.settings-dialog, .settings-modal-shell, .settings-full) .settings-modal-nav {
     gap: 4px;
-    border-right: 0;
-    border-bottom: 1px solid var(--line);
   }
 
   html[data-theme] body :is(.settings-dialog, .settings-modal-shell, .settings-full) .settings-modal-tab {
@@ -333,9 +311,7 @@ html[data-theme] body .settings-full .settings-search {
   max-width: 420px;
   height: 36px;
   padding: 0 12px;
-  border: 1px solid var(--line);
   border-radius: 8px;
-  background: var(--settings-group);
 }
 
 html[data-theme] body .settings-full .settings-search:focus-within {
@@ -358,9 +334,7 @@ html[data-theme] body .settings-full .settings-search input {
   min-width: 0;
   height: 100%;
   padding: 0;
-  border: 0;
   outline: 0;
-  background: transparent;
   color: var(--ink);
   font: inherit;
   font-size: 14px;
@@ -408,9 +382,7 @@ html[data-theme] body .settings-full .settings-modal-nav {
   margin: 0 0 24px;
   padding: 4px;
   overflow: visible;
-  border: 1px solid var(--line);
   border-radius: 10px;
-  background: var(--settings-group);
 }
 
 html[data-theme] body .settings-full .settings-modal-close {
@@ -438,7 +410,6 @@ html[data-theme] body .settings-full .settings-modal-content {
 html[data-theme] body .settings-full .settings-modal-panel > :is(h1, h2) {
   margin: 0 0 10px;
   font-size: 17px;
-  font-weight: 600;
 }
 
 /* Searching: every pane opens, non-matching rows and panes hide */
